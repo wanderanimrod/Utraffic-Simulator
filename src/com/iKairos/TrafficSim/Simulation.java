@@ -1,8 +1,5 @@
 package com.iKairos.TrafficSim;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 import com.iKairos.TrafficSim.Agents.Car;
 import com.iKairos.TrafficSim.Agents.Vehicle;
 import com.iKairos.TrafficSim.Models.LaneChangeModel;
@@ -11,6 +8,9 @@ import com.iKairos.TrafficSim.Network.EdgeType;
 import com.iKairos.TrafficSim.Network.Lane;
 import com.iKairos.Utils.u;
 import com.iKairos.Utils.u.CSV;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 
 // TODO: Auto-generated Javadoc

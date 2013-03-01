@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.iKairos.TrafficSim.Agents.Vehicle;
+import com.iKairos.TrafficSim.Agents.VehicleComparator;
 import com.iKairos.TrafficSim.Simulation.SimConstants;
 import com.iKairos.Utils.u;
 
@@ -229,7 +230,7 @@ public class Network {
 		}
 		
 		/**
-		 * @param vehicle The Vehicle requesting the services of this method
+		 * @param requester The Vehicle requesting the services of this method
 		 * @return The vehicle ahead of requester in this lane, <b>null<b> if the requester is the
 		 * leading vehicle on the lane. Client code should appropriately handle the null response.
 		 */
@@ -239,7 +240,7 @@ public class Network {
 			
 			u.println("Vehicles currently on lane " + this.id + " are:");
 			for (Vehicle vehicle: this.vehicles) {
-				u.println("App Id = " + vehicle.id + " | pos = " + vehicle.getPosition() + " | vel = " + vehicle.getVelocity());
+				u.println("App Id = " + vehicle.getId() + " | pos = " + vehicle.getPosition() + " | vel = " + vehicle.getVelocity());
 			}
 			u.println("Requester Vehicle " + requester.getId() + " is in position " + requesterPos + " of lane " + this.id + "\n");
 			//u.println("Requester is object \"" + requester + "\"; Array has object \"" + this.vehicles.get(0) + "\"\n");
@@ -268,7 +269,7 @@ public class Network {
 		 * @return The vehicle behind of requester in this lane, <b>null</b> if the requester is the
 		 * last vehicle on the lane. Client code should appropriately handle the null response.
 		 */
-		public Vehicle getFollower (com.iKairos.TrafficSim.Agents.Vehicle vehicle) {
+		public Vehicle getFollower (Vehicle vehicle) {
 			
 			int requesterPos = vehicles.indexOf(vehicle);
 			
@@ -290,7 +291,7 @@ public class Network {
 		}
 		
 		/**
-		 * @param vehicle The Vehicle requesting the services of this method
+		 * @param requester The Vehicle requesting the services of this method
 		 * @return The vehicle that will be ahead of requester if the requester changes lanes into this lane,
 		 * <b>null</b> if the requester will be the leading vehicle on the lane. 
 		 * Client code should appropriately handle the null response.
@@ -299,7 +300,7 @@ public class Network {
 		 * instances where the requester is not changing lanes.
 		 */
 		@SuppressWarnings("unchecked")
-		public Vehicle getProspectiveLeadingVehicle (com.iKairos.TrafficSim.Agents.Vehicle requester) {
+		public Vehicle getProspectiveLeadingVehicle (Vehicle requester) {
 			
 			//Create a dummy copy of vehicles on this lane into which the requester can be superficiously inserted.
 			ArrayList<Vehicle> dummyVehicles = (ArrayList<Vehicle>)vehicles.clone();
@@ -341,13 +342,13 @@ public class Network {
 		}
 		
 		/**
-		 * @param vehicle The Vehicle requesting the services of this method
+		 * @param requester The Vehicle requesting the services of this method
 		 * @return The vehicle that will be behind of requester if the requester changes lanes into this lane,
 		 * <b>null</b> if the requester will be the last vehicle on the lane. 
 		 * Client code should appropriately handle the null response.
 		 */
 		@SuppressWarnings("unchecked")
-		public Vehicle getProspectiveFollower (com.iKairos.TrafficSim.Agents.Vehicle requester) {
+		public Vehicle getProspectiveFollower (Vehicle requester) {
 			
 			//Create a dummy copy of vehicles on this lane into which the requester can be superficiously inserted.
 			ArrayList<Vehicle> dummyVehicles = (ArrayList<Vehicle>) vehicles.clone();
@@ -530,7 +531,7 @@ public class Network {
 			}*/
 			
 			vehicles.add(vehicle);
-			Collections.sort(vehicles, new Agents().new VehicleComparator());
+			Collections.sort(vehicles, new VehicleComparator());
 		}
 	}
 }
