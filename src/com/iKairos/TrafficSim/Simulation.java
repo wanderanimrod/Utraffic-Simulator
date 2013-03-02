@@ -4,8 +4,8 @@ import com.iKairos.TrafficSim.Agents.Car;
 import com.iKairos.TrafficSim.Agents.Vehicle;
 import com.iKairos.TrafficSim.Models.LaneChangeModel;
 import com.iKairos.TrafficSim.Network.Edge;
-import com.iKairos.TrafficSim.Network.EdgeType;
 import com.iKairos.TrafficSim.Network.Lane;
+import com.iKairos.TrafficSim.Network.Network;
 import com.iKairos.Utils.u;
 import com.iKairos.Utils.u.CSV;
 
@@ -86,11 +86,6 @@ public class Simulation {
 	 */
 	public static void main(String[] args) {
 		
-		/*//Create Network and get its state
-		Network net = new Network();
-		net.getStatus();*//*
-		System.out.print(Runtime.getRuntime().availableProcessors());*/
-		
 		Simulation simulation = new Simulation();
 		simulation.start();
 	}
@@ -126,12 +121,12 @@ public class Simulation {
 		
 		//Create and populate network
 		network = new Network();
-		Edge edge = new Edge(0, EdgeType.ONE_WAY, 1000);
-		//Edge edge = new Edge(0, EdgeType.NORMAL, 1000);
+		Edge edge = new Edge(0, Edge.EdgeType.ONE_WAY_MULTIPLE_LANES, 1000);
+		//Edge edge = new Edge(0, EdgeType.TWO_WAY_RURAL_ROAD, 1000);
 		edge.addLane(new Lane(0));
 		edge.addLane(new Lane(1));
 		network.addEdge(edge);
-		network.finalise();
+		network.optimise();
 	}
 	
 	/**
@@ -169,10 +164,10 @@ public class Simulation {
 		//Introduce another blockage in lane 1 10 meters ahead of the blockage in lane 0 to see how cars maneuver about this.
 		
 		//Insert the vehicles into the network
-		network.getEdge(0).getLane(0).insertVehicleAtCurrentPosition(car3);
-		network.getEdge(0).getLane(0).insertVehicle(car0);
-		network.getEdge(0).getLane(1).insertVehicle(car1);
-		network.getEdge(0).getLane(0).insertVehicle(car2);
+		network.getEdge(0).getLane(0).insertVehicleAtItsCurrentPosition(car3);
+		network.getEdge(0).getLane(0).insertVehicleAtTheStartOfTheLane(car0);
+		network.getEdge(0).getLane(1).insertVehicleAtTheStartOfTheLane(car1);
+		network.getEdge(0).getLane(0).insertVehicleAtTheStartOfTheLane(car2);
 		
 	}
 	
@@ -204,7 +199,7 @@ public class Simulation {
 			/*if (vehicles.get(0).translate(refreshRate/1000.0d) == true) {
 				
 				//Remove vehicle from lane if it can be inserted into its next lane
-				vehicles.get(0).getCurrentLane().removeVehicle();
+				vehicles.get(0).getCurrentLane().removeLeadingVehicle();
 				
 				//TODO Insert the vehicle into its next lane in the vehicle's OD matrix
 				

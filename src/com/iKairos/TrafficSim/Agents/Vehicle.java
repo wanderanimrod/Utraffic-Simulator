@@ -87,7 +87,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
     public void changeLane(Lane targetLane) {
 
-        targetLane.insertVehicleAtCurrentPosition(this);
+        targetLane.insertVehicleAtItsCurrentPosition(this);
         currentLane.removeVehicle(this);
         this.setCurrentLane(targetLane);
 
