@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 import com.iKairos.TrafficSim.Agents.Vehicle;
-import com.iKairos.TrafficSim.Agents.VehicleComparator;
 import com.iKairos.TrafficSim.Simulation.SimConstants;
 import com.iKairos.Utils.u;
 
@@ -531,7 +530,7 @@ public class Network {
 			}*/
 			
 			vehicles.add(vehicle);
-			Collections.sort(vehicles, new VehicleComparator());
+			Collections.sort(vehicles);
 		}
 	}
 }

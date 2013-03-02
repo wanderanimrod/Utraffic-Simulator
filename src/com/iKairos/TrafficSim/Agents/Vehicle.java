@@ -5,7 +5,7 @@ import com.iKairos.TrafficSim.Network.Lane;
 import com.iKairos.TrafficSim.Simulation.SimConstants;
 import com.iKairos.Utils.u;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements Comparable<Vehicle> {
 
     protected int id = -1;
     protected double position = 0.0d;
@@ -149,5 +149,15 @@ public abstract class Vehicle {
 
     public void setPosition(double position) {
         this.position = position;
+    }
+
+    @Override
+    public int compareTo(Vehicle vehicle) {
+        if(this.getPosition() > vehicle.getPosition())
+            return  -1;
+        else if(this.getPosition() < vehicle.getPosition())
+            return 1;
+        else
+            return 0;
     }
 }
