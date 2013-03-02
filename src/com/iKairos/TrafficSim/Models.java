@@ -1,7 +1,7 @@
 package com.iKairos.TrafficSim;
 
 import com.iKairos.TrafficSim.Agents.Vehicle;
-import com.iKairos.TrafficSim.Network.Edge.EdgeType;
+import com.iKairos.TrafficSim.Network.EdgeType;
 import com.iKairos.TrafficSim.Network.Lane;
 import com.iKairos.TrafficSim.Simulation.SimConstants;
 

@@ -4,6 +4,7 @@ import com.iKairos.TrafficSim.Agents.Car;
 import com.iKairos.TrafficSim.Agents.Vehicle;
 import com.iKairos.TrafficSim.Models.LaneChangeModel;
 import com.iKairos.TrafficSim.Network.Edge;
+import com.iKairos.TrafficSim.Network.EdgeType;
 import com.iKairos.TrafficSim.Network.Lane;
 import com.iKairos.TrafficSim.Network.Network;
 import com.iKairos.Utils.u;
@@ -121,7 +122,7 @@ public class Simulation {
 		
 		//Create and populate network
 		network = new Network();
-		Edge edge = new Edge(0, Edge.EdgeType.ONE_WAY_MULTIPLE_LANES, 1000);
+		Edge edge = new Edge(0, EdgeType.ONE_WAY_MULTIPLE_LANES, 1000);
 		//Edge edge = new Edge(0, EdgeType.TWO_WAY_RURAL_ROAD, 1000);
 		edge.addLane(new Lane(0));
 		edge.addLane(new Lane(1));
