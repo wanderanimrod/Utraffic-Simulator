@@ -1,7 +1,7 @@
 package com.iKairos.TrafficSim.Network;
 
 import com.iKairos.TrafficSim.Agents.Vehicle;
-import com.iKairos.TrafficSim.Simulation;
+import com.iKairos.TrafficSim.Models.Constants;
 import com.iKairos.Utils.u;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class Lane {
             return this.vehicles.get(requesterPos - 1);
         }
         else {
-            return Simulation.SimConstants.dummyLeadingVehicle;
+            return Constants.dummyLeadingVehicle;
         }
     }
 
@@ -65,7 +65,7 @@ public class Lane {
             return dummyVehicles.get(requesterPos - 1);
         }
         else {
-            return Simulation.SimConstants.dummyLeadingVehicle;
+            return Constants.dummyLeadingVehicle;
         }
     }
 
@@ -108,11 +108,6 @@ public class Lane {
 
     public synchronized void insertVehicleAtItsCurrentPosition(Vehicle vehicle) {
         insertVehicleAndMaintainOrder(vehicle, this.vehicles);
-    }
-
-    public synchronized void removeLeadingVehicle() {
-
-        vehicles.remove(0);
     }
 
     public synchronized void removeVehicle(Vehicle vehicle) {

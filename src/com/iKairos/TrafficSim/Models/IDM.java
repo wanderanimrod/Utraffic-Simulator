@@ -1,7 +1,6 @@
 package com.iKairos.TrafficSim.Models;
 
 import com.iKairos.TrafficSim.Agents.Vehicle;
-import com.iKairos.TrafficSim.Simulation;
 
 /**
  * Based on the Intelligent Driver Model by Treiber et al.
@@ -14,9 +13,9 @@ public class IDM {
     private double so;
 
     public IDM() {
-        T = Simulation.SimConstants.safeTimeHeadway;
-        delta = Simulation.SimConstants.accelerationExponent;
-        so = Simulation.SimConstants.minJamDistance;
+        T = Constants.safeTimeHeadway;
+        delta = Constants.accelerationExponent;
+        so = Constants.minJamDistance;
     }
 
     public double calculateAcceleration (Vehicle leader, Vehicle requester) {
@@ -28,8 +27,6 @@ public class IDM {
         double s = leader.getPosition() - requester.getPosition() - leader.getLength();
         double sStar = so + (v*T) + ((v*deltaV) / (2*Math.sqrt(a*b)));
 
-        double acceleration = a * (1 - Math.pow((v/requester.getDesiredVelocity()), delta) - (Math.pow((sStar/s), 2)));
-
-        return acceleration;
+        return a * (1 - Math.pow((v/requester.getDesiredVelocity()), delta) - (Math.pow((sStar/s), 2)));
     }
 }

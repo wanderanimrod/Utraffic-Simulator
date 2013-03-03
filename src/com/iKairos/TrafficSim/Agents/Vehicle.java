@@ -1,8 +1,8 @@
 package com.iKairos.TrafficSim.Agents;
 
+import com.iKairos.TrafficSim.Models.Constants;
 import com.iKairos.TrafficSim.Network.Edge;
 import com.iKairos.TrafficSim.Network.Lane;
-import com.iKairos.TrafficSim.Simulation.SimConstants;
 import com.iKairos.Utils.u;
 
 public abstract class Vehicle implements Comparable<Vehicle> {
@@ -11,14 +11,14 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     protected double position = 0.0d;
     protected double velocity = 0.0d;
     protected double acceleration = 0.0d;
-    protected double desiredVelocity = SimConstants.desiredVelocity;
-    protected double maxAcceleration = SimConstants.maxAcceleration;
+    protected double desiredVelocity = Constants.desiredVelocity;
+    protected double maxAcceleration = Constants.maxAcceleration;
     protected Edge currentEdge;
     protected Lane currentLane;
-    protected double desiredDeceleration = SimConstants.desiredDeceleration;
-    protected int desiredLane = SimConstants.desiredLane;
-    protected double length = SimConstants.vehicleLength;
-    protected double politeness = SimConstants.driverPoliteness;
+    protected double desiredDeceleration = Constants.desiredDeceleration;
+    protected int desiredLane = Constants.desiredLane;
+    protected double length = Constants.vehicleLength;
+    protected double politeness = Constants.driverPoliteness;
 
     public Vehicle(int id) {
 
@@ -30,7 +30,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
         Vehicle leadingVehicle = this.currentLane.getLeadingVehicle(this);
 
-        this.acceleration = SimConstants.idm.calculateAcceleration(leadingVehicle, this);
+        this.acceleration = Constants.idm.calculateAcceleration(leadingVehicle, this);
 
         double newVelocity = this.velocity + this.acceleration * changeInTime;
         if (newVelocity < 0) {
@@ -44,7 +44,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         }
         this.position += displacement;
 
-        SimConstants.laneChangeModel.ChangeLaneIfNecessary(this);
+        Constants.laneChangeModel.changeLaneIfNecessary(this);
 
         return false;
     }
