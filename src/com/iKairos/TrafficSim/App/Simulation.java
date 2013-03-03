@@ -9,8 +9,7 @@ import com.iKairos.TrafficSim.Network.Edge;
 import com.iKairos.TrafficSim.Network.EdgeType;
 import com.iKairos.TrafficSim.Network.Lane;
 import com.iKairos.TrafficSim.Network.Network;
-import com.iKairos.Utils.u;
-import com.iKairos.Utils.u.CSV;
+import com.iKairos.Utils.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,7 +26,7 @@ public class Simulation {
 
     private void instantiate() {
 
-        Constants.idm = new IDM();
+        Constants.idm = IDM.getInstance();
 		Constants.laneChangeModel = new LaneChangeModel();
 
 		Constants.dummyLeadingVehicle = new Car(-1);
@@ -88,7 +87,7 @@ public class Simulation {
 		
 		for (int i = 0; i < 700; i++) {
 
-			u.println("Translation " + i + "\n");
+			System.out.println("Translation " + i + "\n");
 
             vehicles.get(0).translate(refreshRate/1000.0d);
 
@@ -99,20 +98,26 @@ public class Simulation {
 				vehicles.get(2).translate(refreshRate/1000.0d);
 
 			output.appendToNewLine(Double.toString(vehicles.get(0).getPosition()));
-			output.appendToRow(Double.toString(vehicles.get(0).getAcceleration()));
-			output.appendToRow(Double.toString(vehicles.get(0).getVelocity()));
-			output.appendToRow(Integer.toString(vehicles.get(0).getCurrentLane().getId()));
-			output.appendToRow(Double.toString(vehicles.get(1).getPosition()));
-			output.appendToRow(Double.toString(vehicles.get(1).getAcceleration()));
-			output.appendToRow(Double.toString(vehicles.get(1).getVelocity()));
-			output.appendToRow(Integer.toString(vehicles.get(1).getCurrentLane().getId()));
-			output.appendToRow(Double.toString(vehicles.get(2).getPosition()));
-			output.appendToRow(Double.toString(vehicles.get(2).getAcceleration()));
-			output.appendToRow(Double.toString(vehicles.get(2).getVelocity()));
-			output.appendToRow(Integer.toString(vehicles.get(2).getCurrentLane().getId()));
-		}
-		u.println("Elapsed Time: " + (new Date().getTime() - startTime.getTime() )/1000.0d + " seconds");
-		u.println("Output saved = " + output.save());
+
+            try {
+                output.appendToRow(Double.toString(vehicles.get(0).getAcceleration()));
+                output.appendToRow(Double.toString(vehicles.get(0).getVelocity()));
+                output.appendToRow(Integer.toString(vehicles.get(0).getCurrentLane().getId()));
+                output.appendToRow(Double.toString(vehicles.get(1).getPosition()));
+                output.appendToRow(Double.toString(vehicles.get(1).getAcceleration()));
+                output.appendToRow(Double.toString(vehicles.get(1).getVelocity()));
+                output.appendToRow(Integer.toString(vehicles.get(1).getCurrentLane().getId()));
+                output.appendToRow(Double.toString(vehicles.get(2).getPosition()));
+                output.appendToRow(Double.toString(vehicles.get(2).getAcceleration()));
+                output.appendToRow(Double.toString(vehicles.get(2).getVelocity()));
+                output.appendToRow(Integer.toString(vehicles.get(2).getCurrentLane().getId()));
+            }
+            catch (com.iKairos.Utils.IllegalArgumentException ex) {
+                ex.printStackTrace();
+            }
+        }
+        System.out.println("Elapsed Time: " + (new Date().getTime() - startTime.getTime()) / 1000.0d + " seconds");
+        System.out.println("Output saved = " + output.save());
 	}	
 
 	public void start() {

@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12bd2935-d556-4e8e-9173-4ede98659356" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/iKairos/Utils/IllegalArgumentException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/iKairos/Utils/Numbers.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/E:\Nimrod\work\Traffic\Software\Models and Testing\MOBIL Testing.csv" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/Utils/CSV.java" afterPath="$PROJECT_DIR$/src/com/iKairos/Utils/CSV.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/Utils/FileUtils.java" afterPath="$PROJECT_DIR$/src/com/iKairos/Utils/FileUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Models/IDMTest.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Models/IDMTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/Simulation.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/Simulation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/Utils/u.java" afterPath="$PROJECT_DIR$/src/com/iKairos/Utils/u.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Agents/VehicleTest.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Agents/VehicleTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/Utils/u.CSV.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/Utils/u.CSV.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/Utils/class-use/u.CSV.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/Utils/class-use/u.CSV.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/Utils/u.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/Utils/u.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/Utils/class-use/u.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/Utils/class-use/u.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TrafficSim.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -16,14 +28,14 @@
     <file path="/Vehicle.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362242220265" ignored="false" />
     <file path="/Network.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362244429260" ignored="false" />
     <file path="/VehicleComparator.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362163789514" ignored="false" />
-    <file path="/fragment.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362294157724" ignored="false" />
+    <file path="/fragment.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362328016341" ignored="false" />
     <file path="/VehicleComparatorTest.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362164746429" ignored="false" />
     <file path="/Edge.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362248592924" ignored="false" />
     <file path="/a.dummy" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362245298928" ignored="false" />
     <file path="/EdgeTest.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362294161263" ignored="false" />
     <file path="/Dummy.txt" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362300244678" ignored="false" />
-    <file path="/Refactoring Notes" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362314763813" ignored="false" />
-    <file path="/IDM.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362297428138" ignored="false" />
+    <file path="/Refactoring Notes" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362315048177" ignored="false" />
+    <file path="/IDM.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362333976687" ignored="false" />
     <file path="/LaneChangeModel.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362312905529" ignored="false" />
     <file path="$USER_HOME$/Documents/ThoughtWorks/TWU/FreeWheelers/trunk/build.xml" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362312297065" ignored="false" />
     <file path="$USER_HOME$/Documents/ThoughtWorks/TWU/FreeWheelers/trunk/src/test/java/functional/com/trailblazers/freewheelers/ReserveConfirmationTest.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362312297065" ignored="false" />
@@ -82,7 +94,12 @@
     <file path="$USER_HOME$/Documents/ThoughtWorks/TWU/FreeWheelers/trunk/src/main/java/com/trailblazers/freewheelers/service/impl/ItemServiceImpl.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362312297067" ignored="false" />
     <file path="$USER_HOME$/Documents/ThoughtWorks/TWU/FreeWheelers/trunk/src/main/java/com/trailblazers/freewheelers/service/impl/AccountServiceImpl.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362312297067" ignored="false" />
     <file path="$USER_HOME$/Documents/ThoughtWorks/TWU/FreeWheelers/trunk/src/test/java/functional/com/trailblazers/freewheelers/ChangePasswordTest.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362312297067" ignored="false" />
-    <file path="/Simulation.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362314339964" ignored="false" />
+    <file path="/Simulation.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362333570987" ignored="false" />
+    <file path="/VehicleTest.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362325387377" ignored="false" />
+    <file path="/IDMTest.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362333550576" ignored="false" />
+    <file path="/CSV.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362328575598" ignored="false" />
+    <file path="/IllegalArgumentException.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362329124615" ignored="false" />
+    <file path="/Math.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362331413595" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,19 +163,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Refactoring Notes" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes">
+      <file leaf-file-name="Vehicle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="55" selection-start="911" selection-end="911" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Simulation.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/Simulation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="20" selection-start="920" selection-end="920" vertical-scroll-proportion="-0.9214876">
+            <state line="140" column="34" selection-start="3695" selection-end="3695" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -169,8 +177,59 @@
       <file leaf-file-name="Constants.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="42" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0">
+            <state line="18" column="22" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IDM.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="10" selection-start="381" selection-end="387" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IDMTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Models/IDMTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="37" selection-start="476" selection-end="476" vertical-scroll-proportion="0.3305785">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Numbers.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/iKairos/Utils/Numbers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="44" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Simulation.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/Simulation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="42" selection-start="827" selection-end="827" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LaneChangeModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="16" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -193,22 +252,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/LaneGradient.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Edge.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Network/EdgeTest.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Models.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Simulation.java" />
-        <option value="$PROJECT_DIR$/.idea/dictionaries/Nimrod.xml" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/SimConstants.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/Constants.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Agents/VehicleTest.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/Utils/u.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/Utils/Console.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/Utils/FileUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/Utils/CSV.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/Utils/IllegalArgumentException.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/Utils/Math.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/Simulation.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Models/IDMTest.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" />
       </list>
     </option>
   </component>
@@ -217,6 +276,34 @@
     <option name="width" value="1440" />
     <option name="height" value="874" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>Data flow issues</id>
+          </State>
+          <State>
+            <id>Data flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
@@ -224,7 +311,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -329,6 +416,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Network" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -355,7 +446,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrafficSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrafficSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iKairos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrafficSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Network" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -411,20 +528,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TrafficSim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TrafficSim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -435,7 +538,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="options.lastSelected" value="editing.templates" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -452,101 +555,18 @@
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.iKairos.TrafficSim.test" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.iKairos.TrafficSim.test.Models" />
+      <recent name="com.iKairos.TrafficSim.test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/com/iKairos/TrafficSim" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VehicleTest">
-    <configuration default="false" name="EdgeTest.shouldGetNextLaneAs1IfIdOfCurrentLaneIs0OnRuralRoad" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.iKairos.TrafficSim.test.Network.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="TrafficSim" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.iKairos.TrafficSim.test.Network" />
-      <option name="MAIN_CLASS_NAME" value="com.iKairos.TrafficSim.test.Network.EdgeTest" />
-      <option name="METHOD_NAME" value="shouldGetNextLaneAs1IfIdOfCurrentLaneIs0OnRuralRoad" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="com.iKairos.TrafficSim.test in TrafficSim" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.iKairos.TrafficSim.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="TrafficSim" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.iKairos.TrafficSim.test" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="com.iKairos.TrafficSim in TrafficSim" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.iKairos.TrafficSim.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="TrafficSim" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.iKairos.TrafficSim" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Cover" />
-      <ConfigurationWrapper RunnerId="Cover" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.IDMTest.shouldReturnAcceleration0_730ForLeadingVehicle">
     <configuration default="false" name="Simulation" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -583,6 +603,90 @@
       <option name="MAIN_CLASS_NAME" value="com.iKairos.TrafficSim.test.Agents.VehicleTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="VehicleTest.shouldLeaveCurrentLaneAfterLaneChange" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.iKairos.TrafficSim.test.Agents.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="TrafficSim" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.iKairos.TrafficSim.test.Agents" />
+      <option name="MAIN_CLASS_NAME" value="com.iKairos.TrafficSim.test.Agents.VehicleTest" />
+      <option name="METHOD_NAME" value="shouldLeaveCurrentLaneAfterLaneChange" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="IDMTest.shouldReturnAccelerationXForLeadingVehicle" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.iKairos.TrafficSim.test.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="TrafficSim" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.iKairos.TrafficSim.test.Models" />
+      <option name="MAIN_CLASS_NAME" value="com.iKairos.TrafficSim.test.Models.IDMTest" />
+      <option name="METHOD_NAME" value="shouldReturnAccelerationXForLeadingVehicle" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="IDMTest.shouldReturnAcceleration0_730ForLeadingVehicle" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.iKairos.TrafficSim.test.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="TrafficSim" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.iKairos.TrafficSim.test.Models" />
+      <option name="MAIN_CLASS_NAME" value="com.iKairos.TrafficSim.test.Models.IDMTest" />
+      <option name="METHOD_NAME" value="shouldReturnAcceleration0_730ForLeadingVehicle" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -696,19 +800,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.EdgeTest.shouldGetNextLaneAs1IfIdOfCurrentLaneIs0OnRuralRoad" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.com.iKairos.TrafficSim.test in TrafficSim" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.com.iKairos.TrafficSim in TrafficSim" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Simulation" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.VehicleTest" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Simulation" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.VehicleTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.VehicleTest.shouldLeaveCurrentLaneAfterLaneChange" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.IDMTest.shouldReturnAccelerationXForLeadingVehicle" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.IDMTest.shouldReturnAcceleration0_730ForLeadingVehicle" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.VehicleTest" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Simulation" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.com.iKairos.TrafficSim in TrafficSim" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.com.iKairos.TrafficSim.test in TrafficSim" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.EdgeTest.shouldGetNextLaneAs1IfIdOfCurrentLaneIs0OnRuralRoad" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.IDMTest.shouldReturnAcceleration0_730ForLeadingVehicle" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.IDMTest.shouldReturnAccelerationXForLeadingVehicle" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.VehicleTest.shouldLeaveCurrentLaneAfterLaneChange" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.VehicleTest" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Simulation" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -753,9 +857,10 @@
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32891247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -772,7 +877,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20229556" sideWeight="0.69893897" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.301061" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.301061" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.69893897" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -841,112 +946,117 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Network.java">
+    <entry file="file://$PROJECT_DIR$/doc/com/iKairos/Utils/class-use/u.CSV.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="49" selection-start="496" selection-end="496" vertical-scroll-proportion="0.65553236">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/index-files/index-1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/dictionaries/Nimrod.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="20" selection-start="147" selection-end="147" vertical-scroll-proportion="0.1565762">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/copyright/profiles_settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="28" selection-start="3006" selection-end="3006" vertical-scroll-proportion="1.2190082">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/Utils/u.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="31" selection-start="749" selection-end="749" vertical-scroll-proportion="0.661157">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="-0.42561984">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="8" selection-start="933" selection-end="933" vertical-scroll-proportion="0.59917355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="43" selection-start="2170" selection-end="2170" vertical-scroll-proportion="1.5082644">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="55" selection-start="911" selection-end="911" vertical-scroll-proportion="0.0">
+        <state line="65" column="87" selection-start="2308" selection-end="2308" vertical-scroll-proportion="1.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="42" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0">
+        <state line="18" column="22" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="43" selection-start="1713" selection-end="1713" vertical-scroll-proportion="1.7536534">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="34" selection-start="3695" selection-end="3695" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/Utils/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="33" selection-start="553" selection-end="553" vertical-scroll-proportion="0.4338843">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_13.jdk/Contents/Home/src.zip!/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="13" selection-start="925" selection-end="925" vertical-scroll-proportion="0.4338843">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/Utils/IllegalArgumentException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="21" selection-start="161" selection-end="161" vertical-scroll-proportion="0.08264463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/Utils/CSV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="77" selection-start="750" selection-end="750" vertical-scroll-proportion="0.5371901">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_13.jdk/Contents/Home/src.zip!/java/text/DecimalFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="719" column="48" selection-start="30622" selection-end="30622" vertical-scroll-proportion="0.6873278">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/Utils/Numbers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="44" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_13.jdk/Contents/Home/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="26" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.35674933">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/Simulation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="20" selection-start="920" selection-end="920" vertical-scroll-proportion="-0.9214876">
+        <state line="28" column="42" selection-start="827" selection-end="827" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="10" selection-start="381" selection-end="387" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="1" selection-start="617" selection-end="617" vertical-scroll-proportion="0.16528925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Models/IDMTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="37" selection-start="476" selection-end="476" vertical-scroll-proportion="0.3305785">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

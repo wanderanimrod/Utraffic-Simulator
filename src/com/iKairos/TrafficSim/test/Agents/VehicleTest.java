@@ -2,13 +2,18 @@ package com.iKairos.TrafficSim.test.Agents;
 
 import com.iKairos.TrafficSim.Agents.Car;
 import com.iKairos.TrafficSim.Agents.Vehicle;
+import com.iKairos.TrafficSim.Network.Edge;
+import com.iKairos.TrafficSim.Network.EdgeType;
+import com.iKairos.TrafficSim.Network.Lane;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class VehicleTest {
     @Test
@@ -31,5 +36,20 @@ public class VehicleTest {
 
         assertEquals(1, cars.get(cars.size() -1).getId());
         assertEquals(2, cars.get(0).getId());
+    }
+
+    @Test
+    public void shouldLeaveCurrentLaneAfterLaneChange() {
+        Vehicle vehicle = new Car(1);
+        Lane lane0 = new Lane(0);
+        Lane lane1 = new Lane(1);
+        Edge edge = new Edge(0, EdgeType.TWO_WAY_RURAL_ROAD, 100.0);
+        edge.addLane(lane0);
+        edge.addLane(lane1);
+        vehicle.setCurrentLane(lane0);
+        vehicle.changeLane(lane1);
+
+        assertThat(lane0.getVehicles().size(), is(0));
+        assertEquals(vehicle.getCurrentLane(), lane1);
     }
 }

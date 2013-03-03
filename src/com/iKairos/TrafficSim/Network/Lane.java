@@ -2,7 +2,6 @@ package com.iKairos.TrafficSim.Network;
 
 import com.iKairos.TrafficSim.Agents.Vehicle;
 import com.iKairos.TrafficSim.Models.Constants;
-import com.iKairos.Utils.u;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,13 +22,13 @@ public class Lane {
 
         int requesterPos = this.vehicles.indexOf(requester);
 
-        u.println("Vehicles currently on lane " + this.id + " are:");
+        System.out.println("Vehicles currently on lane " + this.id + " are:");
 
         for (Vehicle vehicle: this.vehicles) {
-            u.println("App Id = " + vehicle.getId() + " | pos = " + vehicle.getPosition() + " | vel = " + vehicle.getVelocity());
+            System.out.println("App Id = " + vehicle.getId() + " | pos = " + vehicle.getPosition() + " | vel = " + vehicle.getVelocity());
         }
 
-        u.println("Requester Vehicle " + requester.getId() + " is in position " + requesterPos + " of lane " + this.id + "\n");
+        System.out.println("Requester Vehicle " + requester.getId() + " is in position " + requesterPos + " of lane " + this.id + "\n");
 
         if (requesterPos != 0) {
             return this.vehicles.get(requesterPos - 1);
@@ -101,7 +100,7 @@ public class Lane {
          * following block of code is thread safe.*/
 
         vehicle.setCurrentLane(this);
-        u.println("Current lane for vehicle " + vehicle.getId() + " is " + this.getId());
+        System.out.println("Current lane for vehicle " + vehicle.getId() + " is " + this.getId());
 
         vehicle.setCurrentEdge(this.parentEdge);
     }

@@ -3,7 +3,6 @@ package com.iKairos.TrafficSim.Agents;
 import com.iKairos.TrafficSim.Models.Constants;
 import com.iKairos.TrafficSim.Network.Edge;
 import com.iKairos.TrafficSim.Network.Lane;
-import com.iKairos.Utils.u;
 
 public abstract class Vehicle implements Comparable<Vehicle> {
 
@@ -21,7 +20,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     protected double politeness = Constants.driverPoliteness;
 
     public Vehicle(int id) {
-
         this.id = id;
         this.position = 0.0d;
     }
@@ -29,19 +27,18 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     public boolean translate(double changeInTime) {
 
         Vehicle leadingVehicle = this.currentLane.getLeadingVehicle(this);
-
         this.acceleration = Constants.idm.calculateAcceleration(leadingVehicle, this);
-
         double newVelocity = this.velocity + this.acceleration * changeInTime;
-        if (newVelocity < 0) {
-            newVelocity = this.velocity;
-        }
-        this.velocity = newVelocity;
 
+        if (newVelocity < 0)
+            newVelocity = this.velocity;
+
+        this.velocity = newVelocity;
         double displacement = this.velocity*changeInTime;
-        if (displacement < 0) {
+
+        if (displacement < 0)
             displacement = 0;
-        }
+
         this.position += displacement;
 
         Constants.laneChangeModel.changeLaneIfNecessary(this);
@@ -86,12 +83,11 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     }
 
     public void changeLane(Lane targetLane) {
-
         targetLane.insertVehicleAtItsCurrentPosition(this);
         currentLane.removeVehicle(this);
         this.setCurrentLane(targetLane);
 
-        u.println("Vehicle " + this.id + " changed lane to " + this.getCurrentLane().getId() + "\n");
+        System.out.println("Vehicle " + this.id + " changed lane to " + this.getCurrentLane().getId() + "\n");
     }
 
     public void setCurrentEdge(Edge edge) {
@@ -133,7 +129,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     public int getDesiredLane() {
         return this.desiredLane;
     }
-
 
     public double getLength() {
         return this.length;

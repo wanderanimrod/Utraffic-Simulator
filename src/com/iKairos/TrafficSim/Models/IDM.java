@@ -12,13 +12,15 @@ public class IDM {
     private double delta;
     private double so;
 
+    private static IDM singleIdmInstance;
+
     public IDM() {
         T = Constants.safeTimeHeadway;
         delta = Constants.accelerationExponent;
         so = Constants.minJamDistance;
     }
 
-    public double calculateAcceleration (Vehicle leader, Vehicle requester) {
+    public double calculateAcceleration(Vehicle leader, Vehicle requester) {
 
         double v = requester.getVelocity();
         double a = requester.getMaxAcceleration();
