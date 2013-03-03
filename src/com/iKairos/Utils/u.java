@@ -26,18 +26,19 @@ public class u {
 		
 		FileOutputStream fos = new FileOutputStream(file);
 
-		fos.write(fileText.getBytes());	
+		fos.write(fileText.getBytes());
 
-		if (fos != null) {
-			try {
-				fos.flush();
-				fos.close();
-			}
-			catch (IOException ex){
-				ex.printStackTrace();
-			}
-		}
-	}
+        try {
+            fos.flush();
+            fos.close();
+        }
+        catch (IOException ex){
+            ex.printStackTrace();
+        }
+        catch (NullPointerException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 	public static class CSV {
 

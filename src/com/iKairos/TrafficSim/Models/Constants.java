@@ -1,11 +1,7 @@
 package com.iKairos.TrafficSim.Models;
 
-
 import com.iKairos.TrafficSim.Agents.Car;
 
-/**
- * Holds globally accessible simulation constants
- */
 public class Constants {
 
     public static double maxAcceleration = 0.73d;

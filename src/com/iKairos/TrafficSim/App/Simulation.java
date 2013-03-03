@@ -15,80 +15,40 @@ import com.iKairos.Utils.u.CSV;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Represents the currently running simulation.
- *
- * @author Nimrod
- */
 public class Simulation {
-	
-	/** The vehicles. */
-	ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
-	
-	/** The network. */
+
+    ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 	Network network;
 
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
 	public static void main(String[] args) {
-		
 		Simulation simulation = new Simulation();
 		simulation.start();
 	}
 
-	/**
-	 * Instantiates some globally used variables in the simulation.
-	 */
-	private void instantiate() {
-		
-		/*
-		 * Instantiate the Car-following model. This is done here so we avoid having an instance of
-		 * IDM in memory for every vehicle in the simulation.
-		 */
-		Constants.idm = new IDM();
+    private void instantiate() {
+
+        Constants.idm = new IDM();
 		Constants.laneChangeModel = new LaneChangeModel();
-		
-		/**
-		 * Create dummy vehicle that will be used by all leading vehicles as the leader for purposes of calculating
-		 * vehicle accelerations using IDM
-		 */
-		//Return a vehicle that is 100km away from any requester and moving at 100km/h (or 28m/s)
+
 		Constants.dummyLeadingVehicle = new Car(-1);
-		Constants.dummyLeadingVehicle.setPosition(100000.0d); //The position should be >> the length of the longest edge
+		Constants.dummyLeadingVehicle.setPosition(100000.0d); // > length of longest edge
 		Constants.dummyLeadingVehicle.setAcceleration(0.0d);
 		Constants.dummyLeadingVehicle.setVelocity(27.78d);
 	}
-	
-	/**
-	 * Populates the road network from a Network Description File.
-	 * @return The fully created Network
-	 */
+
 	private void createNetwork() {
-		
-		//Create and populate network
+
 		network = new Network();
 		Edge edge = new Edge(0, EdgeType.ONE_WAY_MULTIPLE_LANES, 1000);
-		//Edge edge = new Edge(0, EdgeType.TWO_WAY_RURAL_ROAD, 1000);
 		edge.addLane(new Lane(0));
 		edge.addLane(new Lane(1));
 		network.addEdge(edge);
 		network.optimise();
 	}
-	
-	/**
-	 * Creates vehicles as stipulated in the vehicle specification file and inserts them into the simulation
-	 * <br>Each Vehicle knows its route through the network, referencing it OD Matrix.
-	 * <br>The moment a vehicle is inserted, it joins the queue of vehicles at the edge
-	 * to which the vehicle is to be added.
-	 */
+
 	private void createVehicles() {
 		
 		Car car0 = new Car(0);
-		/*car0.setDesiredVelocity(0.1d);
-		car0.setMaxAcceleration(1.0d);*/
 		car0.setPoliteness(0);
 		this.vehicles.add(car0);
 		
@@ -103,81 +63,41 @@ public class Simulation {
 		car2.setMaxAcceleration(1.0d);
 		car2.setPoliteness(0);
 		this.vehicles.add(car2);
-		
-		//Introduce log in lane 0 to block car 3 and see how he reacts
+
 		Car car3 = new Car(3);
 		car3.setVelocity(0.0d);
 		car3.setPosition(500.0d);
 		this.vehicles.add(car3);
-		
-		//Introduce another blockage in lane 1 10 meters ahead of the blockage in lane 0 to see how cars maneuver about this.
-		
-		//Insert the vehicles into the network
+
 		network.getEdge(0).getLane(0).insertVehicleAtItsCurrentPosition(car3);
 		network.getEdge(0).getLane(0).insertVehicleAtTheStartOfTheLane(car0);
 		network.getEdge(0).getLane(1).insertVehicleAtTheStartOfTheLane(car1);
 		network.getEdge(0).getLane(0).insertVehicleAtTheStartOfTheLane(car2);
 		
 	}
-	
-	/**
-	 * Makes the agents in the simulation move and the sensors start listening for events.
-	 * <br>Multi threaded.
-	 * @param refreshRate <i>(in milliseconds)<i> The time interval between individual refreshes of the simulation state
-	 */
+
 	private void play (final int refreshRate) {
-		
-		/*Timer timer = new Timer();
-		timer.schedule(new TimerTask() {
-		    public void run() {
-		    	vehicles.get(0).translate(refreshRate);
-		    }
-		},0, refreshRate);*/
-		
+
 		CSV output = new CSV(new String[] {
 				"Position Car1", "Acceleration Car1", "Velocity Car1", "Lane Car1",				
 				"Position Car2", "Acceleration Car2", "Velocity Car2", "Lane Car2",
 				"Position Car3", "Acceleration Car3", "Velocity Car3", "Lane Car3"},
 				"MOBIL Testing");
-		
-		//For debug, update vehicle properties in loop
-		Date startTime = new Date();
+
+        Date startTime = new Date();
 		
 		for (int i = 0; i < 700; i++) {
-			
-			/*if (vehicles.get(0).translate(refreshRate/1000.0d) == true) {
-				
-				//Remove vehicle from lane if it can be inserted into its next lane
-				vehicles.get(0).getCurrentLane().removeLeadingVehicle();
-				
-				//TODO Insert the vehicle into its next lane in the vehicle's OD matrix
-				
-				break;
-			}
-			//Else continue translating
-			 */
+
 			u.println("Translation " + i + "\n");
-			
-			//if (i < 350)
-				vehicles.get(0).translate(refreshRate/1000.0d);
-			//else {
-				//vehicles.get(0).setVelocity(0);
-				//vehicles.get(0).setAcceleration(0);
-			//}
-			
-			//Insert another vehicle at a later time
-			if (i > 20) {
-				
+
+            vehicles.get(0).translate(refreshRate/1000.0d);
+
+			if (i > 20)
 				vehicles.get(1).translate(refreshRate/1000.0d);
-			}
-			
-			//Insert another vehicle at a later time
-			if (i > 40) {
-				
+
+			if (i > 40)
 				vehicles.get(2).translate(refreshRate/1000.0d);
-			}
-						
-			//Send vehicle params to CSV for visualisation
+
 			output.appendToNewLine(Double.toString(vehicles.get(0).getPosition()));
 			output.appendToRow(Double.toString(vehicles.get(0).getAcceleration()));
 			output.appendToRow(Double.toString(vehicles.get(0).getVelocity()));
@@ -186,7 +106,6 @@ public class Simulation {
 			output.appendToRow(Double.toString(vehicles.get(1).getAcceleration()));
 			output.appendToRow(Double.toString(vehicles.get(1).getVelocity()));
 			output.appendToRow(Integer.toString(vehicles.get(1).getCurrentLane().getId()));
-			//output.appendToRow("");
 			output.appendToRow(Double.toString(vehicles.get(2).getPosition()));
 			output.appendToRow(Double.toString(vehicles.get(2).getAcceleration()));
 			output.appendToRow(Double.toString(vehicles.get(2).getVelocity()));
@@ -195,26 +114,13 @@ public class Simulation {
 		u.println("Elapsed Time: " + (new Date().getTime() - startTime.getTime() )/1000.0d + " seconds");
 		u.println("Output saved = " + output.save());
 	}	
-	
-	/**
-	 * Starts the simulation.
-	 */
+
 	public void start() {
 		
 		instantiate();
 		createNetwork();
 		createVehicles();
-		
-		//Start the simulation and ask that it refreshes every 0.5 seconds
-		//TODO Make this number smaller so vehicle get as close a possible to the end of each lane
+
 		play(500);
-	}
-	
-	/**
-	 * Pauses the simulation.
-	 */
-	@SuppressWarnings("unused")
-	private void pause () {
-		
 	}
 }

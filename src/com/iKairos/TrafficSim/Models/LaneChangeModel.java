@@ -6,7 +6,7 @@ import com.iKairos.TrafficSim.Network.Lane;
 
 /**
  * Based on the MOBIL lane change model due to Treiber et al.
- * Variables and Logic used as described in the Wikipedia entry on MOBIL*/
+ * Variables and logic used as described in the Wikipedia entry on MOBIL*/
 //TODO Adjust this Mode or create another one that deals with Overtaking on rural roads
 public class LaneChangeModel {
 
@@ -38,7 +38,8 @@ public class LaneChangeModel {
 
             if (currentFollower != null) {
                 accCurrentFollowerBeforeLaneChange = currentFollower.getAcceleration();
-                accCurrentFollowerAfterLaneChange = Constants.idm.calculateAcceleration(currentLane.getLeadingVehicle(requester), currentFollower);
+                accCurrentFollowerAfterLaneChange =
+                        Constants.idm.calculateAcceleration(currentLane.getLeadingVehicle(requester), currentFollower);
             }
 
             //TODO Refactor this chain stuff out to conform to the law or Demeter
@@ -55,7 +56,8 @@ public class LaneChangeModel {
             if (incentiveCriterion > Constants.laneChangeThreshold) {
                 if (prospectiveFollower != null) {
 
-                    if (requester.getPosition() - prospectiveFollower.getPosition() - requester.getLength() >= Constants.minJamDistance) {
+                    if (requester.getPosition() - prospectiveFollower.getPosition() - requester.getLength()
+                            >= Constants.minJamDistance) {
                         requester.changeLane(targetLane);
                     }
                     //Else there will not be enough clearance from the new follower

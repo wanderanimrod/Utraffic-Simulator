@@ -3,3 +3,9 @@
     This should extend to all other classes like Lane, Edge, etc
 2. Should IDM be in full form? Should LaneChangeModel be in full form? Do they have to have "Model" at the end if they
     are already in the Models package?
+3. Instead of having Simulation instantiate IDM and having other classes use it as a static constant from Constants on
+    the assumption that it has been instantiated, we should create a factory constructor in IDM and LaneChangeModel so
+     they are created once through a getInstance() method.
+4. Printing code shouldn't be in the Domain object classes! Find out a way to clean that up
+5. The Network should create itself. Simulation should just pass it the data it needs. Tell Don't Ask!!
+6. Move DummyLeadingVehicle instantiation to Constants.
