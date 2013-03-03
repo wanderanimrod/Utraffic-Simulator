@@ -2,8 +2,6 @@ package com.iKairos.TrafficSim.Models;
 
 
 import com.iKairos.TrafficSim.Agents.Car;
-import com.iKairos.TrafficSim.Models.IDM;
-import com.iKairos.TrafficSim.Models.LaneChangeModel;
 
 /**
  * Holds globally accessible simulation constants

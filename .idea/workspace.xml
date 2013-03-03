@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12bd2935-d556-4e8e-9173-4ede98659356" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Simulation.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/App/Simulation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Simulation.SimConstants.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Simulation.SimConstants.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Simulation.SimConstants.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Simulation.SimConstants.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Simulation.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Simulation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Simulation.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Simulation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java" />
     </list>
     <ignored path="TrafficSim.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -183,10 +173,8 @@
       <file leaf-file-name="Constants.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="1" selection-start="930" selection-end="930" vertical-scroll-proportion="0.5371901">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="3" column="40" selection-start="81" selection-end="81" vertical-scroll-proportion="0.06198347">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -787,7 +775,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -982,10 +970,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="1" selection-start="930" selection-end="930" vertical-scroll-proportion="0.5371901">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="3" column="40" selection-start="81" selection-end="81" vertical-scroll-proportion="0.06198347">
+          <folding />
         </state>
       </provider>
     </entry>
