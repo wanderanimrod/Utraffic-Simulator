@@ -2,6 +2,7 @@ package com.iKairos.TrafficSim;
 
 import com.iKairos.TrafficSim.Agents.Car;
 import com.iKairos.TrafficSim.Agents.Vehicle;
+import com.iKairos.TrafficSim.Models.IDM;
 import com.iKairos.TrafficSim.Models.LaneChangeModel;
 import com.iKairos.TrafficSim.Network.Edge;
 import com.iKairos.TrafficSim.Network.EdgeType;
@@ -68,7 +69,7 @@ public class Simulation {
 		public static int desiredLane = 0;
 		
 		/** The Car following model used by vehicles in the simulation. */
-		public static Models.IDM idm;
+		public static IDM idm;
 		
 		/** The lane change model used by vehicles in the simulation. */
 		public static LaneChangeModel laneChangeModel;
@@ -100,8 +101,8 @@ public class Simulation {
 		 * Instantiate the Car-following model. This is done here so we avoid having an instance of
 		 * IDM in memory for every vehicle in the simulation.
 		 */
-		SimConstants.idm = new Models().new IDM();
-		SimConstants.laneChangeModel = new Models().new LaneChangeModel();
+		SimConstants.idm = new IDM();
+		SimConstants.laneChangeModel = new LaneChangeModel();
 		
 		/**
 		 * Create dummy vehicle that will be used by all leading vehicles as the leader for purposes of calculating
