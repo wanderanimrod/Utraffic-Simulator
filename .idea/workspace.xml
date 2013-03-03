@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12bd2935-d556-4e8e-9173-4ede98659356" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/IDM.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/IDM.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/IDM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/IDM.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/IDM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.IDM.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.IDM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.LaneChangeModel.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.LaneChangeModel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Models.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Models.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Nimrod.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Nimrod.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Simulation.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Simulation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" />
     </list>
     <ignored path="TrafficSim.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +20,9 @@
     <file path="/a.dummy" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362245298928" ignored="false" />
     <file path="/EdgeTest.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362294161263" ignored="false" />
     <file path="/Dummy.txt" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362295037830" ignored="false" />
-    <file path="/Refactoring Notes" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362250235827" ignored="false" />
+    <file path="/Refactoring Notes" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362297588347" ignored="false" />
+    <file path="/IDM.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362297428138" ignored="false" />
+    <file path="/LaneChangeModel.java" changelist="12bd2935-d556-4e8e-9173-4ede98659356" time="1362297987502" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +89,7 @@
       <file leaf-file-name="LaneChangeModel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="21" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,7 +109,7 @@
       <file leaf-file-name="IDM.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="9" selection-start="2205" selection-end="2205" vertical-scroll-proportion="0.008264462">
+            <state line="18" column="52" selection-start="562" selection-end="562" vertical-scroll-proportion="0.37190083">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,13 +144,13 @@
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Lane.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/LaneGradient.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/Edge.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Network/EdgeTest.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/Models.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Simulation.java" />
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" />
         <option value="$PROJECT_DIR$/.idea/dictionaries/Nimrod.xml" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" />
       </list>
     </option>
   </component>
@@ -773,11 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="12" selection-start="152" selection-end="152" vertical-scroll-proportion="0.041208792" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Network/LaneGradient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
@@ -860,9 +846,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Refactoring Notes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="38" selection-start="362" selection-end="362" vertical-scroll-proportion="0.08264463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -871,7 +864,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/IDM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="9" selection-start="2205" selection-end="2205" vertical-scroll-proportion="0.008264462">
+        <state line="18" column="52" selection-start="562" selection-end="562" vertical-scroll-proportion="0.37190083">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

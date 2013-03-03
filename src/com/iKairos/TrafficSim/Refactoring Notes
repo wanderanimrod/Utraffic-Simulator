@@ -1,3 +1,5 @@
 1. Tell Don't ask:
     The Vehicle should be told to translate and not asked for its properties so they may be manipulated from outside it.
     This should extend to all other classes like Lane, Edge, etc
+2. Should IDM be in full form? Should LaneChangeModel be in full form? Do they have to have "Model" at the end if they
+    are already in the Models package?
