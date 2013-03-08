@@ -18,7 +18,7 @@ public class CSV {
         }
 
         csvText += "\r\n";
-        this.filePath = "E:\\Nimrod\\work\\Traffic\\Software\\Models and Testing\\" + fileName + ".csv";
+        this.filePath = "E:\\Nimrod\\work\\Traffic\\Software\\models and Testing\\" + fileName + ".csv";
     }
 
     public void appendToRow(String cellValue) throws IllegalArgumentException {

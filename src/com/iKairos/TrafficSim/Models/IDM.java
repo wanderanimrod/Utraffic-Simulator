@@ -1,6 +1,6 @@
-package com.iKairos.TrafficSim.Models;
+package com.iKairos.TrafficSim.models;
 
-import com.iKairos.TrafficSim.Agents.Vehicle;
+import com.iKairos.TrafficSim.agents.Vehicle;
 
 /**
  * Based on the Intelligent Driver Model by Treiber et al.

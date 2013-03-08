@@ -1,8 +1,8 @@
-package com.iKairos.TrafficSim.test.Network;
+package com.iKairos.TrafficSim.test.network;
 
-import com.iKairos.TrafficSim.Network.Edge;
-import com.iKairos.TrafficSim.Network.EdgeType;
-import com.iKairos.TrafficSim.Network.Lane;
+import com.iKairos.TrafficSim.network.Edge;
+import com.iKairos.TrafficSim.network.EdgeType;
+import com.iKairos.TrafficSim.network.Lane;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;

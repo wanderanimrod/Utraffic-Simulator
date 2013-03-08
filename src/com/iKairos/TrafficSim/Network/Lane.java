@@ -1,7 +1,7 @@
-package com.iKairos.TrafficSim.Network;
+package com.iKairos.TrafficSim.network;
 
-import com.iKairos.TrafficSim.Agents.Vehicle;
-import com.iKairos.TrafficSim.Models.Constants;
+import com.iKairos.TrafficSim.agents.Vehicle;
+import com.iKairos.TrafficSim.models.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,7 +25,7 @@ public class Lane {
         System.out.println("Vehicles currently on lane " + this.id + " are:");
 
         for (Vehicle vehicle: this.vehicles) {
-            System.out.println("App Id = " + vehicle.getId() + " | pos = " + vehicle.getPosition() + " | vel = " + vehicle.getVelocity());
+            System.out.println("app Id = " + vehicle.getId() + " | pos = " + vehicle.getPosition() + " | vel = " + vehicle.getVelocity());
         }
 
         System.out.println("Requester Vehicle " + requester.getId() + " is in position " + requesterPos + " of lane " + this.id + "\n");

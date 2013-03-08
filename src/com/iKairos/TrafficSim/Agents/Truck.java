@@ -1,4 +1,4 @@
-package com.iKairos.TrafficSim.Agents;
+package com.iKairos.TrafficSim.agents;
 
 public class Truck extends Vehicle {
     public Truck(int id) {

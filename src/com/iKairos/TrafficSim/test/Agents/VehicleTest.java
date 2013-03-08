@@ -1,10 +1,10 @@
-package com.iKairos.TrafficSim.test.Agents;
+package com.iKairos.TrafficSim.test.agents;
 
-import com.iKairos.TrafficSim.Agents.Car;
-import com.iKairos.TrafficSim.Agents.Vehicle;
-import com.iKairos.TrafficSim.Network.Edge;
-import com.iKairos.TrafficSim.Network.EdgeType;
-import com.iKairos.TrafficSim.Network.Lane;
+import com.iKairos.TrafficSim.agents.Car;
+import com.iKairos.TrafficSim.agents.Vehicle;
+import com.iKairos.TrafficSim.network.Edge;
+import com.iKairos.TrafficSim.network.EdgeType;
+import com.iKairos.TrafficSim.network.Lane;
 import org.junit.Test;
 
 import java.util.ArrayList;

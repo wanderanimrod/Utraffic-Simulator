@@ -1,9 +1,9 @@
-package com.iKairos.TrafficSim.test.Models;
+package com.iKairos.TrafficSim.test.models;
 
-import com.iKairos.TrafficSim.Agents.Car;
-import com.iKairos.TrafficSim.Agents.Vehicle;
-import com.iKairos.TrafficSim.Models.Constants;
-import com.iKairos.TrafficSim.Models.IDM;
+import com.iKairos.TrafficSim.agents.Car;
+import com.iKairos.TrafficSim.agents.Vehicle;
+import com.iKairos.TrafficSim.models.Constants;
+import com.iKairos.TrafficSim.models.IDM;
 import com.iKairos.Utils.Numbers;
 import org.junit.Test;
 

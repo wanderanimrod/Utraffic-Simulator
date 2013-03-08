@@ -1,14 +1,14 @@
-package com.iKairos.TrafficSim.App;
+package com.iKairos.TrafficSim.app;
 
-import com.iKairos.TrafficSim.Agents.Car;
-import com.iKairos.TrafficSim.Agents.Vehicle;
-import com.iKairos.TrafficSim.Models.Constants;
-import com.iKairos.TrafficSim.Models.IDM;
-import com.iKairos.TrafficSim.Models.LaneChangeModel;
-import com.iKairos.TrafficSim.Network.Edge;
-import com.iKairos.TrafficSim.Network.EdgeType;
-import com.iKairos.TrafficSim.Network.Lane;
-import com.iKairos.TrafficSim.Network.Network;
+import com.iKairos.TrafficSim.agents.Car;
+import com.iKairos.TrafficSim.agents.Vehicle;
+import com.iKairos.TrafficSim.models.Constants;
+import com.iKairos.TrafficSim.models.IDM;
+import com.iKairos.TrafficSim.models.LaneChangeModel;
+import com.iKairos.TrafficSim.network.Edge;
+import com.iKairos.TrafficSim.network.EdgeType;
+import com.iKairos.TrafficSim.network.Lane;
+import com.iKairos.TrafficSim.network.Network;
 import com.iKairos.Utils.*;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class Simulation {
 
     private void instantiate() {
 
-        Constants.idm = IDM.getInstance();
+        Constants.idm = new IDM();
 		Constants.laneChangeModel = new LaneChangeModel();
 
 		Constants.dummyLeadingVehicle = new Car(-1);
@@ -35,6 +35,7 @@ public class Simulation {
 		Constants.dummyLeadingVehicle.setVelocity(27.78d);
 	}
 
+    /* TODO Should be out of here into network or network service */
 	private void createNetwork() {
 
 		network = new Network();

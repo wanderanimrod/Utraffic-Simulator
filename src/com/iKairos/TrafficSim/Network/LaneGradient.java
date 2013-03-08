@@ -1,3 +1,3 @@
-package com.iKairos.TrafficSim.Network;
+package com.iKairos.TrafficSim.network;
 
 enum LaneGradient {UPHILL, DOWNHILL}
