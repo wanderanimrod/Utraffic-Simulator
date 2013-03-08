@@ -2,42 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12bd2935-d556-4e8e-9173-4ede98659356" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/city/City.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Agents.Car.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Agents.Car.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Agents.Car.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Agents.Car.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Agents.Truck.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Agents.Truck.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Agents.Truck.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Agents.Truck.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Agents.Vehicle.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Agents.Vehicle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Agents.Vehicle.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Agents.Vehicle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Agents.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Agents.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Agents.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Agents.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/Utils/CSV.java" afterPath="$PROJECT_DIR$/src/com/iKairos/Utils/CSV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/models/Constants.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/models/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/network/EdgeTest.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/network/EdgeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/IDM.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/IDM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/IDM.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/IDM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/models/IDM.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/models/IDM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/models/IDMTest.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/models/IDMTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Models.IDM.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Models.IDM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.IDM.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.IDM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Models.LaneChangeModel.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Models.LaneChangeModel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.LaneChangeModel.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.LaneChangeModel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Models.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Models.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Models.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.Edge.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.Edge.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.Edge.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.Edge.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.EdgeType.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.EdgeType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.EdgeType.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.EdgeType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.Lane.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.Lane.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.Lane.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.Lane.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.LaneGradient.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.LaneGradient.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.LaneGradient.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.LaneGradient.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/Network.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Network.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Simulation.SimConstants.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Simulation.SimConstants.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Simulation.html" afterPath="$PROJECT_DIR$/doc/com/iKairos/TrafficSim/class-use/Simulation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/agents/VehicleTest.java" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/agents/VehicleTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/services/NetworkService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/iKairos/TrafficSim/services/VehiclesService.java" />
     </list>
     <ignored path="TrafficSim.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -266,13 +232,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="City.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="City.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/city/City.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.35123968">
+            <state line="17" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetworkService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/services/NetworkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VehiclesService.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/services/VehiclesService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="28" selection-start="70" selection-end="70" vertical-scroll-proportion="0.041322313">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -295,7 +279,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Models/LaneChangeModel.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/Utils/u.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/Utils/Console.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/Agents/Vehicle.java" />
@@ -311,6 +294,7 @@
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/Agents/VehicleTest.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/test/agents/VehicleTest.java" />
         <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/city/City.java" />
+        <option value="$PROJECT_DIR$/src/com/iKairos/TrafficSim/services/NetworkService.java" />
       </list>
     </option>
   </component>
@@ -429,6 +413,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="TrafficSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrafficSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrafficSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iKairos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrafficSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -804,7 +814,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -824,7 +834,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20229556" sideWeight="0.69893897" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20229556" sideWeight="0.69893897" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.301061" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.69893897" order="3" side_tool="true" content_ui="tabs" />
@@ -895,20 +905,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/iKairos/Utils/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="33" selection-start="553" selection-end="553" vertical-scroll-proportion="0.4338843">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_13.jdk/Contents/Home/src.zip!/java/lang/Exception.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="13" selection-start="925" selection-end="925" vertical-scroll-proportion="0.4338843" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/iKairos/Utils/IllegalArgumentException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="21" selection-start="161" selection-end="161" vertical-scroll-proportion="0.08264463">
@@ -996,10 +992,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/city/City.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.35123968">
+        <state line="17" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/services/NetworkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/iKairos/TrafficSim/services/VehiclesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="28" selection-start="70" selection-end="70" vertical-scroll-proportion="0.041322313">
+          <folding />
         </state>
       </provider>
     </entry>
