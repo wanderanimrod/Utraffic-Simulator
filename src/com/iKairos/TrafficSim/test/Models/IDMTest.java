@@ -1,10 +1,10 @@
-package com.iKairos.TrafficSim.test.models;
+package com.iKairos.trafficSim.test.models;
 
-import com.iKairos.TrafficSim.agents.Car;
-import com.iKairos.TrafficSim.agents.Vehicle;
-import com.iKairos.TrafficSim.models.Constants;
-import com.iKairos.TrafficSim.models.IDM;
-import com.iKairos.Utils.Numbers;
+import com.iKairos.trafficSim.agents.Car;
+import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.models.Constants;
+import com.iKairos.trafficSim.models.IDM;
+import com.iKairos.utils.Numbers;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;

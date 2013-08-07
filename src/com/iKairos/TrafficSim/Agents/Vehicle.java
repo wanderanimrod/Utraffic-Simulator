@@ -1,8 +1,8 @@
-package com.iKairos.TrafficSim.agents;
+package com.iKairos.trafficSim.agents;
 
-import com.iKairos.TrafficSim.models.Constants;
-import com.iKairos.TrafficSim.network.Edge;
-import com.iKairos.TrafficSim.network.Lane;
+import com.iKairos.trafficSim.models.Constants;
+import com.iKairos.trafficSim.network.Edge;
+import com.iKairos.trafficSim.network.Lane;
 
 public abstract class Vehicle implements Comparable<Vehicle> {
 

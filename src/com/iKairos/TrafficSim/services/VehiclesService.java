@@ -1,4 +1,4 @@
-package com.iKairos.TrafficSim.services;
+package com.iKairos.trafficSim.services;
 
 public class VehiclesService {
 }

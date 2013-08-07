@@ -1,4 +1,4 @@
-package com.iKairos.TrafficSim.agents;
+package com.iKairos.trafficSim.agents;
 
 public class Car extends Vehicle {
 

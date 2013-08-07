@@ -1,4 +1,4 @@
-package com.iKairos.Utils;
+package com.iKairos.utils;
 
 public class IllegalArgumentException extends Exception {
     public IllegalArgumentException(String message) {

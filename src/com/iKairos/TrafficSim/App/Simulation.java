@@ -1,15 +1,15 @@
-package com.iKairos.TrafficSim.app;
+package com.iKairos.trafficSim.app;
 
-import com.iKairos.TrafficSim.agents.Car;
-import com.iKairos.TrafficSim.agents.Vehicle;
-import com.iKairos.TrafficSim.models.Constants;
-import com.iKairos.TrafficSim.models.IDM;
-import com.iKairos.TrafficSim.models.LaneChangeModel;
-import com.iKairos.TrafficSim.network.Edge;
-import com.iKairos.TrafficSim.network.EdgeType;
-import com.iKairos.TrafficSim.network.Lane;
-import com.iKairos.TrafficSim.network.Network;
-import com.iKairos.Utils.*;
+import com.iKairos.trafficSim.agents.Car;
+import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.models.Constants;
+import com.iKairos.trafficSim.models.IDM;
+import com.iKairos.trafficSim.models.LaneChangeModel;
+import com.iKairos.trafficSim.network.Edge;
+import com.iKairos.trafficSim.network.EdgeType;
+import com.iKairos.trafficSim.network.Lane;
+import com.iKairos.trafficSim.network.Network;
+import com.iKairos.utils.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -113,7 +113,7 @@ public class Simulation {
                 output.appendToRow(Double.toString(vehicles.get(2).getVelocity()));
                 output.appendToRow(Integer.toString(vehicles.get(2).getCurrentLane().getId()));
             }
-            catch (com.iKairos.Utils.IllegalArgumentException ex) {
+            catch (com.iKairos.utils.IllegalArgumentException ex) {
                 ex.printStackTrace();
             }
         }

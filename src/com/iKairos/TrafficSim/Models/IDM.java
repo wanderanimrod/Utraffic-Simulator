@@ -1,6 +1,6 @@
-package com.iKairos.TrafficSim.models;
+package com.iKairos.trafficSim.models;
 
-import com.iKairos.TrafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.agents.Vehicle;
 
 /**
  * Based on the Intelligent Driver Model by Treiber et al.
@@ -11,8 +11,6 @@ public class IDM {
     private double T;
     private double delta;
     private double so;
-
-    private static IDM singleIdmInstance;
 
     public IDM() {
         T = Constants.safeTimeHeadway;

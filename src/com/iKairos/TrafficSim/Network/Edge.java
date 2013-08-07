@@ -1,4 +1,4 @@
-package com.iKairos.TrafficSim.network;
+package com.iKairos.trafficSim.network;
 
 import java.util.ArrayList;
 

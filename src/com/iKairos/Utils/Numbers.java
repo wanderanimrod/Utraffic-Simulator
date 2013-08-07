@@ -1,4 +1,4 @@
-package com.iKairos.Utils;
+package com.iKairos.utils;
 
 import java.text.DecimalFormat;
 

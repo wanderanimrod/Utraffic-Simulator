@@ -1,6 +1,6 @@
-package com.iKairos.TrafficSim.models;
+package com.iKairos.trafficSim.models;
 
-import com.iKairos.TrafficSim.agents.Car;
+import com.iKairos.trafficSim.agents.Car;
 
 public class Constants {
 

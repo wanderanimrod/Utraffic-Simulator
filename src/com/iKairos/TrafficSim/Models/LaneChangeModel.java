@@ -1,8 +1,8 @@
-package com.iKairos.TrafficSim.models;
+package com.iKairos.trafficSim.models;
 
-import com.iKairos.TrafficSim.agents.Vehicle;
-import com.iKairos.TrafficSim.network.EdgeType;
-import com.iKairos.TrafficSim.network.Lane;
+import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.network.EdgeType;
+import com.iKairos.trafficSim.network.Lane;
 
 /**
  * Based on the MOBIL lane change model due to Treiber et al.

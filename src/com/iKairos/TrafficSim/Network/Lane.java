@@ -1,7 +1,7 @@
-package com.iKairos.TrafficSim.network;
+package com.iKairos.trafficSim.network;
 
-import com.iKairos.TrafficSim.agents.Vehicle;
-import com.iKairos.TrafficSim.models.Constants;
+import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.models.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;

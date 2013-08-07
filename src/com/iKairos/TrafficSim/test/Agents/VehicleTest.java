@@ -1,19 +1,17 @@
-package com.iKairos.TrafficSim.test.agents;
+package com.iKairos.trafficSim.test.agents;
 
-import com.iKairos.TrafficSim.agents.Car;
-import com.iKairos.TrafficSim.agents.Vehicle;
-import com.iKairos.TrafficSim.network.Edge;
-import com.iKairos.TrafficSim.network.EdgeType;
-import com.iKairos.TrafficSim.network.Lane;
+import com.iKairos.trafficSim.agents.Car;
+import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.network.Edge;
+import com.iKairos.trafficSim.network.EdgeType;
+import com.iKairos.trafficSim.network.Lane;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 public class VehicleTest {
     @Test
@@ -47,9 +45,9 @@ public class VehicleTest {
         edge.addLane(lane0);
         edge.addLane(lane1);
         vehicle.setCurrentLane(lane0);
+
         vehicle.changeLane(lane1);
 
-        assertThat(lane0.getVehicles().size(), is(0));
         assertEquals(vehicle.getCurrentLane(), lane1);
     }
 }
