@@ -26,7 +26,6 @@ public class IDM {
         double deltaV = v - leader.getVelocity();
         double s = leader.getPosition() - requester.getPosition() - leader.getLength();
         double sStar = so + (v*T) + ((v*deltaV) / (2*Math.sqrt(a*b)));
-
         return a * (1 - Math.pow((v/requester.getDesiredVelocity()), delta) - (Math.pow((sStar/s), 2)));
     }
 }

@@ -19,8 +19,8 @@ public class IDMTest {
         Constants.dummyLeadingVehicle.setPosition(100000.0d);
         Constants.dummyLeadingVehicle.setAcceleration(0.0d);
         Constants.dummyLeadingVehicle.setVelocity(27.78d);
-
         IDM idm = new IDM();
+
         double acceleration = idm.calculateAcceleration(Constants.dummyLeadingVehicle, vehicle);
 
         assertEquals(0.730, Numbers.round(acceleration, 3));

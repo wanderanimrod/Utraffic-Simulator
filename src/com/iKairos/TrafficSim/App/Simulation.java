@@ -9,7 +9,7 @@ import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.EdgeType;
 import com.iKairos.trafficSim.network.Lane;
 import com.iKairos.trafficSim.network.Network;
-import com.iKairos.utils.*;
+import com.iKairos.utils.CSV;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -57,7 +57,8 @@ public class LaneChangeModel {
                 if (prospectiveFollower != null) {
 
                     if (requester.getPosition() - prospectiveFollower.getPosition() - requester.getLength()
-                            >= Constants.minJamDistance) {
+                            >= Constants.minJamDistance
+                    ) {
                         requester.changeLane(targetLane);
                     }
                     //Else there will not be enough clearance from the new follower

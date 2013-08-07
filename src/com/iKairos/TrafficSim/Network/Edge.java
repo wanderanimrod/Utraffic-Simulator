@@ -22,9 +22,6 @@ public class Edge {
         return length;
     }
 
-    public int getId() {
-        return this.id;
-    }
     public EdgeType getType() {
         return this.type;
     }

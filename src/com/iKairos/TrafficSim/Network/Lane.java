@@ -10,7 +10,6 @@ import java.util.List;
 public class Lane {
 
     private int id;
-    private double length;
     private Edge parentEdge;
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 
@@ -70,7 +69,7 @@ public class Lane {
 
     public Vehicle getProspectiveFollower (Vehicle requester) {
 
-        ArrayList<Vehicle> dummyVehicles = (ArrayList<Vehicle>) vehicles.clone();
+        ArrayList<Vehicle> dummyVehicles = (ArrayList<Vehicle>)vehicles.clone();
 
         insertVehicleAndMaintainOrder(requester, dummyVehicles);
 
@@ -119,7 +118,6 @@ public class Lane {
 
     public void setParentEdge(Edge parent) {
         this.parentEdge = parent;
-        this.length = parent.getLength();
     }
 
     public Edge getParentEdge() {
@@ -130,14 +128,6 @@ public class Lane {
     //TODO Fix this to return more predictable results and not-null on edges with >2 lanes
     public Lane getNextLane() {
         return this.parentEdge.getNextLane(this);
-    }
-
-    public double getLength() {
-        return this.length;
-    }
-
-    public ArrayList<Vehicle> getVehicles() {
-        return this.vehicles;
     }
 
     /**

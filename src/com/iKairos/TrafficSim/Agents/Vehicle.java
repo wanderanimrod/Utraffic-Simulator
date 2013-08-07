@@ -15,7 +15,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     protected Edge currentEdge;
     protected Lane currentLane;
     protected double desiredDeceleration = Constants.desiredDeceleration;
-    protected int desiredLane = Constants.desiredLane;
     protected double length = Constants.vehicleLength;
     protected double politeness = Constants.driverPoliteness;
 
@@ -60,18 +59,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
     public void setMaxAcceleration(double acceleration) {
         this.maxAcceleration = acceleration;
-    }
-
-    public void setDesiredDeceleration(double deceleration) {
-        this.desiredDeceleration = deceleration;
-    }
-
-    public void setDesiredLane(int lane) {
-        this.desiredLane = lane;
-    }
-
-    public void setLength(double length) {
-        this.length = length;
     }
 
     public void setPoliteness(double politeness) {
@@ -126,20 +113,12 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         return this.desiredDeceleration;
     }
 
-    public int getDesiredLane() {
-        return this.desiredLane;
-    }
-
     public double getLength() {
         return this.length;
     }
 
     public Lane getCurrentLane() {
         return this.currentLane;
-    }
-
-    public Edge getCurrentEdge() {
-        return this.currentEdge;
     }
 
     public void setPosition(double position) {
