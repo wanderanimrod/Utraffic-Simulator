@@ -1,6 +1,7 @@
-UtrafficSim
+Utraffic Simulator
 ===========
 
-Traffic Simulator
+### A Traffic Simulator
 
-A README!
+The simulator runs as a web service that is controlled and queried for data through a RESTful API
+
