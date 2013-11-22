@@ -12,5 +12,5 @@ For cars to know if they have reached particular points of interest like junctio
   broadcasting of events to vehicles. All vehicles register their points of interest with a service running on this
   thread. This service starts a timer (which is what puts it on the separate thread) that has a memory of the next
   requested update, and then updates the concerned vehicles that they are close to their points of interest. If the
-  vehicle is indeed close, it deregisters and starts polling until it gets to the point of interest. If it slowed down
-  too much and is still far, it tells the service to let it know it has to che
+  vehicle is indeed close, it de-registers and starts polling until it gets to the point of interest. If it slowed down
+  too much and is still far, it tells the service to let it know it has to check
