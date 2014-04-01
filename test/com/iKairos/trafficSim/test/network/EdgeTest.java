@@ -17,6 +17,6 @@ public class EdgeTest {
         edge.addLane(lane0);
         edge.addLane(lane1);
 
-        assertEquals(1, edge.getNextLane(lane0).getId());
+        assertEquals(lane1, edge.getNextLane(lane0));
     }
 }

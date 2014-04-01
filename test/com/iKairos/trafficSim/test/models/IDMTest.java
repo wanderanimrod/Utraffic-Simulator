@@ -5,24 +5,51 @@ import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.Constants;
 import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.utils.Numbers;
+import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static junit.framework.TestCase.assertEquals;
+
 
 public class IDMTest {
-    
-    @Test
-    public void shouldReturnAcceleration0_730ForLeadingVehicle() {
 
-        Vehicle vehicle = new Car(0);
+    IDM idm;
+    Vehicle car;
+
+    @Before
+    public void setUp() {
         Constants.dummyLeadingVehicle = new Car(-1);
         Constants.dummyLeadingVehicle.setPosition(100000.0d);
         Constants.dummyLeadingVehicle.setAcceleration(0.0d);
         Constants.dummyLeadingVehicle.setVelocity(27.78d);
-        IDM idm = new IDM();
+        idm = new IDM();
+        car = new Car(0);
+    }
 
-        double acceleration = idm.calculateAcceleration(Constants.dummyLeadingVehicle, vehicle);
+    @Test
+    public void shouldReturnMaximumAccelerationIfVehicleIsAtVelocityZeroWithLeaderFarAway() {
+        double acceleration = calculateAcceleration();
+        assertEquals(Math.abs(Numbers.round(acceleration, 5)), car.getMaxAcceleration());
+    }
 
-        assertEquals(0.730, Numbers.round(acceleration, 3));
+    @Test
+    public void shouldReturnAccelerationZeroIfVehicleHasReachedItsDesiredVelocity() {
+        car.setVelocity(Constants.desiredVelocity);
+        double acceleration = calculateAcceleration();
+        assertEquals(Math.abs(Numbers.round(acceleration, 5)), 0.0);
+    }
+
+    @Test
+    public void shouldNotAccelerateWhenLeaderIsNearbyEvenIfDesiredVelocityIsNotReached() {
+        assertEquals(car.getVelocity(), 0.0);
+        assertEquals(car.getPosition(), 0.0);
+        assertEquals(Constants.dummyLeadingVehicle.getLength(), 5.0);
+        Constants.dummyLeadingVehicle.setPosition(6.0);
+        double acceleration = calculateAcceleration();
+        assertEquals(acceleration, 0.0);
+    }
+
+    private double calculateAcceleration() {
+        return idm.calculateAcceleration(Constants.dummyLeadingVehicle, car);
     }
 }
