@@ -73,8 +73,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         targetLane.insertVehicleAtItsCurrentPosition(this);
         currentLane.removeVehicle(this);
         this.setCurrentLane(targetLane);
-
-        System.out.println("Vehicle " + this.id + " changed lane to " + this.getCurrentLane().getId() + "\n");
     }
 
     public void setCurrentEdge(Edge edge) {

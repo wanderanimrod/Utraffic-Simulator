@@ -33,7 +33,7 @@ public class IDMTest {
     }
 
     @Test
-    public void shouldReturnAccelerationZeroIfVehicleHasReachedItsDesiredVelocity() {
+    public void shouldNotAccelerateIfVehicleHasReachedItsDesiredVelocity() {
         car.setVelocity(Constants.desiredVelocity);
         double acceleration = calculateAcceleration();
         assertEquals(Math.abs(Numbers.round(acceleration, 5)), 0.0);
