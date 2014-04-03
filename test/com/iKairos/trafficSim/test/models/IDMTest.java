@@ -5,7 +5,6 @@ import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.Constants;
 import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.utils.Numbers;
-import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -5,21 +5,14 @@ import java.util.ArrayList;
 public class Edge {
 
     private EdgeType type = EdgeType.TWO_WAY_RURAL_ROAD;
-    private double length;
-    private int id;
     ArrayList<Lane> lanes = new ArrayList<Lane>();
 
-    public Edge(int id, EdgeType edgeType, double length) {
-        this.id = id;
-        this.length = length;
+    public Edge(EdgeType edgeType) {
         this.type = edgeType;
     }
 
     public int getNumberOfLanes() {
         return this.lanes.size();
-    }
-    public double getLength() {
-        return length;
     }
 
     public EdgeType getType() {

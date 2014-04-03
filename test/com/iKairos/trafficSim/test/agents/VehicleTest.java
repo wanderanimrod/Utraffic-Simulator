@@ -41,7 +41,7 @@ public class VehicleTest {
         Vehicle vehicle = new Car(1);
         Lane lane0 = new Lane(0);
         Lane lane1 = new Lane(1);
-        Edge edge = new Edge(0, EdgeType.TWO_WAY_RURAL_ROAD, 100.0);
+        Edge edge = new Edge(EdgeType.TWO_WAY_RURAL_ROAD);
         edge.addLane(lane0);
         edge.addLane(lane1);
         vehicle.setCurrentLane(lane0);

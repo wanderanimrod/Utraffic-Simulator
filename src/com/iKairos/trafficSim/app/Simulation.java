@@ -39,7 +39,7 @@ public class Simulation {
 	private void createNetwork() {
 
 		network = new Network();
-		Edge edge = new Edge(0, EdgeType.ONE_WAY_MULTIPLE_LANES, 1000);
+		Edge edge = new Edge(EdgeType.ONE_WAY_MULTIPLE_LANES);
 		edge.addLane(new Lane(0));
 		edge.addLane(new Lane(1));
 		network.addEdge(edge);
