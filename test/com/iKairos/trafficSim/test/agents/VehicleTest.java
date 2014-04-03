@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 public class VehicleTest {
     @Test
@@ -31,9 +32,8 @@ public class VehicleTest {
         cars.add(car3);
 
         Collections.sort(cars);
-
-        assertEquals(1, cars.get(cars.size() -1).getId());
-        assertEquals(2, cars.get(0).getId());
+        assertThat(cars.get(cars.size() - 1).getId(), is(1));
+        assertThat(cars.get(0).getId(), is(2));
     }
 
     @Test
@@ -48,6 +48,6 @@ public class VehicleTest {
 
         vehicle.changeLane(lane1);
 
-        assertEquals(vehicle.getCurrentLane(), lane1);
+        assertThat(vehicle.getCurrentLane(), is(lane1));
     }
 }
