@@ -5,7 +5,8 @@ import com.iKairos.trafficSim.network.EdgeType;
 import com.iKairos.trafficSim.network.Lane;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class EdgeTest {
 
@@ -16,7 +17,7 @@ public class EdgeTest {
         Lane lane1 = new Lane(1);
         edge.addLane(lane0);
         edge.addLane(lane1);
-        assertEquals(lane1, edge.getNextLane(lane0));
+        assertThat(edge.getNextLane(lane0), is(lane1));
     }
     @Test
     public void shouldGetNextLaneAs0IfIdOfCurrentLaneIs1OnRuralRoad() {
@@ -25,5 +26,5 @@ public class EdgeTest {
         Lane lane1 = new Lane(1);
         edge.addLane(lane0);
         edge.addLane(lane1);
-        assertEquals(lane0, edge.getNextLane(lane1));    }
+        assertThat(edge.getNextLane(lane1), is(lane0));    }
 }
