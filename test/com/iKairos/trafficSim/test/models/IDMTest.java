@@ -7,12 +7,9 @@ import com.iKairos.trafficSim.models.IDM;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.iKairos.trafficSim.test.helpers.Matchers.assertMagnitudeOf;
-import static com.iKairos.trafficSim.test.helpers.Matchers.assertThatResult;
-import static com.iKairos.trafficSim.test.helpers.Matchers.isRoughly;
+import static com.iKairos.trafficSim.test.helpers.Matchers.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.lessThan;
 
 
