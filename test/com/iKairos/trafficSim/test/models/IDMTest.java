@@ -4,12 +4,16 @@ import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.Constants;
 import com.iKairos.trafficSim.models.IDM;
-import com.iKairos.utils.Numbers;
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertTrue;
-import static junit.framework.TestCase.assertEquals;
+import static com.iKairos.trafficSim.test.helpers.Matchers.assertMagnitudeOf;
+import static com.iKairos.trafficSim.test.helpers.Matchers.assertThatResult;
+import static com.iKairos.trafficSim.test.helpers.Matchers.isRoughly;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.closeTo;
+import static org.hamcrest.Matchers.lessThan;
 
 
 public class IDMTest {
@@ -30,45 +34,44 @@ public class IDMTest {
     @Test
     public void shouldReturnMaximumAccelerationIfVehicleIsAtVelocityZeroWithLeaderFarAway() {
         double acceleration = calculateAcceleration();
-        assertEquals(Math.abs(acceleration), car.getMaxAcceleration());
+        assertThatResult(acceleration, isRoughly(car.getMaxAcceleration()));
     }
 
     @Test
     public void shouldNotAccelerateIfVehicleHasReachedItsDesiredVelocity() {
         car.setVelocity(Constants.desiredVelocity);
         double acceleration = calculateAcceleration();
-        assertEquals(Math.abs(acceleration), 0.0);
+        assertMagnitudeOf(acceleration, isRoughly(0));
     }
 
     @Test
     public void shouldRemainStationaryWhenLeaderIsNearby() {
-        assertEquals(car.getVelocity(), 0.0);
-        assertEquals(car.getPosition(), 0.0);
-        assertEquals(Constants.dummyLeadingVehicle.getLength(), 5.0);
+        assertThat(car.getVelocity(), is(0.0));
+        assertThat(car.getPosition(), is(0.0));
+        assertThat(Constants.dummyLeadingVehicle.getLength(), is(5.0));
         Constants.dummyLeadingVehicle.setPosition(6.0);
         double acceleration = calculateAcceleration();
-        assertEquals(acceleration, 0.0);
+        assertThatResult(acceleration, isRoughly(0));
     }
 
     @Test
     public void shouldAccelerateNormallyWhenLeaderIsFarAwayAndDesiredVelocityIsNotAttained() {
         car.setVelocity(15.0d);
-        assertTrue(car.getVelocity() < car.getDesiredVelocity());
+        assertThat(car.getVelocity(), lessThan(car.getDesiredVelocity()));
         double acceleration = calculateAcceleration();
-        assertEquals(0.700, acceleration);
+        assertThatResult(acceleration, isRoughly(0.7));
     }
 
     @Test
     public void shouldDecelerateWhenLeadingVehicleIsNear() {
         Constants.dummyLeadingVehicle.setPosition(50);
         car.setVelocity(10);
-        assertEquals(car.getPosition(), 0.0);
+        assertThat(car.getPosition(), is(0.0));
         double acceleration = calculateAcceleration();
-        assertEquals(-0.73d, acceleration);
+        assertThatResult(acceleration, isRoughly(-0.73));
     }
 
     private double calculateAcceleration() {
-        double acceleration = idm.calculateAcceleration(Constants.dummyLeadingVehicle, car);
-        return Numbers.round(acceleration, 2);
+        return idm.calculateAcceleration(Constants.dummyLeadingVehicle, car);
     }
 }
