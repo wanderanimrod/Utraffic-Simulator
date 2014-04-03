@@ -18,8 +18,13 @@ public class NumbersTest {
         assertThat(rounded, is(0.733));
     }
     @Test
-    public void shouldRoundOfNumberByRaisingLastDigitWhenTrailingDecimalIs5() {
+    public void shouldRoundOfNumberByRaisingLastDigitWhenTrailedBy5() {
         double rounded = Numbers.round(0.7335, 3);
         assertThat(rounded, is(0.734));
+    }
+    @Test
+    public void BUGDoesNotRound2UpTo3WhenTrailedBy5() {
+        double rounded = Numbers.round(0.7325, 3);
+        assertThat(rounded, is(0.732));
     }
 }
