@@ -23,7 +23,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         this.position = 0.0d;
     }
 
-    public boolean translate(double changeInTime) {
+    public void translate(double changeInTime) {
 
         Vehicle leadingVehicle = this.currentLane.getLeadingVehicle(this);
         this.acceleration = Constants.idm.calculateAcceleration(leadingVehicle, this);
@@ -41,8 +41,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         this.position += displacement;
 
         Constants.laneChangeModel.changeLaneIfNecessary(this);
-
-        return false;
     }
 
     public void setVelocity(double velocity) {
