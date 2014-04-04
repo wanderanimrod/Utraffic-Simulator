@@ -7,6 +7,9 @@ import com.iKairos.utils.IllegalMethodCallException;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class TwoLaneOneWayEdgeTest {
 
     private TwoLaneOneWayEdge edge;
@@ -22,6 +25,12 @@ public class TwoLaneOneWayEdgeTest {
     @Test(expected=IllegalMethodCallException.class)
     public void shouldRejectAdditionOfOtherLanesIfItAlreadyHasTwoLanes() throws IllegalMethodCallException {
         new Lane(3, edge);
+    }
+
+    @Test
+    public void shouldGetNextLaneInAlternateFashion() throws IllegalArgumentException {
+        assertThat(edge.getNextLane(lane1), equalTo(lane2));
+        assertThat(edge.getNextLane(lane2), equalTo(lane1));
     }
 
     @Test(expected=IllegalArgumentException.class)
