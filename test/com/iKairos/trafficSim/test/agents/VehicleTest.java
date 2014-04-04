@@ -97,4 +97,14 @@ public class VehicleTest {
         car.translate(100);
         assertThat(car.getVelocity(), is(500d)); // v = u + at where u = 0
     }
+
+    //DOCUMENTING THE HACKS
+    @Test
+    public void shouldNotUpdateVelocityAfterTranslateIfNewVelocityIsNegative() {
+        IDM idmMock = mock(IDM.class);
+        when(idmMock.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject())).thenReturn(-5.0);
+        SharedConstants.idm = idmMock;
+        car.translate(100);
+        assertThat(car.getVelocity(), is(0.0d));
+    }
 }

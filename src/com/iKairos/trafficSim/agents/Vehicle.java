@@ -30,14 +30,12 @@ public class Vehicle implements Comparable<Vehicle> {
         this.acceleration = SharedConstants.idm.calculateAcceleration(leadingVehicle, this);
         double newVelocity = this.velocity + this.acceleration * changeInTime;
 
-        if (newVelocity < 0)
-            newVelocity = this.velocity;
+        if (newVelocity < 0) newVelocity = this.velocity;
 
         this.velocity = newVelocity;
-        double displacement = this.velocity*changeInTime;
+        double displacement = this.velocity * changeInTime;
 
-        if (displacement < 0)
-            displacement = 0;
+        if (displacement < 0) displacement = 0;
 
         this.position += displacement;
 
@@ -101,9 +99,9 @@ public class Vehicle implements Comparable<Vehicle> {
 
     @Override
     public int compareTo(Vehicle vehicle) {
-        if(this.getPosition() > vehicle.getPosition())
-            return  -1;
-        else if(this.getPosition() < vehicle.getPosition())
+        if (this.getPosition() > vehicle.getPosition())
+            return -1;
+        else if (this.getPosition() < vehicle.getPosition())
             return 1;
         else
             return 0;
