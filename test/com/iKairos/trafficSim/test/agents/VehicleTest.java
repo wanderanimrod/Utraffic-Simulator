@@ -3,6 +3,7 @@ package com.iKairos.trafficSim.test.agents;
 import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.Constants;
+import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.EdgeType;
@@ -17,8 +18,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class VehicleTest {
 
@@ -41,6 +41,8 @@ public class VehicleTest {
         Constants.dummyLeadingVehicle = new Car(-1);
         Constants.dummyLeadingVehicle.setPosition(100000.0d);
         Constants.dummyLeadingVehicle.setCurrentLane(lane0);
+
+        Constants.idm = mock(IDM.class);
     }
 
     @Test
@@ -82,10 +84,10 @@ public class VehicleTest {
 
     @Test
     public void shouldCheckIfLaneChangeIsNecessaryAfterTranslation() {
-//        car.setCurrentEdge(edge);
-        car.setCurrentLane(lane0);
-        car.translate(10);
+        lane0.insertVehicleAtTheStartOfTheLane(car);
         LaneChangeModel laneChangeMock = mock(LaneChangeModel.class);
-        verify(laneChangeMock).changeLaneIfNecessary(car);
+        Constants.laneChangeModel = laneChangeMock;
+        car.translate(10);
+        verify(laneChangeMock).changeLaneIfNecessary((Vehicle)anyObject());
     }
 }

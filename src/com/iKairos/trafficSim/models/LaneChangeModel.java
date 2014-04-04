@@ -19,10 +19,7 @@ public class LaneChangeModel {
 
         Lane currentLane = requester.getCurrentLane();
 
-        if (currentLane.getParentEdge().getType() == EdgeType.TWO_WAY_RURAL_ROAD) {
-            //TODO Deal with overtaking on two-way edges first because they are more common in African cities
-        }
-        else if (currentLane.getParentEdge().getType() == EdgeType.ONE_WAY_MULTIPLE_LANES) {
+        if (currentLane.getParentEdge().getType() == EdgeType.ONE_WAY_MULTIPLE_LANES) {
 
             Lane targetLane = currentLane.getNextLane();
 

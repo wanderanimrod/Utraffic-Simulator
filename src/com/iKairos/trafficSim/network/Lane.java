@@ -1,5 +1,6 @@
 package com.iKairos.trafficSim.network;
 
+import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.Constants;
 
@@ -12,33 +13,26 @@ public class Lane {
     private int id;
     private Edge parentEdge;
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+    private Vehicle dummyLeader;
 
     public Lane(int id) {
         this.id = id;
+        this.dummyLeader = new Car(-1);
+        this.dummyLeader.setPosition(100000d);
     }
 
     public Vehicle getLeadingVehicle (Vehicle requester) {
 
         int requesterPos = this.vehicles.indexOf(requester);
-
-        System.out.println("Vehicles currently on lane " + this.id + " are:");
-
-        for (Vehicle vehicle: this.vehicles) {
-            System.out.println("app Id = " + vehicle.getId() + " | pos = " + vehicle.getPosition() + " | vel = " + vehicle.getVelocity());
-        }
-
-        System.out.println("Requester Vehicle " + requester.getId() + " is in position " + requesterPos + " of lane " + this.id + "\n");
-
         if (requesterPos != 0) {
             return this.vehicles.get(requesterPos - 1);
         }
         else {
-            return Constants.dummyLeadingVehicle;
+            return this.dummyLeader;
         }
     }
 
     //TODO Should be in Vehicle. It is the vehicle that should know about its surroundings.
-    //TODO Think about how it will affect performance before you refactor
     public Vehicle getFollower (Vehicle vehicle) {
 
         int requesterPos = vehicles.indexOf(vehicle);
@@ -87,7 +81,7 @@ public class Lane {
 
         vehicle.setPosition(0.0d);
 
-        /*Put the vehicle at the end of the queue of vehicles.
+        /**Put the vehicle at the end of the queue of vehicles.
         This must be synchronised so that before a thread finishes adding its vehicle,
         another thread cannot interrupt it. Synchronise on the current lane.*/
         synchronized (this) {
@@ -97,10 +91,7 @@ public class Lane {
         /**Two threads cannot try to update the properties of a single vehicle by design.
          * A single vehicle's operation will always be handled by one thread, so the
          * following block of code is thread safe.*/
-
         vehicle.setCurrentLane(this);
-        System.out.println("Current lane for vehicle " + vehicle.getId() + " is " + this.getId());
-
         vehicle.setCurrentEdge(this.parentEdge);
     }
 
