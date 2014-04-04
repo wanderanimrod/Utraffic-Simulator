@@ -21,7 +21,7 @@ public class Lane {
         this.dummyLeader.setPosition(100000d);
     }
 
-    public synchronized Vehicle getLeadingVehicle (Vehicle requester) {
+    public synchronized Vehicle getLeader(Vehicle requester) {
         int requesterPos = this.vehicles.indexOf(requester);
         if (requesterPos != 0)
             return this.vehicles.get(requesterPos - 1);
@@ -38,17 +38,12 @@ public class Lane {
     public synchronized Vehicle getProspectiveLeadingVehicle (Vehicle requester) {
 
         ArrayList<Vehicle> dummyVehicles = (ArrayList<Vehicle>)vehicles.clone();
-
         insertVehicleAndMaintainOrder(requester, dummyVehicles);
-
         int requesterPos = dummyVehicles.indexOf(requester);
 
-        if (requesterPos != 0) {
+        if (requesterPos != 0)
             return dummyVehicles.get(requesterPos - 1);
-        }
-        else {
-            return dummyLeader;
-        }
+        else return dummyLeader;
     }
 
     public synchronized Vehicle getProspectiveFollower (Vehicle requester) {
@@ -67,7 +62,7 @@ public class Lane {
         }
     }
 
-    public synchronized void insertVehicleAtItsCurrentPosition(Vehicle vehicle) {
+    public void insertVehicleAtItsCurrentPosition(Vehicle vehicle) {
         insertVehicleAndMaintainOrder(vehicle, this.vehicles);
     }
 

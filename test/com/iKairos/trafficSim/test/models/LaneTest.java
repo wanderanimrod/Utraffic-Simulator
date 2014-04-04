@@ -32,18 +32,29 @@ public class LaneTest {
     }
 
     @Test
-    public void shouldGetLeadingVehicle() {
+    public void shouldGetLeader() {
         Vehicle leader = new Vehicle(100, lane);
-        leader.setPosition(1000);
         Vehicle follower = new Vehicle(200, lane);
-        assertThat(lane.getLeadingVehicle(follower), equalTo(leader));
+        assertThat(lane.getLeader(follower), equalTo(leader));
     }
 
     @Test
     public void shouldReturnLeaderAsAVehicleFarAwayWhenRequesterIsTheLeadingVehicleOnTheLane() {
-        Vehicle leader = lane.getLeadingVehicle(requester);
+        Vehicle leader = lane.getLeader(requester);
         assertThat(leader, equalTo(new Vehicle(-1, lane)));
         assertThat(leader.getPosition(), is(100000d));
+    }
+
+    @Test
+    public void shouldGetFollower() {
+        Vehicle leader = new Vehicle(100, lane);
+        Vehicle follower = new Vehicle(200, lane);
+        assertThat(lane.getFollower(leader), equalTo(follower));
+    }
+
+    @Test
+    public void shouldGetProspectiveLeader() {
+        
     }
 
     @Test

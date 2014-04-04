@@ -77,4 +77,11 @@ public class VehicleTest {
         car.changeLane(lane1);
         assertThat(car.getCurrentLane(), is(lane1));
     }
+
+    @Test
+    public void shouldRetainItsPositionAfterLaneChange() {
+        car.setPosition(125.0d);
+        car.changeLane(lane1);
+        assertThat(car.getPosition(), is(125.0d));
+    }
 }

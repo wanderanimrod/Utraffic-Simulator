@@ -36,7 +36,7 @@ public class LaneChangeModel {
             if (currentFollower != null) {
                 accCurrentFollowerBeforeLaneChange = currentFollower.getAcceleration();
                 accCurrentFollowerAfterLaneChange =
-                        IDM.calculateAcceleration(currentLane.getLeadingVehicle(requester), currentFollower);
+                        IDM.calculateAcceleration(currentLane.getLeader(requester), currentFollower);
             }
 
             //TODO Refactor this chain stuff out to conform to the law or Demeter
