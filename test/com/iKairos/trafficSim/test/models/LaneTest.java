@@ -10,8 +10,8 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class LaneTest {
 
@@ -23,7 +23,7 @@ public class LaneTest {
     public void setUp() {
         mockEdge = mock(Edge.class);
         lane = new Lane(1, mockEdge);
-        requester = new Car(1);
+        requester = new Car(1, lane);
     }
 
     @Test
@@ -34,18 +34,9 @@ public class LaneTest {
 
     @Test
     public void shouldReturnLeaderAsAVehicleFarAwayWhenRequesterIsTheLeadingVehicleOnTheLane() {
-        lane.insertVehicleAtTheStartOfTheLane(requester);
         Vehicle leader = lane.getLeadingVehicle(requester);
-        assertThat(leader, equalTo((Vehicle)new Car(-1)));
+        assertThat(leader, equalTo((Vehicle)new Car(-1, lane)));
         assertThat(leader.getPosition(), is(100000d));
-    }
-
-    @Test
-    public void shouldInsertVehicleAtTheStartOfLane() {
-        requester.setPosition(100);
-        lane.insertVehicleAtTheStartOfTheLane(requester);
-        assertThat(requester.getCurrentLane(), equalTo(lane));
-        assertThat(requester.getPosition(), is(0.0d));
     }
 
     @Test

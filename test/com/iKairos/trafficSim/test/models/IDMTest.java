@@ -4,6 +4,7 @@ import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.Constants;
 import com.iKairos.trafficSim.models.IDM;
+import com.iKairos.trafficSim.network.Lane;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,6 +12,7 @@ import static com.iKairos.trafficSim.test.helpers.Matchers.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.lessThan;
+import static org.mockito.Mockito.mock;
 
 
 public class IDMTest {
@@ -20,12 +22,13 @@ public class IDMTest {
 
     @Before
     public void setUp() {
-        Constants.dummyLeadingVehicle = new Car(-1);
+        Lane lane = mock(Lane.class);
+        idm = new IDM();
+        car = new Car(0, lane);
+        Constants.dummyLeadingVehicle = new Car(-1, lane);
         Constants.dummyLeadingVehicle.setPosition(100000.0d);
         Constants.dummyLeadingVehicle.setAcceleration(0.0d);
         Constants.dummyLeadingVehicle.setVelocity(27.78d);
-        idm = new IDM();
-        car = new Car(0);
     }
 
     @Test

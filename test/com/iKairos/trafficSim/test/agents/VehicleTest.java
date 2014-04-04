@@ -28,19 +28,25 @@ public class VehicleTest {
 
     @Before
     public void setUp() {
-        car = new Car(1);
-        car1 = new Car(1);
-        car2 = new Car(2);
-
         edge = new Edge(EdgeType.TWO_WAY_RURAL_ROAD);
         lane0 = new Lane(0, edge);
         lane1 = new Lane(1, edge);
 
-        Constants.dummyLeadingVehicle = new Car(-1);
+        car = new Car(1, lane0);
+        car1 = new Car(1, lane0);
+        car2 = new Car(2, lane0);
+
+        Constants.dummyLeadingVehicle = new Car(-1, lane0);
         Constants.dummyLeadingVehicle.setPosition(100000.0d);
-        Constants.dummyLeadingVehicle.setCurrentLane(lane0);
 
         Constants.idm = mock(IDM.class);
+    }
+
+    @Test
+    public void shouldAddItselfToParentLaneUponInstantiation() {
+        Lane lane0Mock = mock(Lane.class);
+        car = new Car(1, lane0Mock);
+        verify(lane0Mock).addVehicle(car);
     }
 
     @Test
@@ -55,13 +61,13 @@ public class VehicleTest {
 
     @Test
     public void shouldEquateVehiclesOfTheSameID() {
-        Vehicle car3 = new Car(car1.getId());
+        Vehicle car3 = new Car(car1.getId(), lane0);
         assertThat(car3, equalTo(car1));
     }
 
     @Test
     public void shouldBeAtPositionZeroOnCreation() {
-        Vehicle car = new Car(1);
+        Vehicle car = new Car(1, lane0);
         assertThat(car.getPosition(), is(0.0));
     }
 
@@ -75,14 +81,13 @@ public class VehicleTest {
 
     @Test
     public void shouldLeaveCurrentLaneAfterLaneChange() {
-        car.setCurrentLane(lane0);
+        car = new Car(1, lane0);
         car.changeLane(lane1);
         assertThat(car.getCurrentLane(), is(lane1));
     }
 
     @Test
     public void shouldCheckIfLaneChangeIsNecessaryAfterTranslation() {
-        lane0.insertVehicleAtTheStartOfTheLane(car);
         LaneChangeModel laneChangeMock = mock(LaneChangeModel.class);
         Constants.laneChangeModel = laneChangeMock;
         car.translate(10);

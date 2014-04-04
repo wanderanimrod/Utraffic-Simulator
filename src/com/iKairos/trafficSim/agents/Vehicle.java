@@ -1,7 +1,6 @@
 package com.iKairos.trafficSim.agents;
 
 import com.iKairos.trafficSim.models.Constants;
-import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.Lane;
 
 public abstract class Vehicle implements Comparable<Vehicle> {
@@ -12,15 +11,16 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     protected double acceleration = 0.0d;
     protected double desiredVelocity = Constants.desiredVelocity;
     protected double maxAcceleration = Constants.maxAcceleration;
-    protected Edge currentEdge;
     protected Lane currentLane;
     protected double desiredDeceleration = Constants.desiredDeceleration;
     protected double length = Constants.vehicleLength;
     protected double politeness = Constants.driverPoliteness;
 
-    public Vehicle(int id) {
+    public Vehicle(int id, Lane lane) {
         this.id = id;
         this.position = 0.0d;
+        this.currentLane = lane;
+        this.currentLane.addVehicle(this);
     }
 
     public void translate(double changeInTime) {
@@ -51,30 +51,10 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         this.acceleration = acceleration;
     }
 
-    public void setDesiredVelocity (double velocity) {
-        this.desiredVelocity = velocity;
-    }
-
-    public void setMaxAcceleration(double acceleration) {
-        this.maxAcceleration = acceleration;
-    }
-
-    public void setPoliteness(double politeness) {
-        this.politeness = politeness;
-    }
-
-    public void setCurrentLane(Lane lane) {
-        this.currentLane = lane;
-    }
-
     public void changeLane(Lane targetLane) {
         targetLane.insertVehicleAtItsCurrentPosition(this);
         currentLane.removeVehicle(this);
-        this.setCurrentLane(targetLane);
-    }
-
-    public void setCurrentEdge(Edge edge) {
-        this.currentEdge = edge;
+        this.currentLane = targetLane;
     }
 
     public int getId() {

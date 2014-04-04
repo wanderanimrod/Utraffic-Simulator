@@ -19,7 +19,7 @@ public class Lane {
         this.id = id;
         this.parentEdge = parentEdge;
         parentEdge.addLane(this);
-        this.dummyLeader = new Car(-1);
+        this.dummyLeader = new Car(-1, this);
         this.dummyLeader.setPosition(100000d);
     }
 
@@ -70,24 +70,6 @@ public class Lane {
         }
     }
 
-    public void insertVehicleAtTheStartOfTheLane (Vehicle vehicle) {
-
-        vehicle.setPosition(0.0d);
-
-        /**Put the vehicle at the end of the queue of vehicles.
-        This must be synchronised so that before a thread finishes adding its vehicle,
-        another thread cannot interrupt it. Synchronise on the current lane.*/
-        synchronized (this) {
-            vehicles.add(vehicle);
-        }
-
-        /**Two threads cannot try to update the properties of a single vehicle by design.
-         * A single vehicle's operation will always be handled by one thread, so the
-         * following block of code is thread safe.*/
-        vehicle.setCurrentLane(this);
-        vehicle.setCurrentEdge(this.parentEdge);
-    }
-
     public synchronized void insertVehicleAtItsCurrentPosition(Vehicle vehicle) {
         insertVehicleAndMaintainOrder(vehicle, this.vehicles);
     }
@@ -117,5 +99,9 @@ public class Lane {
         //TODO replace the mergeSort Collections.sort() uses with faster insertion sort for nearly sorted arrays.
         vehicles.add(vehicle);
         Collections.sort(vehicles);
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        this.vehicles.add(vehicle);
     }
 }
