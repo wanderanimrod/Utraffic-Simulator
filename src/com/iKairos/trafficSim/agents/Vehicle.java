@@ -2,6 +2,7 @@ package com.iKairos.trafficSim.agents;
 
 import com.iKairos.trafficSim.models.Constants;
 import com.iKairos.trafficSim.models.IDM;
+import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.network.Lane;
 
 public abstract class Vehicle implements Comparable<Vehicle> {
@@ -41,7 +42,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
         this.position += displacement;
 
-        Constants.laneChangeModel.changeLaneIfNecessary(this);
+        LaneChangeModel.changeLaneIfNecessary(this);
     }
 
     public void setVelocity(double velocity) {

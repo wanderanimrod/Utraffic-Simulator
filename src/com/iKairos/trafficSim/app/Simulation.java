@@ -24,10 +24,6 @@ public class Simulation {
 //		simulation.start();
 	}
 
-    private void instantiate() {
-		Constants.laneChangeModel = new LaneChangeModel();
-	}
-
     /* TODO Should be out of here into network or network service */
 //	private void createNetwork() {
 //

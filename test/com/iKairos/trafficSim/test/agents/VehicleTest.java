@@ -80,13 +80,4 @@ public class VehicleTest {
         car.changeLane(lane1);
         assertThat(car.getCurrentLane(), is(lane1));
     }
-
-    @Test
-    public void shouldCheckIfLaneChangeIsNecessaryAfterTranslation() {
-        LaneChangeModel laneChangeMock = mock(LaneChangeModel.class);
-        Constants.laneChangeModel = laneChangeMock;
-        mock(IDM.class);
-        car.translate(10);
-       verify(laneChangeMock).changeLaneIfNecessary((Vehicle)anyObject());
-    }
 }
