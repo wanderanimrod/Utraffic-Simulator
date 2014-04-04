@@ -1,14 +1,6 @@
 package com.iKairos.trafficSim.app;
 
-import com.iKairos.trafficSim.agents.Vehicle;
-import com.iKairos.trafficSim.network.Network;
-
-import java.util.ArrayList;
-
 public class Simulation {
-
-    ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
-	Network network;
 
 	public static void main(String[] args) {
 		Simulation simulation = new Simulation();

@@ -38,7 +38,6 @@ public class Lane {
     }
 
     public synchronized Vehicle getProspectiveLeader(Vehicle requester) {
-
         ArrayList<Vehicle> dummyVehicles = (ArrayList<Vehicle>)vehicles.clone();
         insertVehicleAndMaintainOrder(requester, dummyVehicles);
         int requesterPos = dummyVehicles.indexOf(requester);
@@ -49,19 +48,14 @@ public class Lane {
     }
 
     public synchronized Vehicle getProspectiveFollower (Vehicle requester) {
-
         ArrayList<Vehicle> dummyVehicles = (ArrayList<Vehicle>)vehicles.clone();
-
         insertVehicleAndMaintainOrder(requester, dummyVehicles);
-
         int requesterPos = dummyVehicles.indexOf(requester);
 
-        if (requesterPos != dummyVehicles.size() - 1) {
+        if (requesterPos != dummyVehicles.size() - 1)
             return dummyVehicles.get(requesterPos + 1);
-        }
-        else {
-            return null;
-        }
+        else return null;
+
     }
 
     public void insertVehicleAtItsCurrentPosition(Vehicle vehicle) {
@@ -70,14 +64,6 @@ public class Lane {
 
     public synchronized void removeVehicle(Vehicle vehicle) {
         vehicles.remove(vehicle);
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
-    public TwoLaneOneWayEdge getParentEdge() {
-        return this.parentEdge;
     }
 
     public Lane getNextLane() throws IllegalArgumentException {
