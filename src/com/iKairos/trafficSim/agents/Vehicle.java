@@ -33,7 +33,7 @@ public class Vehicle implements Comparable<Vehicle> {
         this.position += calculateDisplacement(initialVelocity, changeInTime, this.acceleration);
 
         //TODO only attempt lane change if velocity is below desired velocity
-        LaneChangeModel.changeLaneIfNecessary(this);
+        SharedConstants.laneChangeModel.changeLaneIfNecessary(this);
     }
 
     private double calculateVelocity(double u, double t, double a) {

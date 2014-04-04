@@ -10,7 +10,7 @@ import com.iKairos.trafficSim.network.Lane;
 //TODO Adjust this Mode or create another one that deals with Overtaking on rural roads
 public class LaneChangeModel {
 
-    public static void changeLaneIfNecessary(Vehicle requester) {
+    public void changeLaneIfNecessary(Vehicle requester) {
 
         double accCurrentFollowerBeforeLaneChange = 0.0d;
         double accCurrentFollowerAfterLaneChange = 0.0d;

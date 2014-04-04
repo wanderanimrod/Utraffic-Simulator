@@ -4,4 +4,5 @@ public class SharedConstants {
 
     public static double minJamDistance = 1.0d;
     public static IDM idm;
+    public static LaneChangeModel laneChangeModel;
 }

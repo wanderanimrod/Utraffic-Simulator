@@ -2,6 +2,7 @@ package com.iKairos.trafficSim.test.agents;
 
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.IDM;
+import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.EdgeType;
@@ -27,6 +28,7 @@ public class VehicleTest {
     Lane lane0, lane1;
     Edge edge;
     IDM idmMock;
+    LaneChangeModel laneChangeMock;
 
     @Before
     public void setUp() {
@@ -39,7 +41,9 @@ public class VehicleTest {
         car2 = new Vehicle(2, lane0);
 
         idmMock = mock(IDM.class);
+        laneChangeMock = mock(LaneChangeModel.class);
         SharedConstants.idm = idmMock;
+        SharedConstants.laneChangeModel = laneChangeMock;
     }
 
     @Test
