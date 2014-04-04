@@ -113,17 +113,15 @@ public class VehicleTest {
 
     @Test
     public void shouldAttemptLaneChangeIfCurrentVelocityIsLessThanDesiredVelocity() {
-        car.setVelocity(10);
+        car.setVelocity(car.getDesiredVelocity() - 1);
         car.translate(10);
-        assertThat(car.getVelocity(), lessThan(car.getDesiredVelocity()));
         verify(laneChangeMock).changeLaneIfNecessary((Vehicle)anyObject());
     }
 
     @Test
-    public void shouldNotAttemptLaneChangeIfCurrentVelocityIsGreaterThanOrEqualToDesiredVelocity() {
-        car.setVelocity(33.33);
+    public void shouldNotAttemptLaneChangeIfCurrentVelocityIsEqualToDesiredVelocity() {
+        car.setVelocity(car.getDesiredVelocity());
         car.translate(10);
-        assertThat(car.getVelocity(), greaterThanOrEqualTo(car.getDesiredVelocity()));
         verify(laneChangeMock, never()).changeLaneIfNecessary((Vehicle)anyObject());
     }
 
