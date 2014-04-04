@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static com.iKairos.trafficSim.test.helpers.Matchers.*;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.lessThan;
@@ -18,17 +19,20 @@ import static org.mockito.Mockito.mock;
 public class IDMTest {
 
     IDM idm;
-    Vehicle car;
+    Vehicle car, dummyLeader;
 
     @Before
     public void setUp() {
-        Lane lane = mock(Lane.class);
         idm = new IDM();
+        Lane lane = mock(Lane.class);
+
         car = new Car(0, lane);
-        Constants.dummyLeadingVehicle = new Car(-1, lane);
-        Constants.dummyLeadingVehicle.setPosition(100000.0d);
-        Constants.dummyLeadingVehicle.setAcceleration(0.0d);
-        Constants.dummyLeadingVehicle.setVelocity(27.78d);
+        dummyLeader = new Car(-1, lane);
+
+        dummyLeader.setPosition(100000.0d);
+        dummyLeader.setVelocity(27.78d);
+
+        checkThatTestDataStatusIsOkay();
     }
 
     @Test
@@ -41,15 +45,12 @@ public class IDMTest {
     public void shouldNotAccelerateIfVehicleHasReachedItsDesiredVelocity() {
         car.setVelocity(Constants.desiredVelocity);
         double acceleration = calculateAcceleration();
-        assertMagnitudeOf(acceleration, isRoughly(0));
+        assertThatMagnitudeOf(acceleration, isRoughly(0));
     }
 
     @Test
     public void shouldRemainStationaryWhenLeaderIsNearby() {
-        assertThat(car.getVelocity(), is(0.0));
-        assertThat(car.getPosition(), is(0.0));
-        assertThat(Constants.dummyLeadingVehicle.getLength(), is(5.0));
-        Constants.dummyLeadingVehicle.setPosition(6.0);
+        dummyLeader.setPosition(6.0);
         double acceleration = calculateAcceleration();
         assertThatResult(acceleration, isRoughly(0));
     }
@@ -64,14 +65,19 @@ public class IDMTest {
 
     @Test
     public void shouldDecelerateWhenLeadingVehicleIsNear() {
-        Constants.dummyLeadingVehicle.setPosition(50);
+        dummyLeader.setPosition(50);
         car.setVelocity(10);
-        assertThat(car.getPosition(), is(0.0));
         double acceleration = calculateAcceleration();
         assertThatResult(acceleration, isRoughly(-0.73));
     }
 
     private double calculateAcceleration() {
-        return idm.calculateAcceleration(Constants.dummyLeadingVehicle, car);
+        return idm.calculateAcceleration(dummyLeader, car);
+    }
+
+    private void checkThatTestDataStatusIsOkay() {
+        assertThat(car.getCurrentLane(), equalTo(dummyLeader.getCurrentLane()));
+        assertThat(dummyLeader.getLength(), is(5.0));
+        assertThat(dummyLeader.getAcceleration(), is(0.0));
     }
 }

@@ -1,6 +1,6 @@
 package com.iKairos.trafficSim.models;
 
-import com.iKairos.trafficSim.agents.Car;
+import com.iKairos.trafficSim.agents.Vehicle;
 
 public class Constants {
 
@@ -14,6 +14,6 @@ public class Constants {
     public static double driverPoliteness = 0.5d;
     public static IDM idm;
     public static LaneChangeModel laneChangeModel;
-    public static Car dummyLeadingVehicle;
+    public static Vehicle dummyLeadingVehicle;
     public static double laneChangeThreshold = 0.1d;
 }

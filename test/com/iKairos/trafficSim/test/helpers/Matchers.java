@@ -13,7 +13,7 @@ public class Matchers {
     public static void assertThatResult(double roughResult, Matcher matcher) {
         assertThat(Numbers.round(roughResult, 3), matcher);
     }
-    public static void assertMagnitudeOf(double roughSignedResult, Matcher matcher) {
+    public static void assertThatMagnitudeOf(double roughSignedResult, Matcher matcher) {
         double roundedUnsignedResult = Math.abs(Numbers.round(roughSignedResult, 3));
         assertThat(roundedUnsignedResult, matcher);
     }
