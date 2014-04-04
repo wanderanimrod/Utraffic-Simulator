@@ -99,16 +99,19 @@ public class VehicleTest {
 
     @Test
     public void shouldUpdateVelocityAfterTranslateUsingFirstEquationOfMotion() {
-        fixIdmAcceleration(5.0);
+        fixIdmAcceleration(0.5);
+        car.setVelocity(12.0);
         car.translate(100);
-        assertThat(car.getVelocity(), is(500d)); // v = u + at where u = 0
+        assertThat(car.getVelocity(), is(62d)); // v = u + at where u = 0
     }
 
     @Test
     public void shouldUpdatePositionAfterTranslateUsingSecondEquationOfMotion() {
         fixIdmAcceleration(0.5);
+        car.setVelocity(12.0);
+        car.setPosition(10);
         car.translate(10);
-        assertThat(car.getPosition(), is(25.0)); // s = ut + 0.5(at^2) u = 0
+        assertThat(car.getPosition(), is(155.0)); //pos = currentPos + s | s = ut + 0.5(at^2)
     }
 
     private void fixIdmAcceleration(double acceleration) {
