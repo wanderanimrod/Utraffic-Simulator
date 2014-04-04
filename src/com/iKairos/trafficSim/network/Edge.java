@@ -11,10 +11,6 @@ public class Edge {
         this.type = edgeType;
     }
 
-    public int getNumberOfLanes() {
-        return this.lanes.size();
-    }
-
     public EdgeType getType() {
         return this.type;
     }
@@ -26,7 +22,7 @@ public class Edge {
     //TODO Currently only supports two-lane edges. Clients should adjust for this.
     public Lane getNextLane (Lane lane) {
 
-        if (lane.getParentEdge().getNumberOfLanes() == 2) {
+        if (lane.getParentEdge().lanes.size() == 2) {
             if (lane.getId() == 0)
                 return this.lanes.get(1);
             else if (lane.getId() == 1)
@@ -35,6 +31,5 @@ public class Edge {
         }
         else return null;
     }
-
 }
 
