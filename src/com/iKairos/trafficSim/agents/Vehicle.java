@@ -25,15 +25,15 @@ public class Vehicle implements Comparable<Vehicle> {
     }
 
     public void translate(double changeInTime) {
-
+        double initialVelocity = this.velocity;
         Vehicle leadingVehicle = this.currentLane.getLeader(this);
         this.acceleration = SharedConstants.idm.calculateAcceleration(leadingVehicle, this);
         double newVelocity = this.velocity + this.acceleration * changeInTime;
 
         if (newVelocity < 0) newVelocity = this.velocity;
-
         this.velocity = newVelocity;
-        double displacement = this.velocity * changeInTime;
+
+        double displacement = calculateDisplacement(initialVelocity, changeInTime);
 
         if (displacement < 0) displacement = 0;
 
@@ -41,6 +41,10 @@ public class Vehicle implements Comparable<Vehicle> {
 
         //TODO only attempt lane change if velocity is below desired velocity
         LaneChangeModel.changeLaneIfNecessary(this);
+    }
+
+    private double calculateDisplacement(double u, double t) {
+        return u * t + 0.5 * (this.acceleration * Math.pow(t, 2));
     }
 
     public void setVelocity(double velocity) {

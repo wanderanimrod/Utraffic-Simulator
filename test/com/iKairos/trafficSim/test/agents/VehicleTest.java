@@ -26,6 +26,7 @@ public class VehicleTest {
     Vehicle car, car1, car2;
     Lane lane0, lane1;
     Edge edge;
+    IDM idmMock;
 
     @Before
     public void setUp() {
@@ -36,6 +37,9 @@ public class VehicleTest {
         car = new Vehicle(0, lane0);
         car1 = new Vehicle(1, lane0);
         car2 = new Vehicle(2, lane0);
+
+        idmMock = mock(IDM.class);
+        SharedConstants.idm = idmMock;
     }
 
     @Test
@@ -90,21 +94,29 @@ public class VehicleTest {
     }
 
     @Test
-    public void shouldUpdateVelocityAfterTranslate() {
-        IDM idmMock = mock(IDM.class);
-        when(idmMock.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject())).thenReturn(5.0);
-        SharedConstants.idm = idmMock;
+    public void shouldUpdateVelocityAfterTranslateUsingFirstEquationOfMotion() {
+        fixIdmAcceleration(5.0);
         car.translate(100);
         assertThat(car.getVelocity(), is(500d)); // v = u + at where u = 0
     }
 
-    //DOCUMENTING THE HACKS
+    @Test
+    public void shouldUpdatePositionAfterTranslateUsingSecondEquationOfMotion() {
+        fixIdmAcceleration(0.5);
+        car.translate(10);
+        assertThat(car.getPosition(), is(25.0)); // s = ut + 0.5(at^2) u = 0
+    }
+
+    /** DOCUMENTING THE HACKS */
     @Test
     public void shouldNotUpdateVelocityAfterTranslateIfNewVelocityIsNegative() {
-        IDM idmMock = mock(IDM.class);
-        when(idmMock.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject())).thenReturn(-5.0);
-        SharedConstants.idm = idmMock;
+        fixIdmAcceleration(-5.0d);
         car.translate(100);
         assertThat(car.getVelocity(), is(0.0d));
+    }
+    /** END HACKS */
+
+    private void fixIdmAcceleration(double acceleration) {
+        when(idmMock.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject())).thenReturn(acceleration);
     }
 }
