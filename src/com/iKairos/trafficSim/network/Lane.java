@@ -1,6 +1,8 @@
 package com.iKairos.trafficSim.network;
 
 import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.utils.*;
+import com.iKairos.utils.IllegalArgumentException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,11 +11,11 @@ import java.util.List;
 public class Lane {
 
     private int id;
-    private Edge parentEdge;
+    private TwoLaneOneWayRoad parentEdge;
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
     private Vehicle dummyLeader;
 
-    public Lane(int id, Edge parentEdge) {
+    public Lane(int id, TwoLaneOneWayRoad parentEdge) throws IllegalArgumentException {
         this.id = id;
         this.parentEdge = parentEdge;
         parentEdge.addLane(this);
@@ -74,11 +76,11 @@ public class Lane {
         return this.id;
     }
 
-    public Edge getParentEdge() {
+    public TwoLaneOneWayRoad getParentEdge() {
         return this.parentEdge;
     }
 
-    public Lane getNextLane() {
+    public Lane getNextLane() throws IllegalArgumentException {
         return this.parentEdge.getNextLane(this);
     }
 

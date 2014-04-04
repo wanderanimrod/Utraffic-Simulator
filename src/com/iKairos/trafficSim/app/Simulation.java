@@ -19,7 +19,7 @@ public class Simulation {
 //	private void createNetwork() {
 //
 //		network = new Network();
-//		Edge edge = new Edge(EdgeType.ONE_WAY_MULTIPLE_LANES);
+//		TwoLaneOneWayRoad edge = new TwoLaneOneWayRoad(EdgeType.ONE_WAY_TWO_LANES);
 //        network.addEdge(edge);
 //        Lane lane0 = new Lane(0, edge);
 //        new Lane(1, edge);

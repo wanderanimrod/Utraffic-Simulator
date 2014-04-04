@@ -1,9 +1,2 @@
-* Tell Don't ask:
-    The Vehicle should be told to translate and not asked for its properties so they may be manipulated from outside it.
-    This should extend to all other classes like Lane, Edge, etc
-* Should IDM be in full form? Should LaneChangeModel be in full form? Do they have to have "Model" at the end if they
-    are already in the Models package?
-* Printing code shouldn't be in the Domain object classes! Find out a way to clean that up!!!!!!
-* The Network should create itself. Simulation should just pass it the data it needs. Tell Don't Ask!!
-* Move DummyLeadingVehicle instantiation to Constants.
-* Create ant build.xml to automate tests
+EdgeType should be gotten rid of. Different EdgeTypes getNextLane differently. They should be different classes that
+implement the edge interface

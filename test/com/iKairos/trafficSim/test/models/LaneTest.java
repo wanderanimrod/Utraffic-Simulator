@@ -1,8 +1,10 @@
 package com.iKairos.trafficSim.test.models;
 
 import com.iKairos.trafficSim.agents.Vehicle;
-import com.iKairos.trafficSim.network.Edge;
+import com.iKairos.trafficSim.network.TwoLaneOneWayRoad;
 import com.iKairos.trafficSim.network.Lane;
+import com.iKairos.utils.*;
+import com.iKairos.utils.IllegalArgumentException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,18 +18,18 @@ public class LaneTest {
 
     Lane lane, adjacentLane;
     Vehicle requester;
-    Edge mockEdge;
+    TwoLaneOneWayRoad mockEdge;
 
     @Before
-    public void setUp() {
-        mockEdge = mock(Edge.class);
+    public void setUp() throws IllegalArgumentException {
+        mockEdge = mock(TwoLaneOneWayRoad.class);
         lane = new Lane(1, mockEdge);
         adjacentLane = new Lane(0, mockEdge);
         requester = new Vehicle(1, lane);
     }
 
     @Test
-    public void shouldAddItselfToParentEdgeOnConstruction() {
+    public void shouldAddItselfToParentEdgeOnConstruction() throws IllegalArgumentException {
         Lane lane = new Lane(2, mockEdge);
         verify(mockEdge).addLane(lane);
     }
@@ -74,13 +76,13 @@ public class LaneTest {
     }
 
     @Test
-    public void shouldGetNextLane() {
+    public void shouldGetNextLane() throws IllegalArgumentException {
         lane.getNextLane();
         verify(mockEdge).getNextLane(lane);
     }
 
     @Test
-    public void shouldEquateLanesById() {
+    public void shouldEquateLanesById() throws IllegalArgumentException {
         Lane lane1 = new Lane(1, mockEdge);
         Lane lane2 = new Lane(1, mockEdge);
         assertThat(lane1, equalTo(lane2));
