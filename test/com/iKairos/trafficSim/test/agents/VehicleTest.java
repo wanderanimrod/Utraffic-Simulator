@@ -15,12 +15,9 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Matchers.anyObject;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class VehicleTest {
 
@@ -112,6 +109,22 @@ public class VehicleTest {
         car.setPosition(10);
         car.translate(10);
         assertThat(car.getPosition(), is(155.0)); //pos = currentPos + s | s = ut + 0.5(at^2)
+    }
+
+    @Test
+    public void shouldAttemptLaneChangeIfCurrentVelocityIsLessThanDesiredVelocity() {
+        car.setVelocity(10);
+        car.translate(10);
+        assertThat(car.getVelocity(), lessThan(car.getDesiredVelocity()));
+        verify(laneChangeMock).changeLaneIfNecessary((Vehicle)anyObject());
+    }
+
+    @Test
+    public void shouldNotAttemptLaneChangeIfCurrentVelocityIsGreaterThanOrEqualToDesiredVelocity() {
+        car.setVelocity(33.33);
+        car.translate(10);
+        assertThat(car.getVelocity(), greaterThanOrEqualTo(car.getDesiredVelocity()));
+        verify(laneChangeMock, never()).changeLaneIfNecessary((Vehicle)anyObject());
     }
 
     private void fixIdmAcceleration(double acceleration) {
