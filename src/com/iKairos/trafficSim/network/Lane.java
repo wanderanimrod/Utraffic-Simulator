@@ -90,4 +90,17 @@ public class Lane {
     public synchronized void addVehicle(Vehicle vehicle) {
         this.vehicles.add(vehicle);
     }
+
+    @Override
+    public boolean equals(Object otherLane) {
+        if (this == otherLane) return true;
+        if (!(otherLane instanceof Lane)) return false;
+        Lane lane = (Lane) otherLane;
+        return id == lane.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

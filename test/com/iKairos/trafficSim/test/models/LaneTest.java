@@ -78,4 +78,11 @@ public class LaneTest {
         lane.getNextLane();
         verify(mockEdge).getNextLane(lane);
     }
+
+    @Test
+    public void shouldEquateLanesById() {
+        Lane lane1 = new Lane(1, mockEdge);
+        Lane lane2 = new Lane(1, mockEdge);
+        assertThat(lane1, equalTo(lane2));
+    }
 }
