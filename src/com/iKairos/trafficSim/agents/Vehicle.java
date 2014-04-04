@@ -28,19 +28,12 @@ public class Vehicle implements Comparable<Vehicle> {
         Vehicle leadingVehicle = this.currentLane.getLeader(this);
         this.acceleration = SharedConstants.idm.calculateAcceleration(leadingVehicle, this);
 
-        this.velocity = calculateVelocity(initialVelocity, changeInTime, this.acceleration);
-        this.position += calculateDisplacement(initialVelocity, changeInTime, this.acceleration);
+        double displacement = initialVelocity * changeInTime + 0.5 * (this.acceleration * Math.pow(changeInTime, 2));
+        this.position += displacement;
+        this.velocity = initialVelocity + this.acceleration * changeInTime;
 
         if(this.velocity < this.desiredVelocity)
             SharedConstants.laneChangeModel.changeLaneIfNecessary(this);
-    }
-
-    private double calculateVelocity(double u, double t, double a) {
-        return u + a * t;
-    }
-
-    private double calculateDisplacement(double u, double t, double a) {
-        return u * t + 0.5 * (a * Math.pow(t, 2));
     }
 
     public void setVelocity(double velocity) {
