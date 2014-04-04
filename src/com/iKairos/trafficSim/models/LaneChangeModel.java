@@ -50,7 +50,8 @@ public class LaneChangeModel {
                     + accCurrentFollowerAfterLaneChange - accCurrentFollowerBeforeLaneChange);
 
             //TODO Put this clearance check in another method
-            if (incentiveCriterion > Constants.laneChangeThreshold) {
+            double laneChangeThreshold = 0.1d;
+            if (incentiveCriterion > laneChangeThreshold) {
                 if (prospectiveFollower != null) {
 
                     if (requester.getPosition() - prospectiveFollower.getPosition() - requester.getLength()

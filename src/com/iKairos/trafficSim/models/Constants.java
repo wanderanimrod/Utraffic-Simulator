@@ -8,5 +8,4 @@ public class Constants {
     public static double desiredVelocity = 33.33d;
     public static double vehicleLength = 5.0d;
     public static double driverPoliteness = 0.5d;
-    public static double laneChangeThreshold = 0.1d;
 }
