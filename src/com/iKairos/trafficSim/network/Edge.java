@@ -19,10 +19,6 @@ public class Edge {
         return this.type;
     }
 
-    public Lane getLane(int laneId) {
-        return this.lanes.get(laneId);
-    }
-
     public void addLane(Lane lane) {
         this.lanes.add(lane);
     }
