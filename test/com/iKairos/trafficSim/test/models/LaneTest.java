@@ -4,6 +4,7 @@ import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.trafficSim.network.Lane;
 import com.iKairos.utils.IllegalArgumentException;
+import com.iKairos.utils.IllegalMethodCallException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ public class LaneTest {
     TwoLaneOneWayEdge mockEdge;
 
     @Before
-    public void setUp() throws IllegalArgumentException {
+    public void setUp() throws IllegalMethodCallException {
         mockEdge = mock(TwoLaneOneWayEdge.class);
         lane = new Lane(1, mockEdge);
         adjacentLane = new Lane(0, mockEdge);
@@ -28,7 +29,7 @@ public class LaneTest {
     }
 
     @Test
-    public void shouldAddItselfToParentEdgeOnConstruction() throws IllegalArgumentException {
+    public void shouldAddItselfToParentEdgeOnConstruction() throws IllegalMethodCallException {
         Lane lane = new Lane(2, mockEdge);
         verify(mockEdge).addLane(lane);
     }
@@ -81,7 +82,7 @@ public class LaneTest {
     }
 
     @Test
-    public void shouldEquateLanesById() throws IllegalArgumentException {
+    public void shouldEquateLanesById() throws IllegalMethodCallException {
         Lane lane1 = new Lane(1, mockEdge);
         Lane lane2 = new Lane(1, mockEdge);
         assertThat(lane1, equalTo(lane2));

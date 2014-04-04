@@ -7,6 +7,7 @@ import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.trafficSim.network.Lane;
 import com.iKairos.utils.IllegalArgumentException;
+import com.iKairos.utils.IllegalMethodCallException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,7 +29,7 @@ public class VehicleTest {
     LaneChangeModel laneChangeMock;
 
     @Before
-    public void setUp() throws IllegalArgumentException {
+    public void setUp() throws IllegalMethodCallException {
         edge = new TwoLaneOneWayEdge();
         lane0 = new Lane(0, edge);
         lane1 = new Lane(1, edge);

@@ -2,6 +2,7 @@ package com.iKairos.trafficSim.network;
 
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.utils.IllegalArgumentException;
+import com.iKairos.utils.IllegalMethodCallException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +15,7 @@ public class Lane {
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
     private Vehicle dummyLeader;
 
-    public Lane(int id, TwoLaneOneWayEdge parentEdge) throws IllegalArgumentException {
+    public Lane(int id, TwoLaneOneWayEdge parentEdge) throws IllegalMethodCallException {
         this.id = id;
         this.parentEdge = parentEdge;
         parentEdge.addLane(this);

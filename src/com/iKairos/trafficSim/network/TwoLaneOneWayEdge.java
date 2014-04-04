@@ -1,15 +1,16 @@
 package com.iKairos.trafficSim.network;
 
 import com.iKairos.utils.IllegalArgumentException;
+import com.iKairos.utils.IllegalMethodCallException;
 
 public class TwoLaneOneWayEdge {
 
     private Lane lane1, lane2;
 
-    public void addLane(Lane lane) throws IllegalArgumentException {
+    public void addLane(Lane lane) throws IllegalMethodCallException {
         if(lane1 == null) lane1 = lane;
         else if(lane2 == null) lane2 = lane;
-        else throw new IllegalArgumentException("Two lane edge already has two lanes");
+        else throw new IllegalMethodCallException("Two lane edge already has two lanes");
     }
 
     public Lane getNextLane (Lane requesterLane) throws IllegalArgumentException {
