@@ -1,9 +1,7 @@
 package com.iKairos.trafficSim.models;
 
 import com.iKairos.trafficSim.agents.Vehicle;
-import com.iKairos.trafficSim.network.EdgeType;
 import com.iKairos.trafficSim.network.Lane;
-import com.iKairos.utils.*;
 import com.iKairos.utils.IllegalArgumentException;
 
 /**

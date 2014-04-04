@@ -1,6 +1,5 @@
 package com.iKairos.trafficSim.agents;
 
-import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.trafficSim.network.Lane;
 
