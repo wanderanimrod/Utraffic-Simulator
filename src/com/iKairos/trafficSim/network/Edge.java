@@ -25,7 +25,6 @@ public class Edge {
 
     public void addLane(Lane lane) {
         this.lanes.add(lane);
-        lane.setParentEdge(this);
     }
 
     //TODO Currently only supports two-lane edges. Clients should adjust for this.

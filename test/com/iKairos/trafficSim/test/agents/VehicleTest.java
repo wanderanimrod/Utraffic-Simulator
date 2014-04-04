@@ -32,11 +32,9 @@ public class VehicleTest {
         car1 = new Car(1);
         car2 = new Car(2);
 
-        lane0 = new Lane(0);
-        lane1 = new Lane(1);
         edge = new Edge(EdgeType.TWO_WAY_RURAL_ROAD);
-        edge.addLane(lane0);
-        edge.addLane(lane1);
+        lane0 = new Lane(0, edge);
+        lane1 = new Lane(1, edge);
 
         Constants.dummyLeadingVehicle = new Car(-1);
         Constants.dummyLeadingVehicle.setPosition(100000.0d);

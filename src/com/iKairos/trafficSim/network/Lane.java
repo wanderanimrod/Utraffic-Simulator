@@ -15,34 +15,27 @@ public class Lane {
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
     private Vehicle dummyLeader;
 
-    public Lane(int id) {
+    public Lane(int id, Edge parentEdge) {
         this.id = id;
+        this.parentEdge = parentEdge;
+        parentEdge.addLane(this);
         this.dummyLeader = new Car(-1);
         this.dummyLeader.setPosition(100000d);
     }
 
     public Vehicle getLeadingVehicle (Vehicle requester) {
-
         int requesterPos = this.vehicles.indexOf(requester);
-        if (requesterPos != 0) {
+        if (requesterPos != 0)
             return this.vehicles.get(requesterPos - 1);
-        }
-        else {
-            return this.dummyLeader;
-        }
+        else return this.dummyLeader;
     }
 
     //TODO Should be in Vehicle. It is the vehicle that should know about its surroundings.
     public Vehicle getFollower (Vehicle vehicle) {
-
         int requesterPos = vehicles.indexOf(vehicle);
-
-        if (requesterPos != vehicles.size() - 1) {
+        if (requesterPos != vehicles.size() - 1)
             return vehicles.get(requesterPos + 1);
-        }
-        else {
-            return null;
-        }
+        else return null;
     }
 
     public Vehicle getProspectiveLeadingVehicle (Vehicle requester) {
@@ -107,12 +100,7 @@ public class Lane {
         return this.id;
     }
 
-    public void setParentEdge(Edge parent) {
-        this.parentEdge = parent;
-    }
-
     public Edge getParentEdge() {
-
         return this.parentEdge;
     }
 

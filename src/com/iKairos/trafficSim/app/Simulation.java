@@ -40,8 +40,8 @@ public class Simulation {
 
 		network = new Network();
 		Edge edge = new Edge(EdgeType.ONE_WAY_MULTIPLE_LANES);
-		edge.addLane(new Lane(0));
-		edge.addLane(new Lane(1));
+		new Lane(0, edge);
+		new Lane(1, edge);
 		network.addEdge(edge);
 		network.optimise();
 	}
