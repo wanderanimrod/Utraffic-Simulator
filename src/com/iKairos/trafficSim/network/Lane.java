@@ -35,7 +35,7 @@ public class Lane {
         else return null;
     }
 
-    public synchronized Vehicle getProspectiveLeadingVehicle (Vehicle requester) {
+    public synchronized Vehicle getProspectiveLeader(Vehicle requester) {
 
         ArrayList<Vehicle> dummyVehicles = (ArrayList<Vehicle>)vehicles.clone();
         insertVehicleAndMaintainOrder(requester, dummyVehicles);

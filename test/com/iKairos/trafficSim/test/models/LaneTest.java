@@ -14,7 +14,7 @@ import static org.mockito.Mockito.verify;
 
 public class LaneTest {
 
-    Lane lane;
+    Lane lane, adjacentLane;
     Vehicle requester;
     Edge mockEdge;
 
@@ -22,6 +22,7 @@ public class LaneTest {
     public void setUp() {
         mockEdge = mock(Edge.class);
         lane = new Lane(1, mockEdge);
+        adjacentLane = new Lane(0, mockEdge);
         requester = new Vehicle(1, lane);
     }
 
@@ -53,8 +54,23 @@ public class LaneTest {
     }
 
     @Test
-    public void shouldGetProspectiveLeader() {
-        
+    public void shouldGetProspectiveLeaderForVehicleOnAnotherLane() {
+        Vehicle prospectiveLeader = new Vehicle(2, lane);
+        prospectiveLeader.setPosition(100);
+        Vehicle vehicleTryingToJoin = new Vehicle(1, adjacentLane);
+        vehicleTryingToJoin.setPosition(50);
+        Vehicle prospectiveLeaderReturned = lane.getProspectiveLeader(vehicleTryingToJoin);
+        assertThat(prospectiveLeaderReturned, equalTo(prospectiveLeader));
+    }
+
+    @Test
+    public void shouldGetProspectiveFollowerForVehicleOnAnotherLane() {
+        Vehicle prospectiveFollower = new Vehicle(21, lane);
+        prospectiveFollower.setPosition(20);
+        Vehicle vehicleTryingToJoin = new Vehicle(1, adjacentLane);
+        vehicleTryingToJoin.setPosition(50);
+        Vehicle prospectiveFollowerReturned = lane.getProspectiveFollower(vehicleTryingToJoin);
+        assertThat(prospectiveFollowerReturned, equalTo(prospectiveFollower));
     }
 
     @Test

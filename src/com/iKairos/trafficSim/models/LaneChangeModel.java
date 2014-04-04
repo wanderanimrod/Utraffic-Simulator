@@ -43,7 +43,7 @@ public class LaneChangeModel {
             double accRequesterBeforeLaneChange = requester.getAcceleration();
 
             double accRequesterAfterLaneChange =
-                    IDM.calculateAcceleration(targetLane.getProspectiveLeadingVehicle(requester), requester);
+                    IDM.calculateAcceleration(targetLane.getProspectiveLeader(requester), requester);
 
             double incentiveCriterion = accRequesterAfterLaneChange - accRequesterBeforeLaneChange
                     + requester.getPoliteness() * (accNewFollowerAfterLaneChange - accNewFollowerBeforeLaneChange
