@@ -33,7 +33,10 @@ public class LaneTest {
 
     @Test
     public void shouldGetLeadingVehicle() {
-
+        Vehicle leader = new Vehicle(100, lane);
+        leader.setPosition(1000);
+        Vehicle follower = new Vehicle(200, lane);
+        assertThat(lane.getLeadingVehicle(follower), equalTo(leader));
     }
 
     @Test

@@ -1,6 +1,5 @@
 package com.iKairos.trafficSim.network;
 
-import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class Lane {
         this.id = id;
         this.parentEdge = parentEdge;
         parentEdge.addLane(this);
-        this.dummyLeader = new Car(-1, this);
+        this.dummyLeader = new Vehicle(-1, this);
         this.dummyLeader.setPosition(100000d);
     }
 

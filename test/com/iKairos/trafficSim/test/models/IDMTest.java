@@ -1,6 +1,5 @@
 package com.iKairos.trafficSim.test.models;
 
-import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.network.Lane;
@@ -23,8 +22,8 @@ public class IDMTest {
     public void setUp() {
         Lane lane = mock(Lane.class);
 
-        car = new Car(0, lane);
-        dummyLeader = new Car(-1, lane);
+        car = new Vehicle(0, lane);
+        dummyLeader = new Vehicle(-1, lane);
 
         dummyLeader.setPosition(100000.0d);
         dummyLeader.setVelocity(27.78d);
