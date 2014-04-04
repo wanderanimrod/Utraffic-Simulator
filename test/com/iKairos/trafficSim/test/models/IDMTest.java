@@ -2,6 +2,7 @@ package com.iKairos.trafficSim.test.models;
 
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.IDM;
+import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.trafficSim.network.Lane;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class IDMTest {
 
         dummyLeader.setPosition(100000.0d);
         dummyLeader.setVelocity(27.78d);
-
+        SharedConstants.idm = new IDM();
         checkThatTestDataStatusIsOkay();
     }
 
@@ -68,7 +69,7 @@ public class IDMTest {
     }
 
     private double calculateAcceleration() {
-        return IDM.calculateAcceleration(dummyLeader, car);
+        return SharedConstants.idm.calculateAcceleration(dummyLeader, car);
     }
 
     private void checkThatTestDataStatusIsOkay() {

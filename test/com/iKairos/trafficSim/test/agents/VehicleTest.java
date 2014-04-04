@@ -1,6 +1,7 @@
 package com.iKairos.trafficSim.test.agents;
 
 import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.EdgeType;
 import com.iKairos.trafficSim.network.Lane;
@@ -14,8 +15,10 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class VehicleTest {
 
@@ -84,4 +87,10 @@ public class VehicleTest {
         car.changeLane(lane1);
         assertThat(car.getPosition(), is(125.0d));
     }
+
+//    @Test
+//    public void shouldUpdateVelocityAfterTranslate() {
+//        IDM idmMock = mock(IDM.class);
+//        when(idmMock.calculateAcceleration(car, (Vehicle)anyObject())).thenReturn(5.0);
+//    }
 }

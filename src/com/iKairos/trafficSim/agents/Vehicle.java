@@ -1,7 +1,7 @@
 package com.iKairos.trafficSim.agents;
 
-import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.models.LaneChangeModel;
+import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.trafficSim.network.Lane;
 
 public class Vehicle implements Comparable<Vehicle> {
@@ -27,7 +27,7 @@ public class Vehicle implements Comparable<Vehicle> {
     public void translate(double changeInTime) {
 
         Vehicle leadingVehicle = this.currentLane.getLeader(this);
-        this.acceleration = IDM.calculateAcceleration(leadingVehicle, this);
+        this.acceleration = SharedConstants.idm.calculateAcceleration(leadingVehicle, this);
         double newVelocity = this.velocity + this.acceleration * changeInTime;
 
         if (newVelocity < 0)
