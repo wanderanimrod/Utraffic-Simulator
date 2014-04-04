@@ -4,7 +4,7 @@ import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.network.Lane;
 
-public abstract class Vehicle implements Comparable<Vehicle> {
+public class Vehicle implements Comparable<Vehicle> {
 
     protected int id = -1;
     protected double position = 0.0d;

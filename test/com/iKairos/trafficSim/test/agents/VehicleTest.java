@@ -1,6 +1,5 @@
 package com.iKairos.trafficSim.test.agents;
 
-import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.EdgeType;
@@ -15,7 +14,8 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class VehicleTest {
 
@@ -29,15 +29,15 @@ public class VehicleTest {
         lane0 = new Lane(0, edge);
         lane1 = new Lane(1, edge);
 
-        car = new Car(0, lane0);
-        car1 = new Car(1, lane0);
-        car2 = new Car(2, lane0);
+        car = new Vehicle(0, lane0);
+        car1 = new Vehicle(1, lane0);
+        car2 = new Vehicle(2, lane0);
     }
 
     @Test
     public void shouldAddItselfToParentLaneUponInstantiation() {
         Lane lane0Mock = mock(Lane.class);
-        car = new Car(1, lane0Mock);
+        car = new Vehicle(1, lane0Mock);
         verify(lane0Mock).addVehicle(car);
     }
 
@@ -53,13 +53,13 @@ public class VehicleTest {
 
     @Test
     public void shouldEquateVehiclesOfTheSameID() {
-        Vehicle car3 = new Car(car1.getId(), lane0);
+        Vehicle car3 = new Vehicle(car1.getId(), lane0);
         assertThat(car3, equalTo(car1));
     }
 
     @Test
     public void shouldBeAtPositionZeroOnCreation() {
-        Vehicle car = new Car(1, lane0);
+        Vehicle car = new Vehicle(1, lane0);
         assertThat(car.getPosition(), is(0.0));
     }
 
@@ -73,7 +73,7 @@ public class VehicleTest {
 
     @Test
     public void shouldLeaveCurrentLaneAfterLaneChange() {
-        car = new Car(1, lane0);
+        car = new Vehicle(1, lane0);
         car.changeLane(lane1);
         assertThat(car.getCurrentLane(), is(lane1));
     }

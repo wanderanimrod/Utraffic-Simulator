@@ -1,6 +1,5 @@
 package com.iKairos.trafficSim.test.models;
 
-import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.Lane;
@@ -23,7 +22,7 @@ public class LaneTest {
     public void setUp() {
         mockEdge = mock(Edge.class);
         lane = new Lane(1, mockEdge);
-        requester = new Car(1, lane);
+        requester = new Vehicle(1, lane);
     }
 
     @Test
@@ -33,9 +32,14 @@ public class LaneTest {
     }
 
     @Test
+    public void shouldGetLeadingVehicle() {
+
+    }
+
+    @Test
     public void shouldReturnLeaderAsAVehicleFarAwayWhenRequesterIsTheLeadingVehicleOnTheLane() {
         Vehicle leader = lane.getLeadingVehicle(requester);
-        assertThat(leader, equalTo((Vehicle)new Car(-1, lane)));
+        assertThat(leader, equalTo(new Vehicle(-1, lane)));
         assertThat(leader.getPosition(), is(100000d));
     }
 
