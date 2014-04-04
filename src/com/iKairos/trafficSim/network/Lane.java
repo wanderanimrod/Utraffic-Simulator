@@ -50,7 +50,7 @@ public class Lane {
             return dummyVehicles.get(requesterPos - 1);
         }
         else {
-            return Constants.dummyLeadingVehicle;
+            return dummyLeader;
         }
     }
 

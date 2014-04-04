@@ -1,6 +1,5 @@
 package com.iKairos.trafficSim.agents;
 
-import com.iKairos.trafficSim.models.Constants;
 import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.network.Lane;
@@ -11,12 +10,12 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     protected double position = 0.0d;
     protected double velocity = 0.0d;
     protected double acceleration = 0.0d;
-    protected double desiredVelocity = Constants.desiredVelocity;
-    protected double maxAcceleration = Constants.maxAcceleration;
+    protected double desiredVelocity = 33.33d;
+    protected double maxAcceleration = 0.73d;
     protected Lane currentLane;
-    protected double desiredDeceleration = Constants.desiredDeceleration;
-    protected double length = Constants.vehicleLength;
-    protected double politeness = Constants.driverPoliteness;
+    protected double desiredDeceleration = 1.67d;
+    protected double length = 5.0d;
+    protected double politeness = 0.5d;
 
     public Vehicle(int id, Lane lane) {
         this.id = id;

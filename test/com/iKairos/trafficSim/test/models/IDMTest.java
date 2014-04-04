@@ -2,7 +2,6 @@ package com.iKairos.trafficSim.test.models;
 
 import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
-import com.iKairos.trafficSim.models.Constants;
 import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.network.Lane;
 import org.junit.Before;
@@ -41,7 +40,7 @@ public class IDMTest {
 
     @Test
     public void shouldNotAccelerateIfVehicleHasReachedItsDesiredVelocity() {
-        car.setVelocity(Constants.desiredVelocity);
+        car.setVelocity(33.33d);
         double acceleration = calculateAcceleration();
         assertThatMagnitudeOf(acceleration, isRoughly(0));
     }
