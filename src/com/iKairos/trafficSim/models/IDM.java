@@ -6,7 +6,7 @@ import com.iKairos.trafficSim.agents.Vehicle;
  * Based on the Intelligent Driver Model by Treiber et al.
  * Variable names used are as described in the Intelligent Driver Model Wikipedia entry
  */
-public final class IDM {
+public class IDM {
 
     public static double T = 1.6d;
     public static double delta = 4.0d;
