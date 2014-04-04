@@ -95,6 +95,14 @@ public class VehicleTest {
     }
 
     @Test
+    public void shouldRemoveItselfFromLaneBeforeChangingLanes() {
+        Lane laneMock = mock(Lane.class);
+        car = new Vehicle(1, laneMock);
+        car.changeLane(lane0);
+        verify(laneMock).removeVehicle(car);
+    }
+
+    @Test
     public void shouldUpdateVelocityAfterTranslateUsingFirstEquationOfMotion() {
         fixIdmAcceleration(0.5);
         car.setVelocity(12.0);
