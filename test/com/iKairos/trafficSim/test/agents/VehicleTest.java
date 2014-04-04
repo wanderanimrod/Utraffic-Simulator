@@ -107,15 +107,6 @@ public class VehicleTest {
         assertThat(car.getPosition(), is(25.0)); // s = ut + 0.5(at^2) u = 0
     }
 
-    /** DOCUMENTING THE HACKS */
-    @Test
-    public void shouldNotUpdateVelocityAfterTranslateIfNewVelocityIsNegative() {
-        fixIdmAcceleration(-5.0d);
-        car.translate(100);
-        assertThat(car.getVelocity(), is(0.0d));
-    }
-    /** END HACKS */
-
     private void fixIdmAcceleration(double acceleration) {
         when(idmMock.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject())).thenReturn(acceleration);
     }
