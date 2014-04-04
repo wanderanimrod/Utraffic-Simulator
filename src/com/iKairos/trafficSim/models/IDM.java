@@ -8,18 +8,11 @@ import com.iKairos.trafficSim.agents.Vehicle;
  */
 public class IDM {
 
-    private double T;
-    private double delta;
-    private double so;
+    public static double T = 1.6d;
+    public static double delta = 4.0d;
+    private static double so = Constants.minJamDistance;
 
-    public IDM() {
-        T = Constants.safeTimeHeadway;
-        delta = Constants.accelerationExponent;
-        so = Constants.minJamDistance;
-    }
-
-    public double calculateAcceleration(Vehicle leader, Vehicle requester) {
-
+    public static double calculateAcceleration(Vehicle leader, Vehicle requester) {
         double v = requester.getVelocity();
         double a = requester.getMaxAcceleration();
         double b = requester.getDesiredDeceleration();

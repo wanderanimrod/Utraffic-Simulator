@@ -18,12 +18,10 @@ import static org.mockito.Mockito.mock;
 
 public class IDMTest {
 
-    IDM idm;
     Vehicle car, dummyLeader;
 
     @Before
     public void setUp() {
-        idm = new IDM();
         Lane lane = mock(Lane.class);
 
         car = new Car(0, lane);
@@ -72,7 +70,7 @@ public class IDMTest {
     }
 
     private double calculateAcceleration() {
-        return idm.calculateAcceleration(dummyLeader, car);
+        return IDM.calculateAcceleration(dummyLeader, car);
     }
 
     private void checkThatTestDataStatusIsOkay() {

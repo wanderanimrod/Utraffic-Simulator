@@ -32,14 +32,9 @@ public class VehicleTest {
         lane0 = new Lane(0, edge);
         lane1 = new Lane(1, edge);
 
-        car = new Car(1, lane0);
+        car = new Car(0, lane0);
         car1 = new Car(1, lane0);
         car2 = new Car(2, lane0);
-
-        Constants.dummyLeadingVehicle = new Car(-1, lane0);
-        Constants.dummyLeadingVehicle.setPosition(100000.0d);
-
-        Constants.idm = mock(IDM.class);
     }
 
     @Test
@@ -90,6 +85,7 @@ public class VehicleTest {
     public void shouldCheckIfLaneChangeIsNecessaryAfterTranslation() {
         LaneChangeModel laneChangeMock = mock(LaneChangeModel.class);
         Constants.laneChangeModel = laneChangeMock;
+        mock(IDM.class);
         car.translate(10);
         verify(laneChangeMock).changeLaneIfNecessary((Vehicle)anyObject());
     }
