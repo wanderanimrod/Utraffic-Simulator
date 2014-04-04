@@ -2,6 +2,7 @@ package com.iKairos.trafficSim.test.agents;
 
 import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.IDM;
+import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.EdgeType;
 import com.iKairos.trafficSim.network.Lane;
@@ -88,9 +89,12 @@ public class VehicleTest {
         assertThat(car.getPosition(), is(125.0d));
     }
 
-//    @Test
-//    public void shouldUpdateVelocityAfterTranslate() {
-//        IDM idmMock = mock(IDM.class);
-//        when(idmMock.calculateAcceleration(car, (Vehicle)anyObject())).thenReturn(5.0);
-//    }
+    @Test
+    public void shouldUpdateVelocityAfterTranslate() {
+        IDM idmMock = mock(IDM.class);
+        when(idmMock.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject())).thenReturn(5.0);
+        SharedConstants.idm = idmMock;
+        car.translate(100);
+        assertThat(car.getVelocity(), is(500d)); // v = u + at where u = 0
+    }
 }
