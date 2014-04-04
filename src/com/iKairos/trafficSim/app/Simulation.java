@@ -25,7 +25,6 @@ public class Simulation {
 	}
 
     private void instantiate() {
-        Constants.idm = new IDM();
 		Constants.laneChangeModel = new LaneChangeModel();
 	}
 

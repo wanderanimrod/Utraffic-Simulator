@@ -87,6 +87,6 @@ public class VehicleTest {
         Constants.laneChangeModel = laneChangeMock;
         mock(IDM.class);
         car.translate(10);
-        verify(laneChangeMock).changeLaneIfNecessary((Vehicle)anyObject());
+       verify(laneChangeMock).changeLaneIfNecessary((Vehicle)anyObject());
     }
 }

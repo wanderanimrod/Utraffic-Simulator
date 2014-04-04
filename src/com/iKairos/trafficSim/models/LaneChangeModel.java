@@ -29,21 +29,21 @@ public class LaneChangeModel {
 
             if (prospectiveFollower != null) {
                 accNewFollowerBeforeLaneChange = prospectiveFollower.getAcceleration();
-                accNewFollowerAfterLaneChange = Constants.idm.calculateAcceleration(requester, prospectiveFollower);
+                accNewFollowerAfterLaneChange = IDM.calculateAcceleration(requester, prospectiveFollower);
             }
             //Else leave the acceleration at 0 so it plays no part in the lane changing decision.
 
             if (currentFollower != null) {
                 accCurrentFollowerBeforeLaneChange = currentFollower.getAcceleration();
                 accCurrentFollowerAfterLaneChange =
-                        Constants.idm.calculateAcceleration(currentLane.getLeadingVehicle(requester), currentFollower);
+                        IDM.calculateAcceleration(currentLane.getLeadingVehicle(requester), currentFollower);
             }
 
             //TODO Refactor this chain stuff out to conform to the law or Demeter
             double accRequesterBeforeLaneChange = requester.getAcceleration();
 
             double accRequesterAfterLaneChange =
-                    Constants.idm.calculateAcceleration(targetLane.getProspectiveLeadingVehicle(requester), requester);
+                    IDM.calculateAcceleration(targetLane.getProspectiveLeadingVehicle(requester), requester);
 
             double incentiveCriterion = accRequesterAfterLaneChange - accRequesterBeforeLaneChange
                     + requester.getPoliteness() * (accNewFollowerAfterLaneChange - accNewFollowerBeforeLaneChange
