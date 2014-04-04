@@ -10,7 +10,7 @@ public class IDM {
 
     public static double T = 1.6d;
     public static double delta = 4.0d;
-    private static double so = Constants.minJamDistance;
+    private static double so = SharedConstants.minJamDistance;
 
     public static double calculateAcceleration(Vehicle leader, Vehicle requester) {
         double v = requester.getVelocity();

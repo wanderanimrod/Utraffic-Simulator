@@ -1,6 +1,6 @@
 package com.iKairos.trafficSim.models;
 
-public class Constants {
+public class SharedConstants {
 
     public static double minJamDistance = 1.0d;
 }

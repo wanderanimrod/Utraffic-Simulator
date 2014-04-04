@@ -1,18 +1,9 @@
 package com.iKairos.trafficSim.app;
 
-import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
-import com.iKairos.trafficSim.models.Constants;
-import com.iKairos.trafficSim.models.IDM;
-import com.iKairos.trafficSim.models.LaneChangeModel;
-import com.iKairos.trafficSim.network.Edge;
-import com.iKairos.trafficSim.network.EdgeType;
-import com.iKairos.trafficSim.network.Lane;
 import com.iKairos.trafficSim.network.Network;
-import com.iKairos.utils.CSV;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Simulation {
 

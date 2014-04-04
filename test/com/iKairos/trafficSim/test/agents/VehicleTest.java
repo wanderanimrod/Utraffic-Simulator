@@ -2,9 +2,6 @@ package com.iKairos.trafficSim.test.agents;
 
 import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
-import com.iKairos.trafficSim.models.Constants;
-import com.iKairos.trafficSim.models.IDM;
-import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.EdgeType;
 import com.iKairos.trafficSim.network.Lane;

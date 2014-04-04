@@ -55,7 +55,7 @@ public class LaneChangeModel {
                 if (prospectiveFollower != null) {
 
                     if (requester.getPosition() - prospectiveFollower.getPosition() - requester.getLength()
-                            >= Constants.minJamDistance
+                            >= SharedConstants.minJamDistance
                     ) {
                         requester.changeLane(targetLane);
                     }
