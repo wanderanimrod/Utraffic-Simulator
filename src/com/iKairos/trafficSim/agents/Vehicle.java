@@ -130,4 +130,17 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         else
             return 0;
     }
+
+    @Override
+    public boolean equals(Object vehicleToEquateWith) {
+        if (this == vehicleToEquateWith) return true;
+        if (!(vehicleToEquateWith instanceof Vehicle)) return false;
+        Vehicle vehicle = (Vehicle) vehicleToEquateWith;
+        return id == vehicle.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

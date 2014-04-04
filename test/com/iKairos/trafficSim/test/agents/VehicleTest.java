@@ -2,6 +2,8 @@ package com.iKairos.trafficSim.test.agents;
 
 import com.iKairos.trafficSim.agents.Car;
 import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.models.Constants;
+import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.network.Edge;
 import com.iKairos.trafficSim.network.EdgeType;
 import com.iKairos.trafficSim.network.Lane;
@@ -15,16 +17,30 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class VehicleTest {
 
     Vehicle car, car1, car2;
+    Lane lane0, lane1;
+    Edge edge;
 
     @Before
     public void setUp() {
         car = new Car(1);
         car1 = new Car(1);
         car2 = new Car(2);
+
+        lane0 = new Lane(0);
+        lane1 = new Lane(1);
+        edge = new Edge(EdgeType.TWO_WAY_RURAL_ROAD);
+        edge.addLane(lane0);
+        edge.addLane(lane1);
+
+        Constants.dummyLeadingVehicle = new Car(-1);
+        Constants.dummyLeadingVehicle.setPosition(100000.0d);
+        Constants.dummyLeadingVehicle.setCurrentLane(lane0);
     }
 
     @Test
@@ -35,6 +51,12 @@ public class VehicleTest {
         List<Vehicle> sortedCars = Arrays.asList(car2, car1);
         Collections.sort(cars);
         assertThat(cars, equalTo(sortedCars));
+    }
+
+    @Test
+    public void shouldEquateVehiclesOfTheSameID() {
+        Vehicle car3 = new Car(car1.getId());
+        assertThat(car3, equalTo(car1));
     }
 
     @Test
@@ -53,15 +75,17 @@ public class VehicleTest {
 
     @Test
     public void shouldLeaveCurrentLaneAfterLaneChange() {
-        Lane lane0 = new Lane(0);
-        Lane lane1 = new Lane(1);
-        Edge edge = new Edge(EdgeType.TWO_WAY_RURAL_ROAD);
-        edge.addLane(lane0);
-        edge.addLane(lane1);
         car.setCurrentLane(lane0);
-
         car.changeLane(lane1);
-
         assertThat(car.getCurrentLane(), is(lane1));
+    }
+
+    @Test
+    public void shouldCheckIfLaneChangeIsNecessaryAfterTranslation() {
+//        car.setCurrentEdge(edge);
+        car.setCurrentLane(lane0);
+        car.translate(10);
+        LaneChangeModel laneChangeMock = mock(LaneChangeModel.class);
+        verify(laneChangeMock).changeLaneIfNecessary(car);
     }
 }
