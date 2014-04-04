@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 public class Network {
 
-	TwoLaneOneWayRoad[] edges;
-	private ArrayList<TwoLaneOneWayRoad> edgesAL = new ArrayList<TwoLaneOneWayRoad>();
+	TwoLaneOneWayEdge[] edges;
+	private ArrayList<TwoLaneOneWayEdge> edgesAL = new ArrayList<TwoLaneOneWayEdge>();
 
-    public void addEdge(TwoLaneOneWayRoad edge) {
+    public void addEdge(TwoLaneOneWayEdge edge) {
 		edgesAL.add(edge);
 	}
 
-	public TwoLaneOneWayRoad getEdge(int edgeId) {
+	public TwoLaneOneWayEdge getEdge(int edgeId) {
 		return this.edges[edgeId];
 	}
 
 	public void optimise() {
 
 		//Convert edges ArrayList into an array for quicker access during vehicle translations
-		edges = new TwoLaneOneWayRoad[edgesAL.size()];
+		edges = new TwoLaneOneWayEdge[edgesAL.size()];
 		
 		for (int i = 0; i < edgesAL.size(); i++) {
 			edges[i] = edgesAL.get(i);

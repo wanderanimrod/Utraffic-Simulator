@@ -2,7 +2,7 @@ package com.iKairos.trafficSim.network;
 
 import com.iKairos.utils.IllegalArgumentException;
 
-public class TwoLaneOneWayRoad {
+public class TwoLaneOneWayEdge {
 
     private Lane lane1, lane2;
 

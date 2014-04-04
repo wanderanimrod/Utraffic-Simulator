@@ -1,9 +1,8 @@
 package com.iKairos.trafficSim.test.models;
 
 import com.iKairos.trafficSim.agents.Vehicle;
-import com.iKairos.trafficSim.network.TwoLaneOneWayRoad;
+import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.trafficSim.network.Lane;
-import com.iKairos.utils.*;
 import com.iKairos.utils.IllegalArgumentException;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,11 +17,11 @@ public class LaneTest {
 
     Lane lane, adjacentLane;
     Vehicle requester;
-    TwoLaneOneWayRoad mockEdge;
+    TwoLaneOneWayEdge mockEdge;
 
     @Before
     public void setUp() throws IllegalArgumentException {
-        mockEdge = mock(TwoLaneOneWayRoad.class);
+        mockEdge = mock(TwoLaneOneWayEdge.class);
         lane = new Lane(1, mockEdge);
         adjacentLane = new Lane(0, mockEdge);
         requester = new Vehicle(1, lane);

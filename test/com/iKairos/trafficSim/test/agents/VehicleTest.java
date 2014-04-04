@@ -4,9 +4,8 @@ import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.models.SharedConstants;
-import com.iKairos.trafficSim.network.TwoLaneOneWayRoad;
+import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.trafficSim.network.Lane;
-import com.iKairos.utils.*;
 import com.iKairos.utils.IllegalArgumentException;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,13 +23,13 @@ public class VehicleTest {
 
     Vehicle car, car1, car2;
     Lane lane0, lane1;
-    TwoLaneOneWayRoad edge;
+    TwoLaneOneWayEdge edge;
     IDM idmMock;
     LaneChangeModel laneChangeMock;
 
     @Before
     public void setUp() throws IllegalArgumentException {
-        edge = new TwoLaneOneWayRoad();
+        edge = new TwoLaneOneWayEdge();
         lane0 = new Lane(0, edge);
         lane1 = new Lane(1, edge);
 
