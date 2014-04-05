@@ -8,7 +8,6 @@ import com.iKairos.utils.IllegalArgumentException;
  * Based on the MOBIL lane change model due to Treiber et al.
  * Variables and logic used as described in the Wikipedia entry on MOBIL
  */
-//TODO Adjust this Mode or create another one that deals with Overtaking on rural roads
 public class LaneChangeModel {
 
     public void changeLaneIfNecessary(Vehicle requester) {
@@ -25,7 +24,6 @@ public class LaneChangeModel {
             targetLane = currentLane.getNextLane();
         } catch (IllegalArgumentException ignored) {}
 
-        //TODO Check thread safety for these calculations.
         Vehicle currentFollower = currentLane.getFollower(requester);
         Vehicle prospectiveFollower = targetLane.getProspectiveFollower(requester);
 
@@ -33,7 +31,6 @@ public class LaneChangeModel {
             accNewFollowerBeforeLaneChange = prospectiveFollower.getAcceleration();
             accNewFollowerAfterLaneChange = SharedConstants.idm.calculateAcceleration(requester, prospectiveFollower);
         }
-        //Else leave the acceleration at 0 so it plays no part in the lane changing decision.
 
         if (currentFollower != null) {
             accCurrentFollowerBeforeLaneChange = currentFollower.getAcceleration();
@@ -41,7 +38,6 @@ public class LaneChangeModel {
                     SharedConstants.idm.calculateAcceleration(currentLane.getLeader(requester), currentFollower);
         }
 
-        //TODO Refactor this chain stuff out to conform to the law or Demeter
         double accRequesterBeforeLaneChange = requester.getAcceleration();
 
         double accRequesterAfterLaneChange =
@@ -57,16 +53,12 @@ public class LaneChangeModel {
             if (prospectiveFollower != null) {
 
                 if (requester.getPosition() - prospectiveFollower.getPosition() - requester.getLength()
-                        >= SharedConstants.minJamDistance
-                        ) {
+                        >= SharedConstants.minJamDistance) {
                     requester.changeLane(targetLane);
                 }
-                //Else there will not be enough clearance from the new follower
             } else {
-                //No new follower. Change Lane to target lane
                 requester.changeLane(targetLane);
             }
         }
-        //Else leave the vehicle in its current lane
     }
 }
