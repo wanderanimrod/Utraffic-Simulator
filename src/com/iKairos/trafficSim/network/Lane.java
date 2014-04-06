@@ -14,6 +14,7 @@ public class Lane {
     private TwoLaneOneWayEdge parentEdge;
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
     private Vehicle dummyLeader;
+    private Vehicle dummyFollower;
 
     public Lane(int id, TwoLaneOneWayEdge parentEdge) throws IllegalMethodCallException {
         this.id = id;
@@ -21,6 +22,7 @@ public class Lane {
         parentEdge.addLane(this);
         this.dummyLeader = new Vehicle(-1, this);
         this.dummyLeader.setPosition(100000d);
+        this.dummyFollower = new Vehicle(-2, this, 0.0);
     }
 
     public synchronized Vehicle getLeader(Vehicle requester) {
@@ -34,7 +36,7 @@ public class Lane {
         int requesterPos = vehicles.indexOf(vehicle);
         if (requesterPos != vehicles.size() - 1)
             return vehicles.get(requesterPos + 1);
-        else return null;
+        else return this.dummyFollower;
     }
 
     public synchronized Vehicle getProspectiveLeader(Vehicle requester) {
@@ -54,7 +56,7 @@ public class Lane {
 
         if (requesterPos != dummyVehicles.size() - 1)
             return dummyVehicles.get(requesterPos + 1);
-        else return null;
+        else return this.dummyFollower;
 
     }
 
@@ -91,4 +93,5 @@ public class Lane {
     public int hashCode() {
         return id;
     }
+
 }

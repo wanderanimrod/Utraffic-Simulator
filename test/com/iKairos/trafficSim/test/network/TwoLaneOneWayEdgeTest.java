@@ -1,4 +1,4 @@
-package com.iKairos.trafficSim.test.models;
+package com.iKairos.trafficSim.test.network;
 
 import com.iKairos.trafficSim.network.Lane;
 import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;

@@ -1,8 +1,8 @@
-package com.iKairos.trafficSim.test.models;
+package com.iKairos.trafficSim.test.network;
 
 import com.iKairos.trafficSim.agents.Vehicle;
-import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.trafficSim.network.Lane;
+import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.utils.IllegalArgumentException;
 import com.iKairos.utils.IllegalMethodCallException;
 import org.junit.Before;
@@ -44,6 +44,10 @@ public class LaneTest {
     @Test
     public void shouldReturnLeaderAsAVehicleFarAwayWhenRequesterIsTheLeadingVehicleOnTheLane() {
         Vehicle leader = lane.getLeader(requester);
+        assertIsDummyLeader(leader);
+    }
+
+    private void assertIsDummyLeader(Vehicle leader) {
         assertThat(leader, equalTo(new Vehicle(-1, lane)));
         assertThat(leader.getPosition(), is(100000d));
     }
@@ -53,6 +57,20 @@ public class LaneTest {
         Vehicle leader = new Vehicle(100, lane);
         Vehicle follower = new Vehicle(200, lane);
         assertThat(lane.getFollower(leader), equalTo(follower));
+    }
+
+    @Test
+    public void shouldReturnFollowerAsStationaryVehicleWhenRequesterIsTheLastVehicleOnTheLane() {
+        Vehicle follower = lane.getFollower(requester);
+        assertIsDummyFollower(follower);
+    }
+
+    private void assertIsDummyFollower(Vehicle follower) {
+        assertThat(follower, equalTo(new Vehicle(-2, lane)));
+        assertThat(follower.getDesiredVelocity(), is(0.0));
+        assertThat(follower.getPosition(), is(0.0));
+        assertThat(follower.getVelocity(), is(0.0));
+        assertThat(follower.getAcceleration(), is(0.0));
     }
 
     @Test
@@ -66,6 +84,13 @@ public class LaneTest {
     }
 
     @Test
+    public void shouldReturnProspectiveLeaderAsVehicleFarAwayWhenRequesterWillBeTheLeadingVehicle() {
+        Vehicle vehicleTryingToJoin = new Vehicle(1, adjacentLane);
+        Vehicle prospectiveLeader = lane.getProspectiveLeader(vehicleTryingToJoin);
+        assertIsDummyLeader(prospectiveLeader);
+    }
+
+    @Test
     public void shouldGetProspectiveFollowerForVehicleOnAnotherLane() {
         Vehicle prospectiveFollower = new Vehicle(21, lane);
         prospectiveFollower.setPosition(20);
@@ -73,6 +98,14 @@ public class LaneTest {
         vehicleTryingToJoin.setPosition(50);
         Vehicle prospectiveFollowerReturned = lane.getProspectiveFollower(vehicleTryingToJoin);
         assertThat(prospectiveFollowerReturned, equalTo(prospectiveFollower));
+    }
+
+    @Test
+    public void shouldReturnProspectiveFollowerAsStationaryVehicleWhenRequesterWillBeTheLastVehicleOnTheLane() throws IllegalMethodCallException {
+        Lane freshLane = new Lane(1, mockEdge);
+        Vehicle vehicleTryingToJoin = new Vehicle(1, adjacentLane);
+        Vehicle prospectiveFollower = freshLane.getProspectiveFollower(vehicleTryingToJoin);
+        assertIsDummyFollower(prospectiveFollower);
     }
 
     @Test
