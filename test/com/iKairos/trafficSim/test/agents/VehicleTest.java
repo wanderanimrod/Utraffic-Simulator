@@ -4,9 +4,9 @@ import com.iKairos.trafficSim.agents.Vehicle;
 import com.iKairos.trafficSim.models.IDM;
 import com.iKairos.trafficSim.models.LaneChangeModel;
 import com.iKairos.trafficSim.models.SharedConstants;
-import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.trafficSim.network.Lane;
-import com.iKairos.utils.IllegalArgumentException;
+import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
+import com.iKairos.trafficSim.test.helpers.VehicleHelpers;
 import com.iKairos.utils.IllegalMethodCallException;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +16,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.*;
 
@@ -27,6 +28,7 @@ public class VehicleTest {
     TwoLaneOneWayEdge edge;
     IDM idmMock;
     LaneChangeModel laneChangeMock;
+    VehicleHelpers vehicleHelpers;
 
     @Before
     public void setUp() throws IllegalMethodCallException {
@@ -42,6 +44,8 @@ public class VehicleTest {
         laneChangeMock = mock(LaneChangeModel.class);
         SharedConstants.idm = idmMock;
         SharedConstants.laneChangeModel = laneChangeMock;
+
+        vehicleHelpers = new VehicleHelpers(idmMock);
     }
 
     @Test
@@ -105,7 +109,7 @@ public class VehicleTest {
 
     @Test
     public void shouldUpdateVelocityAfterTranslateUsingFirstEquationOfMotion() {
-        fixIdmAcceleration(0.5);
+        vehicleHelpers.fixIdmAcceleration(0.5);
         car.setVelocity(12.0);
         car.translate(100);
         assertThat(car.getVelocity(), is(62d)); // v = u + at where u = 0
@@ -113,7 +117,7 @@ public class VehicleTest {
 
     @Test
     public void shouldUpdatePositionAfterTranslateUsingSecondEquationOfMotion() {
-        fixIdmAcceleration(0.5);
+        vehicleHelpers.fixIdmAcceleration(0.5);
         car.setVelocity(12.0);
         car.setPosition(10);
         car.translate(10);
@@ -124,17 +128,13 @@ public class VehicleTest {
     public void shouldAttemptLaneChangeIfCurrentVelocityIsLessThanDesiredVelocity() {
         car.setVelocity(car.getDesiredVelocity() - 1);
         car.translate(10);
-        verify(laneChangeMock).changeLaneIfNecessary((Vehicle)anyObject());
+        verify(laneChangeMock).changeLaneIfNecessary((Vehicle) anyObject());
     }
 
     @Test
     public void shouldNotAttemptLaneChangeIfCurrentVelocityIsEqualToDesiredVelocity() {
         car.setVelocity(car.getDesiredVelocity());
         car.translate(10);
-        verify(laneChangeMock, never()).changeLaneIfNecessary((Vehicle)anyObject());
-    }
-
-    private void fixIdmAcceleration(double acceleration) {
-        when(idmMock.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject())).thenReturn(acceleration);
+        verify(laneChangeMock, never()).changeLaneIfNecessary((Vehicle) anyObject());
     }
 }
