@@ -68,6 +68,13 @@ public class IDMTest {
         assertThatResult(acceleration, isRoughly(-0.73));
     }
 
+    @Test
+    public void shouldReturnZeroInsteadOfNaNIfVehicleDesiredVelocityIs0() {
+        car = new Vehicle(1, mock(Lane.class), 0.0);
+        double acceleration = calculateAcceleration();
+        assertThat(acceleration, is(0.0));
+    }
+
     private double calculateAcceleration() {
         return SharedConstants.idm.calculateAcceleration(dummyLeader, car);
     }
