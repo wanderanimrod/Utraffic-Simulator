@@ -118,8 +118,8 @@ public class VehicleTest {
     @Test
     public void shouldUpdatePositionAfterTranslateUsingSecondEquationOfMotion() {
         vehicleHelpers.fixIdmAcceleration(0.5);
+        vehicleHelpers.moveVehicleToPosition(car, 10);
         car.setVelocity(12.0);
-        car.setPosition(10);
         car.translate(10);
         assertThat(car.getPosition(), is(155.0)); //pos = currentPos + s | s = ut + 0.5(at^2)
     }

@@ -19,6 +19,7 @@ public class VehicleHelpersTest {
     IDM idmMock;
     LaneChangeModel laneChangeMock;
     VehicleHelpers vehicleHelpers;
+    Vehicle car;
 
     @Before
     public void setUp() {
@@ -27,19 +28,32 @@ public class VehicleHelpersTest {
         SharedConstants.idm = idmMock;
         SharedConstants.laneChangeModel = laneChangeMock;
         vehicleHelpers = new VehicleHelpers(idmMock);
+        car = new Vehicle(1, mock(Lane.class));
     }
 
     @Test
     public void shouldMoveVehicleToDesiredPosition() {
-        Vehicle car = new Vehicle(1, mock(Lane.class));
         vehicleHelpers.moveVehicleToPosition(car, 10.0);
         assertThat(car.getPosition(), is(10.0));
     }
 
     @Test
+    public void shouldRestoreFixedIdmAccelerationAfterMovingCarToAPosition() {
+        double originallyFixedAcceleration = 10;
+        vehicleHelpers.fixIdmAcceleration(originallyFixedAcceleration);
+        vehicleHelpers.moveVehicleToPosition(car, 100);
+        double accReturnedByIdm = calculateAccelerationWithMockVehicles();
+        assertThat(accReturnedByIdm, is(originallyFixedAcceleration));
+    }
+
+    private double calculateAccelerationWithMockVehicles() {
+        return SharedConstants.idm.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject());
+    }
+
+    @Test
     public void shouldFixAccelerationReturnedByIDM() {
         vehicleHelpers.fixIdmAcceleration(10);
-        double acceleration = SharedConstants.idm.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject());
+        double acceleration = calculateAccelerationWithMockVehicles();
         assertThat(acceleration, is(10.0));
     }
 }
