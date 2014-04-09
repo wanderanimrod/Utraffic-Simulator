@@ -21,7 +21,7 @@ public class VehicleHelpers {
 
     /** Makes the assumption that we use the second equation of motion in calculating displacement where t = 1*/
     public void moveVehicleToPosition(Vehicle vehicle, double desiredPosition) {
-        double originallyFixedAcc = SharedConstants.idm.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject());
+        double originallyFixedAcc = this.calculateAccelerationWithMockVehicles();
         double initialPosition = vehicle.getPosition();
         double initialVelocity = vehicle.getVelocity();
         double requiredAcceleration = 2 * (desiredPosition - initialPosition - initialVelocity);
@@ -31,9 +31,15 @@ public class VehicleHelpers {
     }
 
     public void accelerateVehicleToVelocity(Vehicle vehicle, double specifiedVelocity) {
+        double originallyFixedAcc = this.calculateAccelerationWithMockVehicles();
         double initialVelocity = vehicle.getVelocity();
         double requiredAcceleration = specifiedVelocity - initialVelocity;
         fixIdmAcceleration(requiredAcceleration);
         vehicle.translate(1);
+        this.fixIdmAcceleration(originallyFixedAcc);
+    }
+
+    public double calculateAccelerationWithMockVehicles() {
+        return SharedConstants.idm.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject());
     }
 }

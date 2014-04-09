@@ -11,7 +11,6 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.mock;
 
 public class VehicleHelpersTest {
@@ -39,11 +38,10 @@ public class VehicleHelpersTest {
 
     @Test
     public void shouldRestoreFixedIdmAccelerationAfterMovingCarToAPosition() {
-        double originallyFixedAcceleration = 10;
-        vehicleHelpers.fixIdmAcceleration(originallyFixedAcceleration);
+        vehicleHelpers.fixIdmAcceleration(10);
         vehicleHelpers.moveVehicleToPosition(car, 100);
-        double accReturnedByIdm = calculateAccelerationWithMockVehicles();
-        assertThat(accReturnedByIdm, is(originallyFixedAcceleration));
+        double accReturnedByIdm = vehicleHelpers.calculateAccelerationWithMockVehicles();
+        assertThat(accReturnedByIdm, is(10.0));
     }
 
     @Test
@@ -52,14 +50,18 @@ public class VehicleHelpersTest {
         assertThat(car.getVelocity(), is(25.0));
     }
 
-    private double calculateAccelerationWithMockVehicles() {
-        return SharedConstants.idm.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject());
+    @Test
+    public void shouldRestoreFixedIdmAccelerationAfterAcceleratingCarToDesiredVelocity() {
+        vehicleHelpers.fixIdmAcceleration(10);
+        vehicleHelpers.accelerateVehicleToVelocity(car, 120);
+        double accReturnedByIdm = vehicleHelpers.calculateAccelerationWithMockVehicles();
+        assertThat(accReturnedByIdm, is(10.0));
     }
 
     @Test
     public void shouldFixAccelerationReturnedByIDM() {
         vehicleHelpers.fixIdmAcceleration(10);
-        double acceleration = calculateAccelerationWithMockVehicles();
+        double acceleration = vehicleHelpers.calculateAccelerationWithMockVehicles();
         assertThat(acceleration, is(10.0));
     }
 }

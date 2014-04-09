@@ -109,8 +109,8 @@ public class VehicleTest {
 
     @Test
     public void shouldUpdateVelocityAfterTranslateUsingFirstEquationOfMotion() {
+        vehicleHelpers.accelerateVehicleToVelocity(car, 12);
         vehicleHelpers.fixIdmAcceleration(0.5);
-        car.setVelocity(12.0);
         car.translate(100);
         assertThat(car.getVelocity(), is(62d)); // v = u + at where u = 0
     }
@@ -130,16 +130,18 @@ public class VehicleTest {
         return initialPosition + initialVelocity*changeInTime + 0.5*(fixedAcceleration*Math.pow(changeInTime, 2));
     }
 
-    @Test
+    @Test //FIXME: Should use desired acceleration to determine if it should change lanes. Otherwise, there will be sporadic lane changes.
     public void shouldAttemptLaneChangeIfCurrentVelocityIsLessThanDesiredVelocity() {
-        car.setVelocity(car.getDesiredVelocity() - 1);
+        vehicleHelpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity() - 1);
+        reset(laneChangeMock);
         car.translate(10);
         verify(laneChangeMock).changeLaneIfNecessary((Vehicle) anyObject());
     }
 
     @Test
     public void shouldNotAttemptLaneChangeIfCurrentVelocityIsEqualToDesiredVelocity() {
-        car.setVelocity(car.getDesiredVelocity());
+        vehicleHelpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity());
+        reset(laneChangeMock);
         car.translate(10);
         verify(laneChangeMock, never()).changeLaneIfNecessary((Vehicle) anyObject());
     }
