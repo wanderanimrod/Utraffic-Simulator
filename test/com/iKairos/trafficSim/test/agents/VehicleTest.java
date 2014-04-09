@@ -28,7 +28,7 @@ public class VehicleTest {
     TwoLaneOneWayEdge edge;
     IDM idmMock;
     LaneChangeModel laneChangeMock;
-    VehicleHelpers vehicleHelpers;
+    VehicleHelpers helpers;
 
     @Before
     public void setUp() throws IllegalMethodCallException {
@@ -45,7 +45,7 @@ public class VehicleTest {
         SharedConstants.idm = idmMock;
         SharedConstants.laneChangeModel = laneChangeMock;
 
-        vehicleHelpers = new VehicleHelpers(idmMock);
+        helpers = new VehicleHelpers(idmMock);
     }
 
     @Test
@@ -57,8 +57,8 @@ public class VehicleTest {
 
     @Test
     public void shouldSortVehiclesInDescendingOrderOfPosition() {
-        vehicleHelpers.moveVehicleToPosition(car1, 100);
-        vehicleHelpers.moveVehicleToPosition(car2, 700);
+        helpers.moveVehicleToPosition(car1, 100);
+        helpers.moveVehicleToPosition(car2, 700);
         List<Vehicle> cars = Arrays.asList(car1, car2);
         List<Vehicle> sortedCars = Arrays.asList(car2, car1);
         Collections.sort(cars);
@@ -94,7 +94,7 @@ public class VehicleTest {
 
     @Test
     public void shouldRetainItsPositionAfterLaneChange() {
-        vehicleHelpers.moveVehicleToPosition(car, 125);
+        helpers.moveVehicleToPosition(car, 125);
         car.changeLane(lane1);
         assertThat(car.getPosition(), is(125.0d));
     }
@@ -109,16 +109,16 @@ public class VehicleTest {
 
     @Test
     public void shouldUpdateVelocityAfterTranslateUsingFirstEquationOfMotion() {
-        vehicleHelpers.accelerateVehicleToVelocity(car, 12);
-        vehicleHelpers.fixIdmAcceleration(0.5);
+        helpers.accelerateVehicleToVelocity(car, 12);
+        helpers.fixIdmAcceleration(0.5);
         car.translate(100);
         assertThat(car.getVelocity(), is(62d)); // v = u + at where u = 0
     }
 
     @Test
     public void shouldUpdatePositionAfterTranslateUsingSecondEquationOfMotion() {
-        vehicleHelpers.fixIdmAcceleration(0.5);
-        vehicleHelpers.moveVehicleToPosition(car, 10);
+        helpers.fixIdmAcceleration(0.5);
+        helpers.moveVehicleToPosition(car, 10);
         double initialVelocity = car.getVelocity();
         double expectedPosition = calculateExpectedPosition(10, 0.5, initialVelocity, 10);
         car.translate(10);
@@ -132,7 +132,7 @@ public class VehicleTest {
 
     @Test //FIXME: Should use desired acceleration to determine if it should change lanes. Otherwise, there will be sporadic lane changes.
     public void shouldAttemptLaneChangeIfCurrentVelocityIsLessThanDesiredVelocity() {
-        vehicleHelpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity() - 1);
+        helpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity() - 1);
         reset(laneChangeMock);
         car.translate(10);
         verify(laneChangeMock).changeLaneIfNecessary((Vehicle) anyObject());
@@ -140,7 +140,7 @@ public class VehicleTest {
 
     @Test
     public void shouldNotAttemptLaneChangeIfCurrentVelocityIsEqualToDesiredVelocity() {
-        vehicleHelpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity());
+        helpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity());
         reset(laneChangeMock);
         car.translate(10);
         verify(laneChangeMock, never()).changeLaneIfNecessary((Vehicle) anyObject());
