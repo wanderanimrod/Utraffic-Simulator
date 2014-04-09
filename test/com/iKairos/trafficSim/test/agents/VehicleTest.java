@@ -57,8 +57,8 @@ public class VehicleTest {
 
     @Test
     public void shouldSortVehiclesInDescendingOrderOfPosition() {
-        car1.setPosition(100.0);
-        car2.setPosition(700.0);
+        vehicleHelpers.moveVehicleToPosition(car1, 100);
+        vehicleHelpers.moveVehicleToPosition(car2, 700);
         List<Vehicle> cars = Arrays.asList(car1, car2);
         List<Vehicle> sortedCars = Arrays.asList(car2, car1);
         Collections.sort(cars);
@@ -94,7 +94,7 @@ public class VehicleTest {
 
     @Test
     public void shouldRetainItsPositionAfterLaneChange() {
-        car.setPosition(125.0d);
+        vehicleHelpers.moveVehicleToPosition(car, 125);
         car.changeLane(lane1);
         assertThat(car.getPosition(), is(125.0d));
     }
