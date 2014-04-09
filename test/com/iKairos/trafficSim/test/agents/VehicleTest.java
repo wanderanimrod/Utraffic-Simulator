@@ -117,13 +117,11 @@ public class VehicleTest {
 
     @Test
     public void shouldUpdatePositionAfterTranslateUsingSecondEquationOfMotion() {
+        vehicleHelpers.fixIdmAcceleration(0.5);
         vehicleHelpers.moveVehicleToPosition(car, 10);
-        double fixedAcceleration = 0.5;
         double initialVelocity = car.getVelocity();
-        double changeInTime = 10.0;
-        vehicleHelpers.fixIdmAcceleration(fixedAcceleration);
-        double expectedPosition = calculateExpectedPosition(10, fixedAcceleration, initialVelocity, changeInTime);
-        car.translate(changeInTime);
+        double expectedPosition = calculateExpectedPosition(10, 0.5, initialVelocity, 10);
+        car.translate(10);
         assertThat(car.getPosition(), is(expectedPosition));
     }
 
