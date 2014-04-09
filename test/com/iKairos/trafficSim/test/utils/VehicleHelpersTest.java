@@ -46,6 +46,12 @@ public class VehicleHelpersTest {
         assertThat(accReturnedByIdm, is(originallyFixedAcceleration));
     }
 
+    @Test
+    public void shouldAccelerateVehicleToSpecifiedVelocity() {
+        vehicleHelpers.accelerateVehicleToVelocity(car, 25);
+        assertThat(car.getVelocity(), is(25.0));
+    }
+
     private double calculateAccelerationWithMockVehicles() {
         return SharedConstants.idm.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject());
     }

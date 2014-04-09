@@ -29,4 +29,11 @@ public class VehicleHelpers {
         vehicle.translate(1);
         this.fixIdmAcceleration(originallyFixedAcc);
     }
+
+    public void accelerateVehicleToVelocity(Vehicle vehicle, double specifiedVelocity) {
+        double initialVelocity = vehicle.getVelocity();
+        double requiredAcceleration = specifiedVelocity - initialVelocity;
+        fixIdmAcceleration(requiredAcceleration);
+        vehicle.translate(1);
+    }
 }
