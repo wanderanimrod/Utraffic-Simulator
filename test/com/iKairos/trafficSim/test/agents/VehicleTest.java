@@ -7,7 +7,8 @@ import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.trafficSim.network.Lane;
 import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.trafficSim.test.helpers.VehicleHelpers;
-import com.iKairos.utils.IllegalMethodCallException;
+import com.iKairos.utils.*;
+import com.iKairos.utils.IllegalArgumentException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -53,6 +54,12 @@ public class VehicleTest {
         Lane lane0Mock = mock(Lane.class);
         car = new Vehicle(1, lane0Mock);
         verify(lane0Mock).addVehicle(car);
+    }
+
+    @Test
+    public void shouldMakeVehicleWithPoliteness() {
+        Vehicle vehicle = Vehicle.makeVehicleWithPoliteness(1, mock(Lane.class), 0.8);
+        assertThat(vehicle.getPoliteness(), is(0.8));
     }
 
     @Test
@@ -131,18 +138,18 @@ public class VehicleTest {
     }
 
     @Test //FIXME: Should use desired acceleration to determine if it should change lanes. Otherwise, there will be sporadic lane changes.
-    public void shouldAttemptLaneChangeIfCurrentVelocityIsLessThanDesiredVelocity() {
+    public void shouldAttemptLaneChangeIfCurrentVelocityIsLessThanDesiredVelocity() throws IllegalArgumentException {
         helpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity() - 1);
         reset(laneChangeMock);
         car.translate(10);
-        verify(laneChangeMock).changeLaneIfNecessary((Vehicle) anyObject());
+        verify(laneChangeMock).getLaneChangeStatus((Vehicle) anyObject());
     }
 
     @Test
-    public void shouldNotAttemptLaneChangeIfCurrentVelocityIsEqualToDesiredVelocity() {
+    public void shouldNotAttemptLaneChangeIfCurrentVelocityIsEqualToDesiredVelocity() throws IllegalArgumentException {
         helpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity());
         reset(laneChangeMock);
         car.translate(10);
-        verify(laneChangeMock, never()).changeLaneIfNecessary((Vehicle) anyObject());
+        verify(laneChangeMock, never()).getLaneChangeStatus((Vehicle) anyObject());
     }
 }

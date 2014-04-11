@@ -1,2 +1,11 @@
 EdgeType should be gotten rid of. Different EdgeTypes getNextLane differently. They should be different classes that
 implement the edge interface
+
+Remove the setters for acceleration, position and velocity on vehicles. If we want a car to be in a certain state in tests,
+we should make it translate once, while mocking acceleration so that we can achieve the velocity or position we need
+without having the evil setters
+
+**** It is actually bad to have centralised IDM and MOBIL models, or centralised instances of them because if we go to
+concurrency, any thread using the services of the same instances of the IDM can be interrupted by another and the
+other thread will find the data in a weird state. Therefore, for the purposes of resource isolation and good modeling,
+keeping an instance of the IDM and MOBIL for each vehicle is the best thing to do. ****

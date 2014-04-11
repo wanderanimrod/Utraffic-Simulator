@@ -2,6 +2,8 @@ package com.iKairos.trafficSim.agents;
 
 import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.trafficSim.network.Lane;
+import com.iKairos.utils.*;
+import com.iKairos.utils.IllegalArgumentException;
 
 public class Vehicle implements Comparable<Vehicle> {
 
@@ -28,6 +30,12 @@ public class Vehicle implements Comparable<Vehicle> {
         this.desiredVelocity = desiredVelocity;
     }
 
+    public static Vehicle makeVehicleWithPoliteness(int id, Lane lane, double politeness) {
+        Vehicle vehicle = new Vehicle(id, lane);
+        vehicle.setPoliteness(politeness);
+        return vehicle;
+    }
+
     public void translate(double changeInTime) {
         double initialVelocity = velocity;
         Vehicle leadingVehicle = currentLane.getLeader(this);
@@ -38,7 +46,11 @@ public class Vehicle implements Comparable<Vehicle> {
         velocity = calculateVelocity(changeInTime, initialVelocity);
 
         if(velocity < desiredVelocity)
-            SharedConstants.laneChangeModel.changeLaneIfNecessary(this);
+            try {
+                SharedConstants.laneChangeModel.getLaneChangeStatus(this);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
     }
 
     public void changeLane(Lane targetLane) {
@@ -124,5 +136,9 @@ public class Vehicle implements Comparable<Vehicle> {
 
     public void setPosition(double position) {
         this.position = position;
+    }
+
+    private void setPoliteness(double politeness) {
+        this.politeness = politeness;
     }
 }

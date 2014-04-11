@@ -10,55 +10,60 @@ import com.iKairos.utils.IllegalArgumentException;
  */
 public class LaneChangeModel {
 
-    public void changeLaneIfNecessary(Vehicle requester) {
-
-        double accCurrentFollowerBeforeLaneChange = 0.0d;
-        double accCurrentFollowerAfterLaneChange = 0.0d;
-        double accNewFollowerBeforeLaneChange = 0.0d;
-        double accNewFollowerAfterLaneChange = 0.0d;
+    public LaneChangeStatus getLaneChangeStatus(Vehicle requester) throws IllegalArgumentException {
 
         Lane currentLane = requester.getCurrentLane();
+        Lane targetLane = currentLane.getNextLane();
 
-        Lane targetLane = null;
-        try {
-            targetLane = currentLane.getNextLane();
-        } catch (IllegalArgumentException ignored) {}
-
-        Vehicle currentFollower = currentLane.getFollower(requester);
         Vehicle prospectiveFollower = targetLane.getProspectiveFollower(requester);
+        Vehicle follower = currentLane.getFollower(requester);
+        Vehicle leader = currentLane.getLeader(requester);
 
-        if (prospectiveFollower != null) {
-            accNewFollowerBeforeLaneChange = prospectiveFollower.getAcceleration();
-            accNewFollowerAfterLaneChange = SharedConstants.idm.calculateAcceleration(requester, prospectiveFollower);
-        }
+        double requesterAccGain = getRequesterAccGain(requester, targetLane);
+        System.out.println("REQ = " + requesterAccGain);
 
-        if (currentFollower != null) {
-            accCurrentFollowerBeforeLaneChange = currentFollower.getAcceleration();
-            accCurrentFollowerAfterLaneChange =
-                    SharedConstants.idm.calculateAcceleration(currentLane.getLeader(requester), currentFollower);
-        }
+        double prospectiveFollowerAccGain = getProspectiveFollowerAccGain(requester, prospectiveFollower);
+        System.out.println("PROSP = " + prospectiveFollowerAccGain);
 
-        double accRequesterBeforeLaneChange = requester.getAcceleration();
+        double followerAccGain = getFollowerAccGain(leader, follower);
+        System.out.println("FOLLOWER = "  + followerAccGain);
 
-        double accRequesterAfterLaneChange =
-                SharedConstants.idm.calculateAcceleration(targetLane.getProspectiveLeader(requester), requester);
+        double laneChangeIncentive =
+                requesterAccGain + requester.getPoliteness() * (prospectiveFollowerAccGain + followerAccGain);
 
-        double incentiveCriterion = accRequesterAfterLaneChange - accRequesterBeforeLaneChange
-                + requester.getPoliteness() * (accNewFollowerAfterLaneChange - accNewFollowerBeforeLaneChange
-                + accCurrentFollowerAfterLaneChange - accCurrentFollowerBeforeLaneChange);
-
-        //TODO Put this clearance check in another method
         double laneChangeThreshold = 0.1d;
-        if (incentiveCriterion > laneChangeThreshold) {
-            if (prospectiveFollower != null) {
-
-                if (requester.getPosition() - prospectiveFollower.getPosition() - requester.getLength()
-                        >= SharedConstants.minJamDistance) {
-                    requester.changeLane(targetLane);
-                }
-            } else {
-                requester.changeLane(targetLane);
+        System.out.println("LCI = " + laneChangeIncentive);
+        if (laneChangeIncentive > laneChangeThreshold) {
+            System.out.println("CLEARANCE = " + clearanceBetween(requester, prospectiveFollower));
+            if (clearanceBetween(requester, prospectiveFollower) >= SharedConstants.minJamDistance) {
+                return new LaneChangeStatus(true, targetLane);
             }
         }
+        return new LaneChangeStatus(false, null);
+    }
+
+    private double clearanceBetween(Vehicle requester, Vehicle prospectiveFollower) {
+        return requester.getPosition() - prospectiveFollower.getPosition() - requester.getLength();
+    }
+
+    private double getRequesterAccGain(Vehicle requester, Lane targetLane) {
+        Vehicle prospectiveLeader = targetLane.getProspectiveLeader(requester);
+        return calculateAccelerationGain(prospectiveLeader, requester);
+    }
+
+    private double getProspectiveFollowerAccGain(Vehicle requester, Vehicle prospectiveFollower) {
+        return calculateAccelerationGain(requester, prospectiveFollower);
+    }
+
+    private double getFollowerAccGain(Vehicle leader, Vehicle currentFollower) {
+        return calculateAccelerationGain(leader, currentFollower);
+    }
+
+    private double calculateAccelerationGain(Vehicle leader, Vehicle vehicleToGain) {
+        double accBefore = vehicleToGain.getAcceleration();
+        System.out.println("\nACC BEFORE = " + accBefore);
+        double accAfter = SharedConstants.idm.calculateAcceleration(leader, vehicleToGain);
+        System.out.println("ACC AFTER = " + accAfter);
+        return accAfter - accBefore;
     }
 }
