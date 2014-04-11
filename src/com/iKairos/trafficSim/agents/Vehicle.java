@@ -41,6 +41,30 @@ public class Vehicle implements Comparable<Vehicle> {
             SharedConstants.laneChangeModel.changeLaneIfNecessary(this);
     }
 
+    public void changeLane(Lane targetLane) {
+        targetLane.insertVehicleAtItsCurrentPosition(this);
+        currentLane.removeVehicle(this);
+        currentLane = targetLane;
+    }
+
+    @Override
+    public int compareTo(Vehicle vehicle) {
+        if (this.getPosition() > vehicle.getPosition())
+            return -1;
+        else if (this.getPosition() < vehicle.getPosition())
+            return 1;
+        else
+            return 0;
+    }
+
+    @Override
+    public boolean equals(Object vehicleToEquateWith) {
+        if (this == vehicleToEquateWith) return true;
+        if (!(vehicleToEquateWith instanceof Vehicle)) return false;
+        Vehicle vehicle = (Vehicle) vehicleToEquateWith;
+        return id == vehicle.id;
+    }
+
     private double calculateVelocity(double changeInTime, double initialVelocity) {
         return initialVelocity + acceleration * changeInTime;
     }
@@ -53,10 +77,9 @@ public class Vehicle implements Comparable<Vehicle> {
         this.velocity = velocity;
     }
 
-    public void changeLane(Lane targetLane) {
-        targetLane.insertVehicleAtItsCurrentPosition(this);
-        currentLane.removeVehicle(this);
-        currentLane = targetLane;
+    @Override
+    public int hashCode() {
+        return id;
     }
 
     public int getId() {
@@ -101,28 +124,5 @@ public class Vehicle implements Comparable<Vehicle> {
 
     public void setPosition(double position) {
         this.position = position;
-    }
-
-    @Override
-    public int compareTo(Vehicle vehicle) {
-        if (this.getPosition() > vehicle.getPosition())
-            return -1;
-        else if (this.getPosition() < vehicle.getPosition())
-            return 1;
-        else
-            return 0;
-    }
-
-    @Override
-    public boolean equals(Object vehicleToEquateWith) {
-        if (this == vehicleToEquateWith) return true;
-        if (!(vehicleToEquateWith instanceof Vehicle)) return false;
-        Vehicle vehicle = (Vehicle) vehicleToEquateWith;
-        return id == vehicle.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
     }
 }
