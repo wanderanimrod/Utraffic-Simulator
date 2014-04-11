@@ -20,21 +20,14 @@ public class LaneChangeModel {
         Vehicle leader = currentLane.getLeader(requester);
 
         double requesterAccGain = getRequesterAccGain(requester, targetLane);
-        System.out.println("REQ = " + requesterAccGain);
-
         double prospectiveFollowerAccGain = getProspectiveFollowerAccGain(requester, prospectiveFollower);
-        System.out.println("PROSP = " + prospectiveFollowerAccGain);
-
         double followerAccGain = getFollowerAccGain(leader, follower);
-        System.out.println("FOLLOWER = "  + followerAccGain);
 
         double laneChangeIncentive =
                 requesterAccGain + requester.getPoliteness() * (prospectiveFollowerAccGain + followerAccGain);
 
         double laneChangeThreshold = 0.1d;
-        System.out.println("LCI = " + laneChangeIncentive);
         if (laneChangeIncentive > laneChangeThreshold) {
-            System.out.println("CLEARANCE = " + clearanceBetween(requester, prospectiveFollower));
             if (clearanceBetween(requester, prospectiveFollower) >= SharedConstants.minJamDistance) {
                 return new LaneChangeStatus(true, targetLane);
             }
@@ -61,9 +54,7 @@ public class LaneChangeModel {
 
     private double calculateAccelerationGain(Vehicle leader, Vehicle vehicleToGain) {
         double accBefore = vehicleToGain.getAcceleration();
-        System.out.println("\nACC BEFORE = " + accBefore);
         double accAfter = SharedConstants.idm.calculateAcceleration(leader, vehicleToGain);
-        System.out.println("ACC AFTER = " + accAfter);
         return accAfter - accBefore;
     }
 }
