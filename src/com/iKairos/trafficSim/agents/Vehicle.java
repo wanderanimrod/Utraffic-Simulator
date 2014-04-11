@@ -29,24 +29,24 @@ public class Vehicle implements Comparable<Vehicle> {
     }
 
     public void translate(double changeInTime) {
-        double initialVelocity = this.velocity;
-        Vehicle leadingVehicle = this.currentLane.getLeader(this);
-        this.acceleration = SharedConstants.idm.calculateAcceleration(leadingVehicle, this);
+        double initialVelocity = velocity;
+        Vehicle leadingVehicle = currentLane.getLeader(this);
+        acceleration = SharedConstants.idm.calculateAcceleration(leadingVehicle, this);
 
         double displacement = calculateDisplacement(changeInTime, initialVelocity);
-        this.position += displacement;
-        this.velocity = calculateVelocity(changeInTime, initialVelocity);
+        position += displacement;
+        velocity = calculateVelocity(changeInTime, initialVelocity);
 
-        if(this.velocity < this.desiredVelocity)
+        if(velocity < desiredVelocity)
             SharedConstants.laneChangeModel.changeLaneIfNecessary(this);
     }
 
     private double calculateVelocity(double changeInTime, double initialVelocity) {
-        return initialVelocity + this.acceleration * changeInTime;
+        return initialVelocity + acceleration * changeInTime;
     }
 
     private double calculateDisplacement(double changeInTime, double initialVelocity) {
-        return initialVelocity * changeInTime + 0.5 * (this.acceleration * Math.pow(changeInTime, 2));
+        return initialVelocity * changeInTime + 0.5 * (acceleration * Math.pow(changeInTime, 2));
     }
 
     public void setVelocity(double velocity) {
@@ -56,7 +56,7 @@ public class Vehicle implements Comparable<Vehicle> {
     public void changeLane(Lane targetLane) {
         targetLane.insertVehicleAtItsCurrentPosition(this);
         currentLane.removeVehicle(this);
-        this.currentLane = targetLane;
+        currentLane = targetLane;
     }
 
     public int getId() {
