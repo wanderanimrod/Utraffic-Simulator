@@ -93,7 +93,10 @@ public class VehicleTest {
 
     @Test
     public void shouldMakeDummyFollowerWithoutLaneWithDesiredVelocityZero() {
-
+        Vehicle dummyFollower = Vehicle.makeDummyFollower();
+        assertThat(dummyFollower.getVelocity(), is(0.0));
+        assertThat(dummyFollower.getDesiredVelocity(), is(0.0));
+        assertThat(dummyFollower.getPosition(), is(0.0));
     }
 
     @Test
