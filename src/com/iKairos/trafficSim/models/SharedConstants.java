@@ -5,7 +5,7 @@ import com.iKairos.trafficSim.agents.Vehicle;
 public class SharedConstants {
 
     public static double minJamDistance = 1.0d;
-    public static IDM idm;
+    public static IDM idm = new IDM();
     public static LaneChangeModel laneChangeModel;
     public static final Vehicle dummyLeader = Vehicle.makeDummyLeader();
     public static final Vehicle dummyFollower = Vehicle.makeDummyFollower();

@@ -28,7 +28,6 @@ public class IDMTest {
 
         dummyLeader.setPosition(100000.0d);
         dummyLeader.setVelocity(27.78d);
-        SharedConstants.idm = new IDM();
         checkThatTestDataStatusIsOkay();
     }
 

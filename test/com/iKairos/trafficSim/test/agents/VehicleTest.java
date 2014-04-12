@@ -9,6 +9,8 @@ import com.iKairos.trafficSim.network.TwoLaneOneWayEdge;
 import com.iKairos.trafficSim.test.helpers.VehicleHelpers;
 import com.iKairos.utils.*;
 import com.iKairos.utils.IllegalArgumentException;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,10 +45,17 @@ public class VehicleTest {
 
         idmMock = mock(IDM.class);
         laneChangeMock = mock(LaneChangeModel.class);
+
         SharedConstants.idm = idmMock;
         SharedConstants.laneChangeModel = laneChangeMock;
 
         helpers = new VehicleHelpers(idmMock);
+    }
+
+    @After
+    public void tearDown() {
+        SharedConstants.idm = new IDM();
+        SharedConstants.laneChangeModel = new LaneChangeModel();
     }
 
     @Test
