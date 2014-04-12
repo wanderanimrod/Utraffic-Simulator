@@ -39,6 +39,11 @@ public class VehicleHelpers {
         this.fixIdmAcceleration(originallyFixedAcc);
     }
 
+    public void accelerateVehicleTo(Vehicle car, double acceleration) {
+        fixIdmAcceleration(acceleration);
+        car.translate(1);
+    }
+
     public double calculateAccelerationWithMockVehicles() {
         return SharedConstants.idm.calculateAcceleration((Vehicle)anyObject(), (Vehicle)anyObject());
     }

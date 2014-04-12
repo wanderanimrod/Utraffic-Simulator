@@ -64,4 +64,10 @@ public class VehicleHelpersTest {
         double acceleration = vehicleHelpers.calculateAccelerationWithMockVehicles();
         assertThat(acceleration, is(10.0));
     }
+
+    @Test
+    public void shouldAccelerateVehicleToPosition() {
+        vehicleHelpers.accelerateVehicleTo(car, 0.5);
+        assertThat(car.getAcceleration(), is(0.5));
+    }
 }
