@@ -161,17 +161,17 @@ public class VehicleTest {
         return initialPosition + initialVelocity*changeInTime + 0.5*(fixedAcceleration*Math.pow(changeInTime, 2));
     }
 
-    @Test //FIXME: Should use desired acceleration to determine if it should change lanes. Otherwise, there will be sporadic lane changes.
-    public void shouldAttemptLaneChangeIfCurrentVelocityIsLessThanDesiredVelocity() throws IllegalArgumentException {
-        helpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity() - 1);
+    @Test
+    public void shouldAttemptLaneChangeIfCurrentAccelerationIsSignificantlyLessThanMaxAcceleration() throws IllegalArgumentException {
+        helpers.accelerateVehicleToVelocity(car, car.getMaxAcceleration() - 0.5);
         reset(laneChangeMock);
         car.translate(10);
         verify(laneChangeMock).getLaneChangeStatus((Vehicle) anyObject());
     }
 
     @Test
-    public void shouldNotAttemptLaneChangeIfCurrentVelocityIsEqualToDesiredVelocity() throws IllegalArgumentException {
-        helpers.accelerateVehicleToVelocity(car, car.getDesiredVelocity());
+    public void shouldNotAttemptLaneChangeIfCurrentAccelerationIsAlmostEqualToMaximumAcceleration() throws IllegalArgumentException {
+        helpers.accelerateVehicleTo(car, car.getMaxAcceleration());
         reset(laneChangeMock);
         car.translate(10);
         verify(laneChangeMock, never()).getLaneChangeStatus((Vehicle) anyObject());

@@ -59,12 +59,13 @@ public class Vehicle implements Comparable<Vehicle> {
         position += displacement;
         velocity = calculateVelocity(changeInTime, initialVelocity);
 
-        if(velocity < desiredVelocity)
+        if(Numbers.round(acceleration, 3) < maxAcceleration) {
             try {
                 SharedConstants.laneChangeModel.getLaneChangeStatus(this);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
+        }
     }
 
     public void changeLane(Lane targetLane) {
