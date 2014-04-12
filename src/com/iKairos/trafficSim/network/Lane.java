@@ -1,6 +1,7 @@
 package com.iKairos.trafficSim.network;
 
 import com.iKairos.trafficSim.agents.Vehicle;
+import com.iKairos.trafficSim.models.SharedConstants;
 import com.iKairos.utils.IllegalArgumentException;
 import com.iKairos.utils.IllegalMethodCallException;
 
@@ -13,30 +14,25 @@ public class Lane {
     private int id;
     private TwoLaneOneWayEdge parentEdge;
     private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
-    private Vehicle dummyLeader;
-    private Vehicle dummyFollower;
 
     public Lane(int id, TwoLaneOneWayEdge parentEdge) throws IllegalMethodCallException {
         this.id = id;
         this.parentEdge = parentEdge;
         parentEdge.addLane(this);
-        this.dummyLeader = new Vehicle(-1, this);
-        this.dummyLeader.setPosition(100000d);
-        this.dummyFollower = new Vehicle(-2, this, 0.0);
     }
 
     public synchronized Vehicle getLeader(Vehicle requester) {
         int requesterPos = this.vehicles.indexOf(requester);
         if (requesterPos != 0)
             return this.vehicles.get(requesterPos - 1);
-        else return this.dummyLeader;
+        else return SharedConstants.dummyLeader;
     }
 
     public synchronized Vehicle getFollower (Vehicle vehicle) {
         int requesterPos = vehicles.indexOf(vehicle);
         if (requesterPos != vehicles.size() - 1)
             return vehicles.get(requesterPos + 1);
-        else return this.dummyFollower;
+        else return SharedConstants.dummyFollower;
     }
 
     public synchronized Vehicle getProspectiveLeader(Vehicle requester) {
@@ -46,7 +42,7 @@ public class Lane {
 
         if (requesterPos != 0)
             return dummyVehicles.get(requesterPos - 1);
-        else return dummyLeader;
+        else return SharedConstants.dummyLeader;
     }
 
     public synchronized Vehicle getProspectiveFollower (Vehicle requester) {
@@ -56,7 +52,7 @@ public class Lane {
 
         if (requesterPos != dummyVehicles.size() - 1)
             return dummyVehicles.get(requesterPos + 1);
-        else return this.dummyFollower;
+        else return SharedConstants.dummyFollower;
 
     }
 

@@ -48,7 +48,7 @@ public class LaneTest {
     }
 
     private void assertIsDummyLeader(Vehicle leader) {
-        assertThat(leader, equalTo(new Vehicle(-1, lane)));
+        assertThat(leader, equalTo(Vehicle.makeDummyLeader()));
         assertThat(leader.getPosition(), is(100000d));
     }
 
@@ -66,7 +66,7 @@ public class LaneTest {
     }
 
     private void assertIsDummyFollower(Vehicle follower) {
-        assertThat(follower, equalTo(new Vehicle(-2, lane)));
+        assertThat(follower, equalTo(Vehicle.makeDummyFollower()));
         assertThat(follower.getDesiredVelocity(), is(0.0));
         assertThat(follower.getPosition(), is(0.0));
         assertThat(follower.getVelocity(), is(0.0));
