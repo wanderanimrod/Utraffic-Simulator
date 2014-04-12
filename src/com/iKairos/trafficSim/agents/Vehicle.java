@@ -36,6 +36,12 @@ public class Vehicle implements Comparable<Vehicle> {
         return vehicle;
     }
 
+    private Vehicle() {}
+
+    public static Vehicle makeDummyVehicle() {
+        return new Vehicle();
+    }
+
     public void translate(double changeInTime) {
         double initialVelocity = velocity;
         Vehicle leadingVehicle = currentLane.getLeader(this);

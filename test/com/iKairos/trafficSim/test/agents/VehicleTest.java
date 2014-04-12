@@ -85,6 +85,13 @@ public class VehicleTest {
     }
 
     @Test
+    public void shouldMakeDummyVehicleWithoutALane() {
+        Vehicle dummyCar = Vehicle.makeDummyVehicle();
+        assertThat(dummyCar.getId(), is(-1));
+        assertThat(dummyCar.getCurrentLane(), equalTo(null));
+    }
+
+    @Test
     public void shouldMaintainInsertionOrderOfCarsIfTheyAreAtTheSamePosition() {
         List<Vehicle> cars = Arrays.asList(car1, car2);
         assertThat(car1.getPosition(), is(car2.getPosition()));
