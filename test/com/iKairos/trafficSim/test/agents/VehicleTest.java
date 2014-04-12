@@ -85,10 +85,15 @@ public class VehicleTest {
     }
 
     @Test
-    public void shouldMakeDummyVehicleWithoutALane() {
-        Vehicle dummyCar = Vehicle.makeDummyVehicle();
-        assertThat(dummyCar.getId(), is(-1));
-        assertThat(dummyCar.getCurrentLane(), equalTo(null));
+    public void shouldMakeDummyLeaderWithoutALaneWithPosition100000() {
+        Vehicle dummyLeader = Vehicle.makeDummyLeader();
+        assertThat(dummyLeader.getPosition(), is(100000.0));
+        assertThat(dummyLeader.getCurrentLane(), equalTo(null));
+    }
+
+    @Test
+    public void shouldMakeDummyFollowerWithoutLaneWithDesiredVelocityZero() {
+
     }
 
     @Test

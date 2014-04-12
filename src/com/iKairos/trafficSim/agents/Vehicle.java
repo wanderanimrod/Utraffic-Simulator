@@ -30,6 +30,10 @@ public class Vehicle implements Comparable<Vehicle> {
         this.desiredVelocity = desiredVelocity;
     }
 
+    public static Vehicle makeDummyFollower() {
+        return null;
+    }
+
     public static Vehicle makeVehicleWithPoliteness(int id, Lane lane, double politeness) {
         Vehicle vehicle = new Vehicle(id, lane);
         vehicle.setPoliteness(politeness);
@@ -38,8 +42,10 @@ public class Vehicle implements Comparable<Vehicle> {
 
     private Vehicle() {}
 
-    public static Vehicle makeDummyVehicle() {
-        return new Vehicle();
+    public static Vehicle makeDummyLeader() {
+        Vehicle dummyLeader = new Vehicle();
+        dummyLeader.setPosition(100000);
+        return dummyLeader;
     }
 
     public void translate(double changeInTime) {
